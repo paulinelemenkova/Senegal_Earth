@@ -168,23 +168,23 @@ We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in w
 \end{figure}
 
 The main idea was to compare the effects of climate and anthropogenic factors in west Senegal on land cover change process using remote sensing data processing and image analysis. Therefore, the images were selected for different years (2015 to 2023) at the approximate period of data capture for comparability (January/February). Slight variation in months is explained by the technical availability of the images with high quality (low cloudiness and haze). The environmental properties of the landscapes were evaluated with remote sensing methods to analyse the effects of climate processes on land cover type changes and specifically, distribution of mangroves along the delta of Saloum River. 
-The images were downloaded and metadata ere evaluated for each scene: four images were selected from the Landsat-8 satellite, and two recent scenes -- from the Landsat-9. All Landsat images are multispectral and have 30 m resolution in visible spectral bands and are stored in Universal Transverse Mercator (UTM) Zone 28 for western Senegal. The images in RGB colours are presented in Figure \ref{fig04}. 
+The images were downloaded and metadata ere evaluated for each scene: four images were selected from the Landsat-8 satellite, and two recent scenes -- from the Landsat-9. All Landsat images are multispectral and have 30 m resolution in visible spectral bands and are stored in Universal Transverse Mercator (UTM) Zone 28 for western Senegal. The images in RGB colours are presented in Figure \ref{fig03}. 
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-			\includegraphics[width=0.95\textwidth]{Fig_04a.jpg}
+			\includegraphics[width=0.95\textwidth]{Fig_03a.jpg}
 		\caption{2015}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_04b.jpg}
+		\includegraphics[width=0.95\textwidth]{Fig_03b.jpg}
 		\caption{2018}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_04c.jpg}
+		\includegraphics[width=0.95\textwidth]{Fig_03c.jpg}
 		\caption{2020}
 	\end{subfigure}%
 }\\
@@ -192,31 +192,31 @@ The images were downloaded and metadata ere evaluated for each scene: four image
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-			\includegraphics[width=0.95\textwidth]{Fig_04d.jpg}
+			\includegraphics[width=0.95\textwidth]{Fig_03d.jpg}
 		\caption{2021}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_04e.jpg}
+		\includegraphics[width=0.95\textwidth]{Fig_03e.jpg}
 		\caption{2022}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_04f.jpg}
+		\includegraphics[width=0.95\textwidth]{Fig_03f.jpg}
 		\caption{2023}
 	\end{subfigure}%
 }
-\caption{Landsat images in RGB colours covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal in February: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig04}
+\caption{Landsat images in RGB colours covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal in February: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig03}
 \end{figure} 
 
 The algorithm of data processing was implemented in the GRASS GIS software and run on the Mac machine with Apple M1 chip and macOS operating system. The average computation time for image classification and enhancement per Landsat scene is about 2.5 seconds. The ultimate goal of classification and image interpretation is to detect changes in land cover types over the period of 2015-2023. The matching performance of landscape patches over this period is evaluated using GRASS GIS functionality as a sequence of modules utilised for processing each scene separately using script. The images were read into the GRASS GIS environment using the 'r.import' module; the list of the available bands was checked using the 'g.list rast' command. The extent (UTM Zone 28) and resolution were set to the region of current image which was detected automatically along with geospatial data (coordinates, location, projection, etc). 
 
-The workflow of the data processing and major methodological steps are shown in Figure \ref{fig03}. After preprocessing and data import, the images were grouped to select only the necessary raster bands using the 'i.group' module of GRASS GIS. Afterwards, the images were clustered using the clustering procedure by module 'i.cluster' which assigned pixels to the groups for which their spectral reflectance was measured automatically. Such image processing provided enough data to group the pixels into land cover types and to evaluate the values of pixels at the actual scenes for comparison.
+The workflow of the data processing and major methodological steps are shown in Figure \ref{fig04}. After preprocessing and data import, the images were grouped to select only the necessary raster bands using the 'i.group' module of GRASS GIS. Afterwards, the images were clustered using the clustering procedure by module 'i.cluster' which assigned pixels to the groups for which their spectral reflectance was measured automatically. Such image processing provided enough data to group the pixels into land cover types and to evaluate the values of pixels at the actual scenes for comparison.
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=15.0 cm]{Fig_03.jpg}
-\caption{Workflow scheme illustrating the data and main methodological steps. Software: R. Diagram source: author.}\label{fig03}
+		\includegraphics[width=15.0 cm]{Fig_04.jpg}
+\caption{Workflow scheme illustrating the data and main methodological steps. Software: R. Diagram source: author.}\label{fig04}
 \end{figure}
 
 \begin{figure}[H]
@@ -348,6 +348,7 @@ The analysis of the classified images shows a trend in land cover dynamics of th
 \end{figure} 
 
 %----------- section ----------->
+\pagebreak
 \section{Conclusions}
 
 Image processing is widely regarded as one of the most well studied areas in computer vision and environmental applications, yet recognising landscape patches under unconstrained effects from climate change affecting environmental landscapes in western Africa still remains an unsolved problem. Remote sensing data can be successfully applied to identify different stages in vegetation and plant phenology as indicated by time series analysis. Specifically, detecting mangrove losses in coastal ecosystems of Senegal s possible using a sequence of satellite images taken for different years. Automatic landscape mapping and recognition of land cover types of Senegal is challenging, due to the fact that landscapes in semi-arid climate of West Africa typically have large variations of patches, mosaic of vegetation inclusions intermittent with anthropogenic urban zones of the expanding cities.
