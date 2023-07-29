@@ -167,13 +167,8 @@ We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in w
 \caption{Data capture of the Landsat images from the USGS EarthExplorer repository}\label{fig02}
 \end{figure}
 
-The algorithm of data processing was implemented in the GRASS GIS software and run on the Mac machine with Apple M1 chip and macOS operating system. The average computation time for image classification and enhancement per Landsat scene is about 2.5 seconds. The ultimate goal of classification and image interpretation is to detect changes in land cover types over the period of 2015-2023. The matching performance of landscape patches over this period is evaluated using GRASS GIS functionality as a sequence of modules utilised for processing each scene separately using script. The workflow of the data processing and major methodological steps are shown in Figure \ref{fig03}.
-
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=15.0 cm]{Fig_03.jpg}
-\caption{Workflow scheme illustrating the data and main methodological steps. Software: R. Diagram source: author.}\label{fig03}
-\end{figure}
+The main idea was to compare the effects of climate and anthropogenic factors in west Senegal on land cover change process using remote sensing data processing and image analysis. Therefore, the images were selected for different years (2015 to 2023) at the approximate period of data capture for comparability (January/February). Slight variation in months is explained by the technical availability of the images with high quality (low cloudiness and haze). The environmental properties of the landscapes were evaluated with remote sensing methods to analyse the effects of climate processes on land cover type changes and specifically, distribution of mangroves along the delta of Saloum River. 
+The images were downloaded and metadata ere evaluated for each scene: four images were selected from the Landsat-8 satellite, and two recent scenes -- from the Landsat-9. All Landsat images are multispectral and have 30 m resolution in visible spectral bands and are stored in Universal Transverse Mercator (UTM) Zone 28 for western Senegal. The images in RGB colours are presented in Figure \ref{fig04}. 
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
@@ -211,8 +206,18 @@ The algorithm of data processing was implemented in the GRASS GIS software and r
 		\caption{2023}
 	\end{subfigure}%
 }
-\caption{Landsat images in RGB colours covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal in February: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig09}
+\caption{Landsat images in RGB colours covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal in February: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig04}
 \end{figure} 
+
+The algorithm of data processing was implemented in the GRASS GIS software and run on the Mac machine with Apple M1 chip and macOS operating system. The average computation time for image classification and enhancement per Landsat scene is about 2.5 seconds. The ultimate goal of classification and image interpretation is to detect changes in land cover types over the period of 2015-2023. The matching performance of landscape patches over this period is evaluated using GRASS GIS functionality as a sequence of modules utilised for processing each scene separately using script. The images were read into the GRASS GIS environment using the 'r.import' module; the list of the available bands was checked using the 'g.list rast' command. The extent (UTM Zone 28) and resolution were set to the region of current image which was detected automatically along with geospatial data (coordinates, location, projection, etc). 
+
+The workflow of the data processing and major methodological steps are shown in Figure \ref{fig03}. After preprocessing and data import, the images were grouped to select only the necessary raster bands using the 'i.group' module of GRASS GIS. Afterwards, the images were clustered using the clustering procedure by module 'i.cluster' which assigned pixels to the groups for which their spectral reflectance was measured automatically. Such image processing provided enough data to group the pixels into land cover types and to evaluate the values of pixels at the actual scenes for comparison.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=15.0 cm]{Fig_03.jpg}
+\caption{Workflow scheme illustrating the data and main methodological steps. Software: R. Diagram source: author.}\label{fig03}
+\end{figure}
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
@@ -345,6 +350,16 @@ The analysis of the classified images shows a trend in land cover dynamics of th
 %----------- section ----------->
 \section{Conclusions}
 
+Image processing is widely regarded as one of the most well studied areas in computer vision and environmental applications, yet recognising landscape patches under unconstrained effects from climate change affecting environmental landscapes in western Africa still remains an unsolved problem. Remote sensing data can be successfully applied to identify different stages in vegetation and plant phenology as indicated by time series analysis. Specifically, detecting mangrove losses in coastal ecosystems of Senegal s possible using a sequence of satellite images taken for different years. Automatic landscape mapping and recognition of land cover types of Senegal is challenging, due to the fact that landscapes in semi-arid climate of West Africa typically have large variations of patches, mosaic of vegetation inclusions intermittent with anthropogenic urban zones of the expanding cities.
+
+In an effort to drive research in this field, this paper proposed a series of the experiments on image classification using GRASS GIS scripting approach which served as a means of ranking landscapes as indicators of land cover development in the condition of the unstable environmental setting of western Senegal which is affected by climate change. The presented results confirm that remote sensing data such as Landsat OLI/TIRS images can be effectively used to evaluate the variations in landscapes in West Africa. Scripts of GRASS GIS used as a standard methodological benchmark of automated image processing enabled to focus on the analysis of Senegalese landscapes in the coastal region of Dakar and surroundings through classified series of images. To evaluate the performance of GRASS GIS approach to image processing, size images were analysed for matching and non-matching landscape comparison for different years (2015 to 2023), and the classification accuracy is reported as rejection probability for pixels in each Landsat scene.
+
+The proposed algorithms of GRASS GIS scripts can be easily extended to other regions and environmental applications where satellite image processing is required such as classification of landscapes using multi-temporal set of images. Hence, in this study, an advanced approach of GRASS GIS scripts was  introduced to evaluating environmental properties of landscapes changed under climate effects in West Africa, using 'i.cluster', 'i.maxlik' and other auxiliary GRASS GIS modules.The output results shows the behaviour of land cover types in the coastal landscapes through the changes in patches as a result of the climate effects reacting as driver for desertification and land degradation in vulnerable ecosystems. Moreover, the analysis oft he extent and distribution of the selected landscapes on a series of satellite images and the decrease of minor patches enabled to detect the environmental landscape dynamics in selected region of west Senegal. 
+
+Besides the GRASS GIS, the GMT scripts were used for plotting the topography of the country. The main idea was to apply in a single workflow framework both for the image processing and the cartographic mapping using scripts run from the console. This enabled to reveal the technical performance of automated geospatial data processing using programming approach and two script-based software. Such approach demonstrated in this paper show that the inclusion of scripts speeds up cartographic plotting and image processing as it enables to significantly save the time due to automation which is achieved by scripts. Then, using the information received from image analysis and interpretation we were able to detect the changes in the analysis landscapes of western Senegal for evaluation of environmental effects from climate change through the series of the images and analysed remote sensing data taken on different years (2015-2023).
+
+This study reported GRASS GIS based case of image analysis for analysis of land cover changes in west Senegal. Interactive processing and  scripts adjusted for each scene provided an effective way to process multispectral satellite images. Such automation enabled to represent complex interactions within the landscapes in a short-term perspective (eight years) by accurate machine-based digital image processing. In this way, this study has presented an advanced data-driven method of image analysis for automatically detect changes in land cover types in a selected ROI of Senegal over a recent decade.
+
 %\funding{The publication was funded by the Editorial Office of Land, Multidisciplinary Digital Publishing Institute (MDPI), by providing 100\% discount for the APC of this manuscript.}
 
 \institutionalreview{Not applicable.}
@@ -376,6 +391,7 @@ NDVI & Normalized Difference Vegetation Index \\
 NIR & Near Infrared \\
 TIFF & Tag Image File Format\\
 USGS & United States Geological Survey\\
+UTM & Universal Transverse Mercator \\
 \end{tabular}
 }
 
