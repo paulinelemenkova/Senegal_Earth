@@ -36,6 +36,9 @@
 \usepackage{xcolor}
 \usepackage{gensymb} % for \textdegree
 \usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{verbatim}
 
 %=================================================================
 % Full title of the paper (Capitalized)
@@ -132,6 +135,28 @@ To increase the speed and accuracy of image processing, the Geographic Resources
 
 %----------- subsection ----------->
 \subsection{Data}
+
+We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in western Senegal during 2015 to 2023, with details and technical characteristics of the images provided in the tables of the Appendix \ref{App01}.
+
+\begin{table}[H]
+\caption{Identifiers (ID) of the 6 Landsat 8-9 OLI/TIRS images on Senegal study area, obtained from the in the EarthExplorer USGS repository}.
+\label{tab01}
+\begin{adjustwidth}{-\extralength}{-2.5cm}
+\newcolumntype{L}{>{\centering\scriptsize\arraybackslash}l}
+\setlength\extrarowheight{-0.8cm}
+\footnotesize
+%\begin{tabularx}{\fulllength}{p{1.5cm}|p{6.5cm}|p{6.5cm}|p{1.9cm}}
+\begin{tabularx}{\fulllength}{p{1.4cm}|lll}
+			\toprule
+			\textbf{Date} & \textbf{Landsat Product Identifier L1} & \textbf{Landsat Product Identifier L2} & \textbf{Scene ID} \\
+			\midrule
+			2015/02/25 & \makecell{LC08\_L1TP\_205050\_20150225\_20200909\_02\_T1} & \makecell{LC08\_L2SP\_205050\_20150225\_20200909\_02\_T1} & LC82050502015056LGN01 \\	
+			2018/02/17 & \makecell{LC08\_L1TP\_205050\_20180217\_20200902\_02\_T1} & \makecell{LC08\_L2SP\_205050\_20180217\_20200902\_02\_T1} & LC82050502018048LGN00 \\	
+			2020/02/07 & \makecell{LC08\_L1TP\_205050\_20200207\_20200823\_02\_T1} & \makecell{LC08\_L2SP\_205050\_20200207\_20200823\_02\_T1} & LC82050502020038LGN00 \\
+			\bottomrule
+		\end{tabularx}
+\end{adjustwidth}
+\end{table} 
 
 \begin{figure}[H]
 	\centering
@@ -354,9 +379,92 @@ USGS & United States Geological Survey\\
 \appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
 \appendixstart
 \appendix
-\section[\appendixname~\thesection]{}
-\subsection[\appendixname~\thesubsection]{}
-The appendix 
+\section[\appendixname~\thesection]{Metadata of Landsat images}\label{App01}
+\subsection[\appendixname~\thesubsection]{Images on 2015, 2018, 2020}
+
+\begin{table}[H]
+\scriptsize
+\caption{Metadata of Landsat OLI/TIRS satellite images on Senegal for years 2015, 2018 and 2020.\label{tabApp}}
+\begin{adjustwidth}{-\extralength}{0.5cm}
+\centering
+\begin{tabularx}{\fulllength}{|l|l|l|l}
+    \toprule
+    \textbf{Data Set Attribute} & \textbf{Attribute Value (2015)} & \textbf{Attribute Value (2018)} & \textbf{Attribute Value (2020)} \\ \hline
+        Landsat Scene Identifier & LC82050502015056LGN01 & LC82050502018048LGN00 & LC82050502020038LGN00 \\ \hline
+        Date Acquired & 2015/02/25 & 2018/02/17 & 2020/02/07 \\ \hline
+        Collection Category & T1 & T1 & T1 \\ \hline
+        Collection Number & 2 & 2 & 2 \\ \hline
+        WRS Path & 205 & 205 & 205 \\ \hline
+        WRS Row & 50 & 50 & 50 \\ \hline
+        Target WRS Path & 205 & 205 & 205 \\ \hline
+        Target WRS Row & 50 & 50 & 50 \\ \hline
+        Nadir/Off Nadir & NADIR & NADIR & NADIR \\ \hline
+        Roll Angle & 0.000 & 0.000 & 0.000 \\ \hline
+        Date Product Generated L2 & 2020/09/09 & 2020/09/02 & 2020/08/23 \\ \hline
+        Date Product Generated L1 & 2020/09/09 & 2020/09/02 & 2020/08/23 \\ \hline
+        Start Time & 2015-02-25 11:27:00.070962 & 2018-02-17 11:26:59.893161 & 2020-02-07 11:27:15.666422 \\ \hline
+        Stop Time & 2015-02-25 11:27:31.840958 & 2018-02-17 11:27:31.663159 & 2020-02-07 11:27:47.436421 \\ \hline
+        Station Identifier & LGN & LGN & LGN \\ \hline
+        Day/Night Indicator & DAY & DAY & DAY \\ \hline
+        Land Cloud Cover & 0.04 & 2.05 & 0.20 \\ \hline
+        Scene Cloud Cover L1 & 0.05 & 2.22 & 2.80 \\ \hline
+        Ground Control Points Model & 771 & 726 & 742 \\ \hline
+        Ground Control Points Version & 5 & 5 & 5 \\ \hline
+        Geometric RMSE Model & 3.594 & 4.364 & 4.488 \\ \hline
+        Geometric RMSE Model X & 2.608 & 3.059 & 3.131 \\ \hline
+        Geometric RMSE Model Y & 2.472 & 3.113 & 3.215 \\ \hline
+        Processing Software Version & LPGS\_15.3.1c & LPGS\_15.3.1c & LPGS\_15.3.1c \\ \hline
+        Sun Elevation L0RA & 53.48558579 & 51.49601301 & 49.10812112 \\ \hline
+        Sun Azimuth L0RA & 128.54617537 & 131.78990105 & 135.75967932 \\ \hline
+        TIRS SSM Model & FINAL & FINAL & FINAL \\ \hline
+        Data Type L2 & OLI\_TIRS\_L2SP & OLI\_TIRS\_L2SP & OLI\_TIRS\_L2SP \\ \hline
+        Sensor Identifier & OLI\_TIRS & OLI\_TIRS & OLI\_TIRS \\ \hline
+        Satellite & 8 & 8 & 8 \\ \hline
+        Product Map Projection L1 & UTM & UTM & UTM \\ \hline
+        UTM Zone & 28 & 28 & 28 \\ \hline
+        Datum & WGS84 & WGS84 & WGS84 \\ \hline
+        Ellipsoid & WGS84 & WGS84 & WGS84 \\ \hline
+        Scene Center Lat DMS & "14°27'25.70""N" & "14°27'24.62""N" & "14°27'24.37""N" \\ \hline
+        Scene Center Long DMS & "16°39'49.72""W" & "16°38'25.62""W" & "16°38'00.28""W" \\ \hline
+        Corner Upper Left Lat DMS & "15°29'56.47""N" & "15°29'57.59""N" & "15°29'57.84""N" \\ \hline
+        Corner Upper Left Long DMS & "17°44'21.55""W" & "17°42'51.05""W" & "17°42'30.92""W" \\ \hline
+        Corner Upper Right Lat DMS & "15°30'54.65""N" & "15°30'54.86""N" & "15°30'54.94""N" \\ \hline
+        Corner Upper Right Long DMS & "15°36'21.85""W" & "15°35'01.32""W" & "15°34'31.12""W" \\ \hline
+        Corner Lower Left Lat DMS & "13°23'18.24""N" & "13°23'19.18""N" & "13°23'19.39""N" \\ \hline
+        Corner Lower Left Long DMS & "17°42'48.92""W" & "17°41'19.25""W" & "17°40'59.34""W" \\ \hline
+        Corner Lower Right Lat DMS & "13°24'08.14""N" & "13°24'08.32""N" & "13°24'08.39""N" \\ \hline
+        Corner Lower Right Long DMS & "15°36'01.33""W" & "15°34'41.56""W" & "15°34'11.60""W" \\ \hline
+        Scene Center Latitude & 14.45714 & 14.45684 & 14.45677 \\ \hline
+        Scene Center Longitude & -16.66381 & -16.64045 & -16.63341 \\ \hline
+        Corner Upper Left Latitude & 15.49902 & 15.49933 & 15.49940 \\ \hline
+        Corner Upper Left Longitude & -17.73932 & -17.71418 & -17.70859 \\ \hline
+        Corner Upper Right Latitude & 15.51518 & 15.51524 & 15.51526 \\ \hline
+        Corner Upper Right Longitude & -15.60607 & -15.58370 & -15.57531 \\ \hline
+        Corner Lower Left Latitude & 13.38840 & 13.38866 & 13.38872 \\ \hline
+        Corner Lower Left Longitude & -17.71359 & -17.68868 & -17.68315 \\ \hline
+        Corner Lower Right Latitude & 13.40226 & 13.40231 & 13.40233 \\ \hline
+        Corner Lower Right Longitude & -15.60037 & -15.57821 & -15.56989 \\ \hline
+    \bottomrule
+ \end{tabularx}
+ \end{adjustwidth}
+\end{table}
+
+\subsection[\appendixname~\thesubsection]{Images on 2021, 2022, 2023}
+
+\begin{table}[H]
+\scriptsize
+\caption{Metadata of Landsat OLI/TIRS satellite images on Senegal for years 2021, 2022 and 2023.\label{tabApp}}
+\begin{adjustwidth}{-\extralength}{0.5cm}
+\centering
+\begin{tabularx}{\fulllength}{|l|l|l|l}
+    \toprule
+    \textbf{Data Set Attribute} & \textbf{Attribute Value (2015)} & \textbf{Attribute Value (2018)} & \textbf{Attribute Value (2020)} \\ \hline
+        
+    \bottomrule
+ \end{tabularx}
+ \end{adjustwidth}
+\end{table}
+
 
 \section[\appendixname~\thesection]{}
 All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
