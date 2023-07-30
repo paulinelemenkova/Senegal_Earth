@@ -20,7 +20,7 @@
 \pubyear{2023}
 \copyrightyear{2023}
 %\externaleditor{Academic Editor: Firstname Lastname}
-\datereceived{31 July 2023} 
+\datereceived{30 July 2023} 
 \daterevised{}
 \dateaccepted{} 
 \datepublished{} 
@@ -39,6 +39,37 @@
 \usepackage{makecell}
 \usepackage{multirow}
 \usepackage{verbatim}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepmagenta}{RGB}{195,12,214}
+\definecolor{deepgreen}{RGB}{29,122,30}
+\definecolor{mintgreen}{RGB}{192,249,192}
+\definecolor{codepurple}{RGB}{204, 0, 153}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{GainsboroPurple}{RGB}{247,176,247}
+\definecolor{LightSlateGrey}{RGB}{124,118,118}
+%    
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{LightSlateGrey},
+    keywordstyle=\color{deepgreen}\bfseries,
+    emphstyle=\color{deepred},
+    numberstyle=\tiny\color{deepmagenta},
+    stringstyle=\color{deepblue},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
 
 %=================================================================
 % Full title of the paper (Capitalized)
@@ -167,8 +198,7 @@ We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in w
 \caption{Data capture of the Landsat images from the USGS EarthExplorer repository}\label{fig02}
 \end{figure}
 
-The main idea was to compare the effects of climate and anthropogenic factors in west Senegal on land cover change process using remote sensing data processing and image analysis. Therefore, the images were selected for different years (2015 to 2023) at the approximate period of data capture for comparability (January/February). Slight variation in months is explained by the technical availability of the images with high quality (low cloudiness and haze). The environmental properties of the landscapes were evaluated with remote sensing methods to analyse the effects of climate processes on land cover type changes and specifically, distribution of mangroves along the delta of Saloum River. 
-The images were downloaded and metadata ere evaluated for each scene: four images were selected from the Landsat-8 satellite, and two recent scenes -- from the Landsat-9. All Landsat images are multispectral and have 30 m resolution in visible spectral bands and are stored in Universal Transverse Mercator (UTM) Zone 28 for western Senegal. The images in RGB colours are presented in Figure \ref{fig03}. 
+The goal of using the multispectral Landsat images was to compare the effects of climate and anthropogenic factors in west Senegal on land cover change process using spectral reflectance characteristics of pixels derived from the remote sensing data by image processing and analysis. Therefore, the images were selected for different years (2015 to 2023) at the approximate period of data capture for comparability (January/February). Slight variation in months is explained by the technical availability of the images with high quality (low cloudiness and haze). The environmental properties of the landscapes were evaluated with remote sensing methods to analyse the effects of climate processes on land cover type changes and specifically, distribution of mangroves along the delta of Saloum River. The images were downloaded and metadata ere evaluated for each scene: four images were selected from the Landsat-8 satellite, and two recent scenes -- from the Landsat-9. All Landsat images are multispectral and have 30 m resolution in visible spectral bands and are stored in Universal Transverse Mercator (UTM) Zone 28 for western Senegal. The images in RGB colours are presented in Figure \ref{fig03}.
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
@@ -209,7 +239,17 @@ The images were downloaded and metadata ere evaluated for each scene: four image
 \caption{Landsat images in RGB colours covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal in February: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig03}
 \end{figure} 
 
-The algorithm of data processing was implemented in the GRASS GIS software and run on the Mac machine with Apple M1 chip and macOS operating system. The average computation time for image classification and enhancement per Landsat scene is about 2.5 seconds. The ultimate goal of classification and image interpretation is to detect changes in land cover types over the period of 2015-2023. The matching performance of landscape patches over this period is evaluated using GRASS GIS functionality as a sequence of modules utilised for processing each scene separately using script. The images were read into the GRASS GIS environment using the 'r.import' module; the list of the available bands was checked using the 'g.list rast' command. The extent (UTM Zone 28) and resolution were set to the region of current image which was detected automatically along with geospatial data (coordinates, location, projection, etc). 
+\subsection{Methodology}
+
+The methodology of this study uses three scripting software for data processing, with all the programming scripts shown in the Appendix \ref{App2} section of this study, for technical reference.
+
+ \begin{enumerate}
+        \item GRASS GIS script was used for image processing, Listing \ref{lst01}; 
+        \item GMT script was used for plotting the topography of the country, Listing \ref{lst02};  
+        \item R script was used for plotting the methodological flowchart, Listing \ref{lst03}. 
+  \end{enumerate}       
+
+ The main idea was to apply in a single workflow framework both for the image processing and the cartographic mapping using scripts run from the console. This enabled to reveal the technical performance of automated geospatial data processing using programming approach of three various programming suits from the script-based software. Such approach demonstrated in this paper show that the inclusion of scripts speeds up cartographic plotting and image processing and summarises the research methodology. In this way, it enables to significantly save the time due to automation which is achieved by scripts. Then, using the information received from the automated image analysis and interpretation we were able to detect the changes in the analysis landscapes of western Senegal for evaluation of environmental effects from climate change through the series of the images and analysed remote sensing data taken on different years (2015-2023). 
 
 The workflow of the data processing and major methodological steps are shown in Figure \ref{fig04}. After preprocessing and data import, the images were grouped to select only the necessary raster bands using the 'i.group' module of GRASS GIS. Afterwards, the images were clustered using the clustering procedure by module 'i.cluster' which assigned pixels to the groups for which their spectral reflectance was measured automatically. Such image processing provided enough data to group the pixels into land cover types and to evaluate the values of pixels at the actual scenes for comparison.
 
@@ -218,6 +258,8 @@ The workflow of the data processing and major methodological steps are shown in 
 		\includegraphics[width=15.0 cm]{Fig_04.jpg}
 \caption{Workflow scheme illustrating the data and main methodological steps. Software: R. Diagram source: author.}\label{fig04}
 \end{figure}
+
+The algorithm of data processing was implemented in the GRASS GIS software and run on the Mac machine with Apple M1 chip and macOS operating system. The average computation time for image classification and enhancement per Landsat scene is about 2.5 seconds. The ultimate goal of classification and image interpretation is to detect changes in land cover types over the period of 2015-2023. The matching performance of landscape patches over this period is evaluated using GRASS GIS functionality as a sequence of modules utilised for processing each scene separately using script. The images were read into the GRASS GIS environment using the 'r.import' module; the list of the available bands was checked using the 'g.list rast' command. The extent (UTM Zone 28) and resolution were set to the region of current image which was detected automatically along with geospatial data (coordinates, location, projection, etc). The False colour composites were plotted to clearly distinguish the area of vegetation of mangroves in the delta of the River Saloum (coloured in red shadows), land (coloured by beige and light brownish shadows) and water area (coloured black for the seawater and dark navy for the River Saloum), Figure \ref{fig05}.
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
@@ -255,14 +297,8 @@ The workflow of the data processing and major methodological steps are shown in 
 		\caption{2023}
 	\end{subfigure}%
 }
-\caption{False colour composites of the Landsat 8-9 OLI/TIRS images with vegetation coloured red, using a combination of spectral bands 5 (Near Infrared (NIR)), 4 (Red) and 3 (Green) of the Landsat OLI sensor covering the study area in the Cape Verde Peninsula region and Saloum River Delta, West Senegal using February scenes: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig09}
+\caption{False colour composites of the Landsat 8-9 OLI/TIRS images with vegetation coloured red, using a combination of spectral bands 5 (Near Infrared (NIR)), 4 (Red) and 3 (Green) of the Landsat OLI sensor covering the study area in the Cape Verde Peninsula region and Saloum River Delta, West Senegal using February scenes: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig05}
 \end{figure} 
-
-%----------- subsection ----------->
-\subsection{Subsection}
-
-%----------- subsection ----------->
-\subsection{Subsection}
 
 %----------- section ----------->
 \section{Results and Discussion}
@@ -356,8 +392,6 @@ Image processing is widely regarded as one of the most well studied areas in com
 In an effort to drive research in this field, this paper proposed a series of the experiments on image classification using GRASS GIS scripting approach which served as a means of ranking landscapes as indicators of land cover development in the condition of the unstable environmental setting of western Senegal which is affected by climate change. The presented results confirm that remote sensing data such as Landsat OLI/TIRS images can be effectively used to evaluate the variations in landscapes in West Africa. Scripts of GRASS GIS used as a standard methodological benchmark of automated image processing enabled to focus on the analysis of Senegalese landscapes in the coastal region of Dakar and surroundings through classified series of images. To evaluate the performance of GRASS GIS approach to image processing, size images were analysed for matching and non-matching landscape comparison for different years (2015 to 2023), and the classification accuracy is reported as rejection probability for pixels in each Landsat scene.
 
 The proposed algorithms of GRASS GIS scripts can be easily extended to other regions and environmental applications where satellite image processing is required such as classification of landscapes using multi-temporal set of images. Hence, in this study, an advanced approach of GRASS GIS scripts was  introduced to evaluating environmental properties of landscapes changed under climate effects in West Africa, using 'i.cluster', 'i.maxlik' and other auxiliary GRASS GIS modules.The output results shows the behaviour of land cover types in the coastal landscapes through the changes in patches as a result of the climate effects reacting as driver for desertification and land degradation in vulnerable ecosystems. Moreover, the analysis oft he extent and distribution of the selected landscapes on a series of satellite images and the decrease of minor patches enabled to detect the environmental landscape dynamics in selected region of west Senegal. 
-
-Besides the GRASS GIS, the GMT scripts were used for plotting the topography of the country. The main idea was to apply in a single workflow framework both for the image processing and the cartographic mapping using scripts run from the console. This enabled to reveal the technical performance of automated geospatial data processing using programming approach and two script-based software. Such approach demonstrated in this paper show that the inclusion of scripts speeds up cartographic plotting and image processing as it enables to significantly save the time due to automation which is achieved by scripts. Then, using the information received from image analysis and interpretation we were able to detect the changes in the analysis landscapes of western Senegal for evaluation of environmental effects from climate change through the series of the images and analysed remote sensing data taken on different years (2015-2023).
 
 This study reported GRASS GIS based case of image analysis for analysis of land cover changes in west Senegal. Interactive processing and  scripts adjusted for each scene provided an effective way to process multispectral satellite images. Such automation enabled to represent complex interactions within the landscapes in a short-term perspective (eight years) by accurate machine-based digital image processing. In this way, this study has presented an advanced data-driven method of image analysis for automatically detect changes in land cover types in a selected ROI of Senegal over a recent decade.
 
@@ -465,7 +499,7 @@ UTM & Universal Transverse Mercator \\
         Corner Lower Left Latitude & 13.38840 & 13.38866 & 13.38872 \\ \hline
         Corner Lower Left Longitude & -17.71359 & -17.68868 & -17.68315 \\ \hline
         Corner Lower Right Latitude & 13.40226 & 13.40231 & 13.40233 \\ \hline
-        Corner Lower Right Longitude & -15.60037 & -15.57821 & -15.56989 \\ \hline
+        Corner Lower Right Longitude & -15.60037 & -15.57821 & -15.56989 \\
     \bottomrule
  \end{tabularx}
  \end{adjustwidth}
@@ -481,7 +515,6 @@ UTM & Universal Transverse Mercator \\
 \begin{tabularx}{\fulllength}{|l|l|l|l}
     \toprule
     \textbf{Data Set Attribute} & \textbf{Attribute Value (2015)} & \textbf{Attribute Value (2018)} & \textbf{Attribute Value (2020)} \\ \hline
-     \textbf{Data Set Attribute} & \textbf{Attribute Value} & \textbf{Attribute Value} & \textbf{Attribute Value} \\ \hline
         Landsat Scene Identifier & LC82050502021056LGN00 & LC92050502022051LGN01 & LC92050502023022LGN01 \\ \hline
         Date Acquired & 2021/02/25 & 2022/02/20 & 2023/01/22 \\ \hline
         Collection Category & T1 & T1 & T1 \\ \hline
@@ -535,15 +568,165 @@ UTM & Universal Transverse Mercator \\
         Corner Lower Left Latitude & 13.38860 & 13.38843 & 13.38854 \\ \hline
         Corner Lower Left Longitude & -17.69422 & -17.71082 & -17.69975 \\ \hline
         Corner Lower Right Latitude & 13.40231 & 13.40228 & 13.40229 \\ \hline
-        Corner Lower Right Longitude & -15.58098 & -15.59483 & -15.58652 \\ \hline  
+        Corner Lower Right Longitude & -15.58098 & -15.59483 & -15.58652 \\  
     \bottomrule
  \end{tabularx}
  \end{adjustwidth}
 \end{table}
 
+\section[\appendixname~\thesection]{Programming scripts}\label{App2}
+\subsection[\appendixname~\thesubsection]{GMT script}
 
-\section[\appendixname~\thesection]{}
-All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
+\begin{lstlisting}[language=bash,caption=GMT code for topographic mapping of the Senegal region based on the GEBCO/SRTM dataset,style=mystyle,label={lst01}]
+exec bash
+# Extract a subset of ETOPO1m for the study area
+gmt grdcut ETOPO1_Ice_g_gmt4.grd -R-18/-11/12/17 -Gsn1_relief.nc
+gmt grdcut GEBCO_2019.nc -R-18/-11/12/17 -Gsn_relief.nc
+gdalinfo -stats sn1_relief.nc
+gmt makecpt -Cillumination -V -T-5000/500 -Ic > pauline.cpt
+# create mask of vector layer from the DCW of country's polygon
+gmt pscoast -R-18/-11/12/17 -JM6.5i -Dh -M -ESN > Senegal.txt
+ps=Topo_SN.ps
+# Make background transparent image
+gmt grdimage sn_relief.nc -Cpauline.cpt -R-18/-11/12/17 -JM6.5i -I+a15+ne0.75 -t40 -Xc -P -K > $ps
+.5i
+# Add isolines
+gmt grdcontour sn1_relief.nc -R -J -C250 -A250+f7p,26,darkbrown -Wthinner,darkbrown -O -K >> $ps
+# Add coastlines, borders, rivers
+gmt pscoast -R -J \
+    -Ia/thinner,blue -Na -N1/thicker,tomato -W0.1p -Df -O -K >> $ps
+gmt pscoast -R -J -Ia/thinner,blue -Na -Sroyalblue1 -W2/thin,blue,0.1p -Df -O -K >> $ps
+gmt psclip -R-18/-11/12/17 -JM6.5i Senegal.txt -O -K >> $ps
+gmt grdimage sn_relief.nc -Cpauline.cpt -R-18/-11/12/17 -JM6.5i -I+a15+ne0.75 -Xc -P -O -K >> $ps
+# Add isolines
+gmt grdcontour sn1_relief.nc -R -J -C100 -A250+f7p,26,darkbrown -Wthinnest,darkbrown -O -K >> $ps
+# Add coastlines, borders, rivers
+gmt pscoast -R -J \
+    -Ia/thinner,blue -Na -N1/thicker,tomato -W0.1p -Df -O -K >> $ps
+gmt pscoast -R -J -Ia/thinner,blue -Na -Sroyalblue1 -W2/thin,blue,0.1p -Df -O -K >> $ps
+gmt psclip -C -O -K >> $ps
+gmt psscale -Dg-18/11.5+w16.5c/0.15i+h+o0.3/0i+ml+e -R -J -Cpauline.cpt \
+    -Bg1000f50a500+l"Colormap: 'illumination', ESRI cartographic and geospatial gradient, continuous, 126 segments, C=RGB" \
+    -I0.2 -By+l"m" -O -K >> $ps    
+# Add grid
+gmt psbasemap -R -J \
+    --MAP_FRAME_AXES=WEsN  --FORMAT_GEO_MAP=ddd:mm:ssF \
+        -Bpxg4f1a2 -Bpyg4f1a1 -Bsxg2 -Bsyg1 \
+    -B+t"Topographic map of Senegal" -O -K >> $ps
+# Add scalebar, directional rose
+gmt psbasemap -R -J \
+    -Lx14.0c/-2.5c+c10+w200k+l"Mercator projection. Scale (km)"+f \
+    -UBL/0p/-70p -O -K >> $ps
+gmt psxy -R -J -Sj1c -W1.7p,red3 -O -K << EOF >> $ps
+-16.68 14.46 -13 4.0 4.0
+EOF
+# Texts
+gmt pstext -R -J -N -O -K \
+-F+f11p,21,darkred+jLB >> $ps << EOF
+-13.60 13.60 Tambacounda
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+-13.67 13.77 0.20c
+EOF
+# repeated likewise for all the text annotations using coordinates
+gmt psbasemap -R -J -O -K -DjTL+w3.2c+o-0.2c/-0.2c+stmp >> $ps
+read x0 y0 w h < tmp
+gmt pscoast --MAP_GRID_PEN_PRIMARY=thinnest,lightgray --MAP_FRAME_PEN=thick,white -Rg -JG-1.0/8.0N/$w -Da -Glightgoldenrod1 -A5000 -Bga -Wfaint -ESN+gred -Sroyalblue1 -O -K -X$x0 -Y$y0 >> $ps
+gmt psxy -R -J -O -K -T  -X-${x0} -Y-${y0} >> $ps
+gmt logo -Dx7.0/-3.1+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y5.5c -N -O \
+    -F+f10p,0,black+jLB >> $ps << EOF
+2.5 11.0 Digital elevation data: SRTM/GEBCO, 15 arc sec resolution grid
+EOF
+gmt psconvert Topo_SN.ps -A0.5c -E720 -Tj -Z
+\end{lstlisting}
+
+\subsection[\appendixname~\thesubsection]{R script}
+\begin{lstlisting}[language=r,caption=R code for modelling the flowchart of the methodological process,style=mystyle,label={lst02}]
+DiagrammeR::grViz('
+digraph Polina_diagram {
+ # graph statement
+  graph [layout = dot, rankdir = TB,   # layout top-to-bottom fontsize = 12]
+  node [shape = circle,
+       fixedsize = true, width = 2.0]  
+  subgraph cluster2 {
+  node [fillcolor = Bisque, shape = egg, fontname = Helvetica, fontcolor = darkslategray, shape = rectangle, fixedsize = true, width = 4.0, color = darkslategray, linewidth = 2.0]
+  A66 [label = 'Landsat 9 OL/TIRS image \nJanuary 2023 \nLC92050502023022LGN01', shape = rectangle, fontsize = 22, height = 1.5]
+  A55 [label = 'Landsat 9 OL/TIRS image \nFebruary 2022 \nLC92050502022051LGN01', shape = rectangle, fontsize = 22, height = 1.5]
+  A44 [label = 'Landsat 8 OL/TIRS image \nFebruary 2021 \nLC82050502021056LGN00', shape = rectangle, fontsize = 22, height = 1.5]
+  A33 [label = 'Landsat 8 OL/TIRS image \nFebruary 2020 \nLC82050502020038LGN00', shape = rectangle, fontsize = 22, height = 1.5]
+  A22 [label = 'Landsat 8 OL/TIRS image \nFebruary 2018 \nLC82050502018048LGN00', shape = rectangle, fontsize = 22, height = 1.5]
+  A11 [label = 'Landsat 8 OL/TIRS image \nFebruary 2015 \nLC82050502015056LGN01', shape = rectangle, fontsize = 22, height = 1.5]
+  }
+  
+  A11 -> A22 [fontcolor = red, color = red, style = dashed]
+  A33 -> A44 [fontcolor = red, color = red, style = dashed]
+  A55 -> A66 [fontcolor = red, color = red, style = dashed]
+  
+  
+  E [label = 'Data import \npreprocessing \nGDAL', fontcolor = darkgreen, shape = egg, fontsize = 24, height = 2.0, width = 2.3 ]
+  A44 -> E [fontcolor = darkgreen,color = darkgreen, style = dashed]
+  
+  F [label = 'Data processing \nGRASS GIS', fontcolor = black, height = 1.5, width = 2.5, shape = tab, fontsize = 24]
+  subgraph cluster6 {
+  node [fillcolor = Bisque, shape = egg, fontname = Helvetica, fontcolor = darkslategray, shape = rectangle, fixedsize = true, width = 2.5, color = darkslategray]
+  F6 [label = '6. Data import \nd.out.file module', fontcolor = black, shape = rectangle, width = 3.5, height = 1.3, fontsize = 22]
+  F5 [label = '5. Visualization \nd.rast, d.legend \nr.colors', fontcolor = black, shape = rectangle, width = 3.5, height = 1.3, fontsize = 22]
+  F4 [label = '4. Accuracy \nassessment', fontcolor = black, shape = rectangle, width = 2.5, height = 1.3, fontsize = 22]
+  F3 [label = '3. Classification\n k-means \ni.maxlik module', fontcolor = black, shape = rectangle, width = 2.5, height = 1.3, fontsize = 22]
+  F2 [label = '2. Clustering \ni.cluster module', fontcolor = black, shape = rectangle, width = 2.5, height = 1.3, fontsize = 22]
+  F1 [label = '1. Grouping \ni.group module', fontcolor = black, shape = rectangle, width = 2.5, height = 1.3, fontsize = 22]
+  }
+  
+  F1 -> F2 [fontcolor = red, color = red, style = dashed]
+  F3 -> F4 [fontcolor = red, color = red, style = dashed]
+  F5 -> F6 [fontcolor = red, color = red, style = dashed]
+  E -> F [fontcolor = red, color = red, fontsize = 20, style = twodash]
+  F -> {F3} [fontcolor = red, color = red, style = dashed]
+}
+')
+\end{lstlisting}
+
+\subsection[\appendixname~\thesubsection]{GRASS GIS script}
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for classification of the Sudd region based on the segmented raster image Landsat 9 OLI/TIRS,style=mystyle,label={lst03}]
+g.list rast
+# importing the image subset with 7 Landsat bands and display the raster map
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B1.TIF output=L8_2015f_01 resample=bilinear extent=region resolution=region --overwrite
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B2.TIF output=L8_2015f_02 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B3.TIF output=L8_2015f_03 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B4.TIF output=L8_2015f_04 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B5.TIF output=L8_2015f_05 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B6.TIF output=L8_2015f_06 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B7.TIF output=L8_2015f_07 extent=region resolution=region
+g.list rast
+# Set computational region to match the scene
+g.region raster=L8_2015f_01 -p
+# store VIZ, NIR, MIR into group/subgroup (leaving out TIR)
+i.group group=L8_2015f subgroup=res_30m \
+  input=L8_2015f_01,L8_2015f_02,L8_2015f_03,L8_2015f_04,L8_2015f_05,L8_2015f_06,L8_2015f_07
+# Clustering: generating signature file and report using k-means clustering algorithm
+i.cluster group=L8_2015f subgroup=res_30m \
+  signaturefile=cluster_L8_2015f \
+  classes=10 reportfile=rep_clust_L8_2015f.txt --overwrite
+# Classification by i.maxlik module
+i.maxlik group=L8_2015f subgroup=res_30m \
+  signaturefile=cluster_L8_2015f \
+  output=L8_2015f_cluster_classes reject=L8_2015f_cluster_reject --overwrite
+# Mapping
+d.mon wx0
+g.region raster=L8_2015f_cluster_classes -p
+r.colors L8_2015f_cluster_classes color=roygbiv -e
+# d.rast.leg L8_2014_cluster_classes
+d.rast L8_2015f_cluster_classes
+d.legend raster=L8_2015f_cluster_classes title="2015 February" title_fontsize=14 font="Helvetica" fontsize=12 bgcolor=white border_color=white
+d.out.file output=Senegal_2015f format=jpg --overwrite
+d.mon wx1
+g.region raster=L8_2015f_cluster_classes -p
+r.colors L8_2015f_cluster_reject color=rainbow -e
+d.rast L8_2015f_cluster_reject
+d.legend raster=L8_2015f_cluster_reject title="2015 February" title_fontsize=14 font="Helvetica" fontsize=12 bgcolor=white border_color=white
+d.out.file output=Senegal_2015f_reject format=jpg --overwrite
+\end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
