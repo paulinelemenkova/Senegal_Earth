@@ -150,7 +150,9 @@ The drought period in Africa in the 1970s and 1980s resulted in climate changes 
 
 The is a rich body of literature on exemplar land cover changes in Senegal \cite{WOOD2004565,ELBERLING200337,Hiraldo}, effects of climate change on landscape variability and vegetation communities \cite{LIU2004583,TSCHAKERT2004535,LUFAFA20081}, environmental dynamics and sustainability \cite{CAMARA2017204}. But these approaches do not consider neither apply the advantages of satellite image processing using scripts which significantly increase the speed and automation of mapping ensuring the accuracy and objectivity of land cover classification. Indeed, image processing using GRASS GIS partitions the image into structured land patches using automatic analysis of spectral reflectance of the pixels and assigns them into various classes using principles of machine based vision and pattern recognition. Such approach makes it advantageous to visualise and estimate changes in land cover types using images on different years as time series analysis. Besides, the traditional software used for image processing entails drawbacks while data processing. 
 
-To address the main difficulties in traditional image processing, namely presence of structured noise on classified scenes, poor quality or images related to misinterpretation of pixels and low speed of data handling, we propose a script-based classification and image enhancement technique to analyse land cover changes in the coastal region of West Senegal. The main contribution of this paper is as follows: 
+Satellite image analysis supports our understanding of the variations in  Senegalese landscapes, and enables to indicate how they react on the effects of changing climate of West Africa, such as increased temperatures and evaporation, and decreased precipitation. Moreover, remote sensing data analysis can serve as a cartographic basis to support the selection of the optimised decisions in environmental policy makers and planners, allowing the identification of vulnerable landscapes and enabling to monitor degraded lands in Senegal. To this end, a series of the multispectral satellite images Landsat with recent OLI/TIRS sensors was processed with various modules of GRASS GIS and compared for scenes taken on different years, as experimentally used for times series analysis for monitoring landscape dynamics in Senegal. 
+
+To address the main difficulties in traditional image processing, namely presence of structured noise on classified scenes, poor quality or images related to misinterpretation of pixels and low speed of data handling, we propose a script-based classification and image enhancement technique to analyse land cover changes in the coastal region of West Senegal. The remote sensing data obtained from the USGS repository was used for analysis and environmental monitoring to analyse the variations in landscape patches as a response to climate and anthropogenic effects, as indicated by varied spectral reflectance on the images. The main contribution of this paper is as follows: 
 
 \begin{itemize}
   \item A combination of the GRASS GIS modules 'i.group', 'i.maxlik' and 'i.cluster' are proposed for image classification. The land cover types are classified based on the difference in spectral reflectance of the pixels on the images;
@@ -158,6 +160,8 @@ To address the main difficulties in traditional image processing, namely presenc
   \item To balance robustness and accuracy, a coarse to fine strategy is proposed which uses the interpretation of landscape patches using FAO scheme of land cover types for the whole country, downscaled to the ROI of the selected study area with images covering the region of Cape Verde Peninsula and the surrounding territories;
   \item The proposed image processing and classification algorithms utilising the GRASS GIS techniques outperforms existing traditional software with GUI approaches in terms of repeatability of scripts and automation which is useful for future similar studies that continue the land cover type analysis in Senegal.
 \end{itemize}
+
+The goal of using the GRASS GIS scripts for remote sensing data analysis is to quantitatively evaluate changes in land cover types of Senegal during climate fluctuations of recent eight years using automated unsupervised classification. In this way, the maximal likelihood classification algorithm presents the effective means by which the raster Landsat scenes were processed automatically. 
 
 %----------- section ----------->
 \section{Materials and Methods}
@@ -167,7 +171,15 @@ To increase the speed and accuracy of image processing, the Geographic Resources
 %----------- subsection ----------->
 \subsection{Data}
 
-We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in western Senegal during 2015 to 2023, with major details summarised in Table \ref{tab01}, and technical characteristics of the images provided in the tables of the Appendix \ref{App01}. The images were downloaded from the United States Geological Survey (USGS) EarthExplorer repository, Figure \ref{fig02}. The data contain scenes taken during the winter period (January/February) which enables to better detect plant phenology in semi-arid climate, since summer months are not suitable for plant detection due to high level of droughts in desert areas in the inner regions of the country. Besides, the images were selected using cloudiness and haze below 10\% which restricted the use of images on spring/autumn time. Hence, the best quality and suitability of images was on winter period (January/February). 
+We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in western Senegal during 2015 to 2023, with major details summarised in Table \ref{tab01}, and technical characteristics of the images provided in the tables of the Appendix \ref{App01}. The images were downloaded from the United States Geological Survey (USGS) EarthExplorer repository, Figure \ref{fig02}. 
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=15.0 cm]{Fig_02.jpg}
+\caption{Data capture of the Landsat images from the USGS EarthExplorer repository}\label{fig02}
+\end{figure}
+
+The data contain scenes taken during the winter period (January/February) which enables to better detect plant phenology in semi-arid climate, since summer months are not suitable for plant detection due to high level of droughts in desert areas in the inner regions of the country. Besides, the images were selected using cloudiness and haze below 10\% which restricted the use of images on spring/autumn time. Hence, the best quality and suitability of images was on winter period (January/February). 
 
 \begin{table}[H]
 \caption{Identifiers (ID) of the 6 Landsat 8-9 OLI/TIRS images on Senegal study area, obtained from the in the EarthExplorer USGS repository}.
@@ -192,13 +204,7 @@ We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in w
 \end{adjustwidth}
 \end{table} 
 
-\begin{figure}[H]
-	\centering
-		\includegraphics[width=15.0 cm]{Fig_02.jpg}
-\caption{Data capture of the Landsat images from the USGS EarthExplorer repository}\label{fig02}
-\end{figure}
-
-The goal of using the multispectral Landsat images was to compare the effects of climate and anthropogenic factors in west Senegal on land cover change process using spectral reflectance characteristics of pixels derived from the remote sensing data by image processing and analysis. Therefore, the images were selected for different years (2015 to 2023) at the approximate period of data capture for comparability (January/February). Slight variation in months is explained by the technical availability of the images with high quality (low cloudiness and haze). The environmental properties of the landscapes were evaluated with remote sensing methods to analyse the effects of climate processes on land cover type changes and specifically, distribution of mangroves along the delta of Saloum River. The images were downloaded and metadata ere evaluated for each scene: four images were selected from the Landsat-8 satellite, and two recent scenes -- from the Landsat-9. All Landsat images are multispectral and have 30 m resolution in visible spectral bands and are stored in Universal Transverse Mercator (UTM) Zone 28 for western Senegal. The images in RGB colours are presented in Figure \ref{fig03}.
+All Landsat images are multispectral and have 30 m resolution in visible spectral bands and are stored in Universal Transverse Mercator (UTM) Zone 28 for western Senegal. It is well known that the high-resolution commercial satellite images (e.g., SPOT, Pleiades) are especially expensive due to the costs of the launch of the satellite, and related operational costs. Therefore, such scenes are not always easily accessible as data source. Hence, the solutions on the open source Landsat 8-9 OLI/TIRS are crucial, and the value of applications of the Landsat products in environmental monitoring projects are high, especially in view of the continuation of the research in future similar works using other Landsat data. The Landsat images used in this study in RGB colours are presented in Figure \ref{fig03}.
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
@@ -239,9 +245,11 @@ The goal of using the multispectral Landsat images was to compare the effects of
 \caption{Landsat images in RGB colours covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal in February: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig03}
 \end{figure} 
 
+The objective of using the multispectral Landsat images was to compare the effects of climate and anthropogenic factors in west Senegal on land cover change process using spectral reflectance characteristics of pixels derived from the remote sensing data by image processing and analysis. Therefore, the images were selected for different years (2015 to 2023) at the approximate period of data capture for comparability (January/February). Slight variation in months is explained by the technical availability of the images with high quality (low cloudiness and haze). The environmental properties of the landscapes were evaluated with remote sensing methods to analyse the effects of climate processes on land cover type changes and specifically, distribution of mangroves along the delta of Saloum River. The images were downloaded and metadata ere evaluated for each scene: four images were selected from the Landsat-8 satellite, and two recent scenes -- from the Landsat-9. 
+
 \subsection{Methodology}
 
-The methodology of this study uses three scripting software for data processing, with all the programming scripts shown in the Appendix \ref{App2} section of this study, for technical reference.
+The methodology of this study uses three scripting software for data processing, with all the programming scripts shown in the Appendix \ref{App2} section of this study, for technical reference. In view of the advantage of the GRASS GIS approach to analyse the spectral properties of the images by specially adjusted modules along with the applications of the GMT-based cartographic methods of mapping, this paper presents a series of scripting experiments aimed at evaluating land cover type properties in Senegal from 2015 to 2023 using methods of applied programming. Hence, three major script-based toolsets were used in this study for geospatial data analysis and environmental monitoring of West Africa:
 
  \begin{enumerate}
         \item GRASS GIS script was used for image processing, Listing \ref{lst01}; 
