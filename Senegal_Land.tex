@@ -303,11 +303,9 @@ The algorithm of data processing was implemented in the GRASS GIS software \cite
 %----------- section ----------->
 \section{Results and Discussion}
 
-The analysis of the classified images shows a trend in land cover dynamics of the coastal region of Senegal over Dakar and surrounding regions. The results demonstrate that the dominating land cover type of Senegal remain savannah (73\%) although the areas covered by savannah showed a slight decrease since 2015. The landscapes covered by the croplands and agricultural areas, in contrast, expanded to 22\%. Furthermore, the decline in the areas covered by forests and mangroves are notable. Nevertheless, in general, the savannahs, woodlands, and forests remain the dominating land cover types in Senegal covering over 75\% of the country, which correspond to the similar studies \cite{TAPPAN2004427}. 
+The analysis of the classified images shows a trend in land cover dynamics of the coastal region of Senegal over Dakar and surrounding regions, Figure \ref{fig06}. The results demonstrate that the dominating land cover type of Senegal remain savannah (73\%) although the areas covered by savannah showed a slight decrease since 2015. The landscapes covered by the croplands and agricultural areas, in contrast, expanded to 22\%. Furthermore, the decline in the areas covered by forests and mangroves are notable. Nevertheless, in general, the savannahs, woodlands, and forests remain the dominating land cover types in Senegal covering over 75\% of the country, which correspond to the similar studies \cite{TAPPAN2004427}. 
 
 A special focus of this region is laid on mangrove swamplands which are a crucial ecosystems for Senegal, a source of natural resources \cite{Carney} and a habitat for species \cite{Galat}. At the same time, diverse factors have strongly correlated with mangrove losses. These include climate-related processes such as changes in temperatures and precipitation, flooding, and increased salinisation of waters, and human-related factors such as increased urbanisation and agriculture practices  \cite{Branoff}. Overall, the analysis of land cover types over the coastal areas shows the variability in mangroves (coloured bright cyan in Figure \ref{fig06}) which is explained by the high interannual fluctuations in the delta of Saloum River. Thus, the upper tidal zone is flooded during the high tides. In contrast, during the drought period, the coastal area remains drained and subject to evaporation which leads to the salinisation of soil. 
-
-The cumulative effects of these factors results in the decreased mangroves colonies which decline in high-salinity waters \cite{dieye2013dynamique}. This is also supported in the study of Lebigre who reports the retreat of the mangrove in front of the advance of the tannes \cite{Lebigre}. At the same time, the trend in rainfall recovery in West Senegal since 1990s \cite{andrieu2020botanical} resulted in the rehabilitation in mangroves which restored their colonies accordingly, which is visible on the images. This corresponds with the results of the previous studies on the location and distribution of \emph{Rhizophora mangle} and \emph{Avicennia germinans} mangrove species in west Senegal \cite{rs13101961}. Earlier studies also report the increase in mangrove trees in the estuaries of Senegal since to recent time \cite{FENT2019214}. Changes in land cover types in Senegal continue the existing fluctuations in vegetation patterns as a result of long-term landscape evolution in West Africa, as noted in several studies earlier \cite{Furian,033139ar,LOUM2014100,BRINK2009501}. 
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
@@ -346,23 +344,49 @@ The cumulative effects of these factors results in the decreased mangroves colon
 	\end{subfigure}%
 }
 \caption{Classification of the Landsat images on 2020 covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}\label{fig06}
-\end{figure} 
+\end{figure}  
+
+The data on the land cover types in Senegal at the country level were plotted and visualised in the QGIS software using the Environmental Systems Research Institute (ESRI) format vector layers, Figure \ref{fig07}. According to the Food and Agriculture Organization (FAO) classification scheme, the land cover types were defined on the images as 10 major classes, adopted for the study area and generalised from the whole country level: 
+
+ \begin{enumerate}
+        \item Mosaic grassland or shrubland / cropland; 
+        \item Mosaic vegetation / cropland; 
+        \item Mangrove wetlands; 
+        \item Rainfed cropland; 
+        \item Consolidated bare areas;
+        \item Mosaic grassland/forest or shrubland; 
+        \item Closed broadleaved forest or shrubland permanently flooded - brackish water; 
+        \item Salt hardpans; 
+        \item Post flooding or irrigated or aquatic cropland; 
+        \item Water bodies. 
+\end{enumerate}
+
+The cumulative effects of the climate, environmental and anthoropogenic factors results in the decreased mangroves colonies which decline in high-salinity waters \cite{dieye2013dynamique}. This is also supported in the study of Lebigre who reports the retreat of the mangrove in front of the advance of the tannes \cite{Lebigre}. At the same time, the trend in rainfall recovery in West Senegal since 1990s \cite{andrieu2020botanical} resulted in the rehabilitation in mangroves which restored their colonies accordingly, which is visible on the images. This corresponds with the results of the previous studies on the location and distribution of \emph{Rhizophora mangle} and \emph{Avicennia germinans} mangrove species in west Senegal \cite{rs13101961}. Earlier studies also report the increase in mangrove trees in the estuaries of Senegal since to recent time \cite{FENT2019214}. Changes in land cover types in Senegal continue the existing fluctuations in vegetation patterns as a result of long-term landscape evolution in West Africa, as noted in several studies earlier \cite{Furian,033139ar,LOUM2014100,BRINK2009501}.
+
+\begin{figure}[H]
+\hspace{50pt}\makebox[0.90\linewidth][r]{%
+	\centering
+		\includegraphics[width=15.0 cm]{Fig_07.jpg}
+}
+\caption{Land cover types in Senegal according to FAO classification scheme. Software: QGIS. Map source: author.}
+\label{fig07}
+\end{figure}
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-			\includegraphics[width=0.95\textwidth]{Fig_07a.jpg}
+			\includegraphics[width=0.95\textwidth]{Fig_08a.jpg}
 		\caption{February 2015}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_07b.jpg}
+		\includegraphics[width=0.95\textwidth]{Fig_08b.jpg}
 		\caption{February 2018}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_07c.jpg}
+		\includegraphics[width=0.95\textwidth]{Fig_08c.jpg}
 		\caption{February 2020}
 	\end{subfigure}%
 }\\
@@ -370,25 +394,24 @@ The cumulative effects of these factors results in the decreased mangroves colon
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-			\includegraphics[width=0.95\textwidth]{Fig_07d.jpg}
+			\includegraphics[width=0.95\textwidth]{Fig_08d.jpg}
 		\caption{February 2021}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_07e.jpg}
+		\includegraphics[width=0.95\textwidth]{Fig_08e.jpg}
 		\caption{February 2022}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_07f.jpg}
+		\includegraphics[width=0.95\textwidth]{Fig_08f.jpg}
 		\caption{February 2023}
 	\end{subfigure}%
 }
-\caption{Accuracy evaluated based on the pixel confidence levels with rejection probability values for the Landsat images on 2015 covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}\label{fig07}
+\caption{Accuracy evaluated based on the pixel confidence levels with rejection probability values for the Landsat images on 2015 covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}\label{fig08}
 \end{figure} 
 
 %----------- section ----------->
-\pagebreak
 \section{Conclusions}
 
 Image processing is widely regarded as one of the most well studied areas in computer vision and environmental applications, yet recognising landscape patches under unconstrained effects from climate change affecting environmental landscapes in western Africa still remains an unsolved problem. Remote sensing data can be successfully applied to identify different stages in vegetation and plant phenology as indicated by time series analysis. Specifically, detecting mangrove losses in coastal ecosystems of Senegal s possible using a sequence of satellite images taken for different years. Automatic landscape mapping and recognition of land cover types of Senegal is challenging, due to the fact that landscapes in semi-arid climate of West Africa typically have large variations of patches, mosaic of vegetation inclusions intermittent with anthropogenic urban zones of the expanding cities.
@@ -418,6 +441,8 @@ The following abbreviations are used in this manuscript:\\
 \begin{tabular}{@{}ll}
 DCW & Digital Chart of the World \\
 DEM & Digital Elevation Model \\ 
+ESRI & Environmental Systems Research Institute \\
+FAO & Food and Agriculture Organization \\
 GEBCO & General Bathymetric Chart of the Oceans \\ 
 GMT & Generic Mapping Tools \\
 GRASS & Geographic Resources Analysis Support System\\
