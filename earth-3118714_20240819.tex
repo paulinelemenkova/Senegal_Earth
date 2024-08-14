@@ -73,10 +73,10 @@
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{\textcolor{blue}{Support Vector Machine }for \textcolor{blue}{Mapping }Land Cover \textcolor{blue}{Dynamics} in Senegal, West Africa, Evaluated Using Earth Observation Data}
+\Title{\textcolor{blue}{Support Vector Machine Algorithm }for \textcolor{blue}{Mapping }Land Cover \textcolor{blue}{Dynamics} in Senegal, West Africa, Using Earth Observation Data}
 
 % MDPI internal command: Title for citation in the left column
-\TitleCitation{\hl{Support Vector Machine for Mapping} Land Cover \hl{Dynamics} in Senegal, West Africa, Evaluated Using Earth Observation Data}
+\TitleCitation{\hl{Support Vector Machine Algorithm for Mapping} Land Cover \hl{Dynamics} in Senegal, West Africa, Using Earth Observation Data}
 
 % Author Orchid ID: enter ID or remove command
 \newcommand{\orcidauthorA}{0000-0002-5759-1089} % Polina Add \orcidA{} behind the author's name
@@ -160,17 +160,22 @@ Inspired by the existing examples of the \hl{machine learning (ML) methods of th
 \caption{Study area with shown segments of the Landsat images on a topographic map of Senegal. Software: GMT. Map source: author.}\label{fig01}
 \end{figure}
 
-Recent studies reported a drastic loss in mangrove ecosystems which are currently experiencing effects from climate changes and anthropogenic activities \cite{ANDRIEU2020117963} as well as local effects of soil salinity \cite{Devaney}. Understanding the dynamics of these unique wetland ecosystems is possible using spatial analysis of the remote sensing data which enables to evaluate  gains and losses in landscape patches. Satellite image analysis supports our understanding of the variations in  Senegalese landscapes, and enables to indicate how they react on the effects of changing climate of West Africa, such as increased temperatures and evaporation, and decreased precipitation. The main purpose of this paper is to provide an advanced approach to remote sensing data analysis and processing that can assess the nonlinear behaviour of landscapes in West Africa over time indicating the development of climate setting and the related response of vegetation patterns. Remote sensing data analysis serves as a cartographic basis to support the selection of the optimised decisions in environmental policy makers and planners, allowing the identification of vulnerable landscapes and enabling to monitor degraded lands in Senegal. To this end, a series of the multispectral satellite images Landsat with recent OLI/TIRS sensors was processed with various modules of GRASS GIS and compared for scenes taken on different years, as experimentally used for times series analysis for monitoring landscape dynamics in Senegal. 
+\hl{According to} recent studies, mangrove \hl{habitats} are \hl{drastically disappearing. These} ecosystems are currently \hl{being impacted by} anthropogenic \hl{activity}, climate change, and local effects of salinity in \hl{the} soil. \cite{ANDRIEU2020117963,Devaney}. \hl{By evaluating gains and losses in landscape} patches, remote sensing data \hl{can be spatially analyzed} to \hl{better} understand the dynamics of these \hl{distinct} wetland ecosystems. \hl{Our comprehension of the changes} in Senegalese landscapes \hl{is aided by} satellite image analysis, \hl{which also shows how these} landscapes \hl{respond} to the effects of West Africa's changing climate, \hl{including rising} temperatures and evaporation and \hl{falling} precipitation. 
 
-To address the main difficulties in traditional image processing, namely presence of structured noise on classified scenes, poor quality or images related to misinterpretation of pixels and low speed of data handling, we propose a script-based classification and image enhancement technique by the GRASS GIS to analyse land cover changes in the coastal region of West Senegal. The goal of using the GRASS GIS scripts for remote sensing data analysis is to quantitatively evaluate changes in land cover types of Senegal during climate fluctuations of recent eight years using automated unsupervised classification. In this way, the maximal likelihood classification algorithm presents the effective means by which the raster Landsat scenes were processed automatically. The remote sensing data obtained from the USGS repository was used for analysis and environmental monitoring to analyse the variations in landscape patches as a response to climate and anthropogenic effects, as indicated by varied spectral reflectance on the images. 
+The goal of using the GRASS GIS scripts for \hl{RS} data analysis is to quantitatively evaluate changes in land cover types of Senegal \hl{as a result of} climate fluctuations \hl{during} recent eight years using automated unsupervised classification \hl{and supervised classification by ML method of Support Vector Machine (SVM)}. In this way, the maximal likelihood classification algorithm presents the effective means by which the raster Landsat scenes were processed automatically. The remote sensing data obtained from the \hl{United States Geological Survey (}USGS) repository was used for \hl{environmental }analysis and\hl{ }monitoring to \hl{evaluate and visualize} variations in landscape patches\hl{. Such analysis technically based on the ML-based estimation of spectral reflectance on the satellite images supports environmental monitoring of the West African landscapes} responding to climate and anthropogenic effects\hl{.} 
 
-Importantly, the study presented here is not intended to suggest that scripting methods replace the traditional GIS. In contrast, the programming codes can supplement the traditional cartographic methods used in the remote sensing software. However, the integration of scripting workflow with image analysis tasks and cartographic plotting provides an effective approach by which the analysis of land cover changes can be visualised in the automatic way. The main contribution of this paper is as follows: 
+The main purpose of this paper is to provide an advanced approach \hl{of machine learning (ML) }to remote sensing data analysis and processing that can \hl{evaluate} the nonlinear behaviour of landscapes in West Africa over time indicating the development of climate setting and\hl{ }related response of \hl{the} vegetation patterns. \hl{To this end, we} propose a script-based classification and image enhancement technique \hl{using} the GRASS GIS to \hl{analyze} land cover changes in the coastal region of West Senegal. \hl{This} technique \hl{aims} to address the main \hl{challenges associated with} traditional image processing, \hl{which include} the presence of structured noise on classified scenes, poor quality or images related to misinterpretation of pixels, \hl{as well as} low speed of data handling. 
+
+\hl{The ML-based image analysis is based on using the }remote sensing data analysis \hl{which }serves as a cartographic basis to support the selection of the optimised decisions in environmental policy makers and planners\hl{. Satellite images processed by the machine-based methods allow }the identification of vulnerable landscapes and \hl{enable} to monitor \hl{the }degraded lands in Senegal. \hl{In order to do this}, a series of the multispectral satellite images Landsat with recent OLI/TIRS sensors was processed with various modules of GRASS GIS\hl{. Such time series data analysis based on the} scenes taken on different years \hl{enabled to perform environmental } analysis for monitoring landscape dynamics in Senegal. 
+
+Importantly, the study presented here is not intended to suggest that scripting methods \hl{take the role of conventional GIS}. In contrast, the programming codes\hl{ }supplement the traditional cartographic methods used in the remote sensing software. However, the integration of scripting workflow with image analysis tasks and cartographic plotting provides an effective approach by which the analysis of land cover changes can be visualised in the automatic way. \hl{In light of this, }the main contribution of this paper is as follows: 
 
 \begin{itemize}
-  \item A combination of the GRASS GIS modules 'i.group', 'i.maxlik' and 'i.cluster' are proposed for image classification. The land cover types are classified based on the difference in spectral reflectance of the pixels on the images;
+  \item A combination of the GRASS GIS modules 'i.group', 'i.maxlik' and 'i.cluster' are proposed for \hl{unsupervised }image classification. The land cover types are classified based on the difference in spectral reflectance of the pixels on the images;
+  \item \hl{A set of the GRASS GIS modules 'r.learn.predict', 'r.learn.train' and 'r.random' is used for supervised ML-based image classification using Support Vector Machine (SVM) modelling algorithm;}
   \item The land cover types in the coastal Senegal are defined as the groups of pixels according to the structural similarity between the landscape patches. Orientation, location and frequency of mangrove fields in the Saloum River Delta are estimated from the analysis of landscape patches in the coastal area;
-  \item To balance robustness and accuracy, a coarse to fine strategy is proposed which uses the interpretation of landscape patches using FAO scheme of land cover types for the whole country, downscaled to the ROI of the selected study area with images covering the region of Cape Verde Peninsula and the surrounding territories;
-  \item The proposed image processing and classification algorithms utilising the GRASS GIS techniques outperforms existing traditional software with GUI approaches in terms of repeatability of scripts and automation which is useful for future similar studies that continue the land cover type analysis in Senegal.
+  \item To balance \hl{the} robustness and accuracy, a coarse to fine strategy is proposed which uses the interpretation of landscape patches using FAO scheme of land cover types for the whole country, downscaled to the ROI of the selected study area with images covering the region of Cape Verde Peninsula and the surrounding territories;
+  \item The proposed image processing and \hl{ML-based }classification algorithms utilising the \hl{SVM techniques of }GRASS GIS outperforms existing traditional software with GUI approaches in terms of repeatability of scripts and automation \hl{through computer vision. Such methodological workflow }is useful for future similar studies that continue the land cover type analysis in Senegal \hl{or surrounding areas of West Africa}.
 \end{itemize}
 
 %----------- section ----------->
@@ -339,17 +344,17 @@ A special focus of this region is laid on mangrove swamplands which are a crucia
 		\includegraphics[width=0.99\textwidth]{Fig_06b.jpg}
 		\caption{February 2018}
 	\end{subfigure}%
-	\begin{subfigure}[b]{.40\textwidth}
+	\begin{subfigure}[b]{.43\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_06c.jpg}
+		\includegraphics[width=0.99\textwidth]{Fig_06c.jpg}
 		\caption{February 2020}
 	\end{subfigure}%
 }\\
 \vfill \vspace{1mm}
-\hspace{50pt}\makebox[0.90\linewidth][r]{%
-	\begin{subfigure}[b]{.40\textwidth}
+\hspace{30pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.43\textwidth}
 		\centering
-			\includegraphics[width=0.95\textwidth]{Fig_06d.jpg}
+			\includegraphics[width=0.99\textwidth]{Fig_06d.jpg}
 		\caption{February 2021}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
@@ -446,17 +451,17 @@ The southern sector of the Senegalese vegetation is characterised by the Sudano-
 	\begin{subfigure}[b]{.42\textwidth}
 		\centering
 			\includegraphics[width=0.99\textwidth]{Fig_09a.jpg}
-		\caption{February 2015}
+		\caption{\hl{SVM: February 2015}}
 	\end{subfigure}%
-	\begin{subfigure}[b]{.40\textwidth}
+	\begin{subfigure}[b]{.42\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_08b.jpg}
-		\caption{February 2018}
+		\includegraphics[width=0.99\textwidth]{Fig_09b.jpg}
+		\caption{\hl{SVM: February 2018}}
 	\end{subfigure}%
-	\begin{subfigure}[b]{.40\textwidth}
+	\begin{subfigure}[b]{.42\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_08c.jpg}
-		\caption{February 2020}
+		\includegraphics[width=0.99\textwidth]{Fig_09c.jpg}
+		\caption{\hl{February 2020}}
 	\end{subfigure}%
 }\\
 \vfill \vspace{1mm}
@@ -464,17 +469,17 @@ The southern sector of the Senegalese vegetation is characterised by the Sudano-
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 			\includegraphics[width=0.95\textwidth]{Fig_08d.jpg}
-		\caption{February 2021}
+		\caption{\hl{SVM: February 2021}}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 		\includegraphics[width=0.95\textwidth]{Fig_08e.jpg}
-		\caption{February 2022}
+		\caption{\hl{SVM: February 2022}}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 		\includegraphics[width=0.95\textwidth]{Fig_08f.jpg}
-		\caption{February 2023}
+		\caption{\hl{SVM: February 2023}}
 	\end{subfigure}%
 }
 \caption{\hl{Results of the Support Vector Machine (SVM) - based classification of the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}}\label{fig08}
@@ -508,6 +513,7 @@ The following abbreviations are used in this manuscript:\\
 \begin{tabular}{@{}ll}
 DCW & Digital Chart of the World \\
 DEM & Digital Elevation Model \\ 
+\hl{DN} & \hl{Digital Number} \\
 ESRI & Environmental Systems Research Institute \\
 FAO & Food and Agriculture Organization \\
 GEBCO & General Bathymetric Chart of the Oceans \\ 
@@ -519,9 +525,12 @@ Landsat MSS  & Landsat Multispectral Scanner  \\
 Landsat TM & Landsat Thematic Mapper \\
 Landsat ETM+ & Landsat Enhanced Thematic Mapper Plus \\
 Landsat OLI/TIRS & Landsat Operational Land Imager and Thermal Infrared Sensor \\
+\hl{ML} & \hl{Machine Learning} \\
 NDVI & Normalized Difference Vegetation Index \\
 NIR & Near Infrared \\
+\hl{RS} & \hl{Remote Sensing} \\
 SRTM & Shuttle Radar Topography Mission \\
+\hl{SVM} & \hl{Support Vector Machine} \\
 TIFF & Tag Image File Format\\
 UNEP & United Nations Environment Programme \\
 USGS & United States Geological Survey\\
