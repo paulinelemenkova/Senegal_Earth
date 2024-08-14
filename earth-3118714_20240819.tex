@@ -21,7 +21,7 @@
 \copyrightyear{2024}
 %\externaleditor{Academic Editor: Firstname Lastname}
 \datereceived{06 July 2024} 
-\daterevised{19 August 2024}
+\daterevised{18 August 2024}
 \dateaccepted{} 
 \datepublished{} 
 \hreflink{https://doi.org/} % If needed use \linebreak
@@ -282,13 +282,13 @@ The workflow of the data processing and major methodological steps are shown in 
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=12.0 cm]{Fig_04.jpg}
+		\includegraphics[width=13.0 cm]{Fig_04.jpg}
 \caption{Workflow scheme illustrating the data and main methodological steps. Software: R. Diagram source: author.}\label{fig04}
 \end{figure}
 
 The matching performance of landscape patches over this period is evaluated using GRASS GIS functionality as a sequence of modules utilised for processing each scene separately using script. The images were read into the GRASS GIS environment using the 'r.import' module; the list of the available bands was checked using the 'g.list rast' command. The extent (UTM Zone 28) and resolution were set to the region of current image which was detected automatically along with geospatial data \hl{such as }coordinates, location, projection, \hl{and so on}. The \hl{false} colour composites were plotted to clearly distinguish the area of vegetation of mangroves in the delta of the River Saloum (coloured in red shadows), land (coloured by beige and light brownish shadows) and water area (coloured black for the seawater and dark navy for the River Saloum), Figure \ref{fig05}. 
 
-\hl{The Machine Learning (ML) method of satellite image processing involves using a Support Vector Machine (SVM) algorithm for data partition and classification. To perform these steps with fixed ML parameters, we utilise the GRASS GIS modules 'r.random' for generating training dataset from pixels obtained from the land cover classification, 'r.learn.train' module for training a SVC model and 'r.learn.predict' module which performs prediction of the pixel's assignment to the target classes. We represent the image dataset as a time series of scenes from 2015 to 2023 represented as colour composites from the multispectral bands of Landsat. We denote the number of estimators as 500 in model, and the number of seed points as 100 pixels with the total evaluated pixels of 1000 ('npoints' in model's syntax). The training model name is explicitly defined as 'SVC', i.e., Support Vector Classification, as the algorithm embedded in the GRASS GIS software.}
+\hl{The Machine Learning (ML) method of satellite image processing involves using a Support Vector Machine (SVM) algorithm for data partition and classification. To perform these steps with fixed ML parameters, we utilise the GRASS GIS modules 'r.random' for generating training dataset from pixels obtained from the land cover classification, 'r.learn.train' module for training a Support Vector Classification (SVC) model and 'r.learn.predict' module which performs prediction of the pixel's assignment to the target classes. We represent the image dataset as a time series of scenes from 2015 to 2023 represented as colour composites from the multispectral bands of Landsat. We denote the number of estimators as 500 in model, and the number of seed points as 100 pixels with the total evaluated pixels of 1000 ('npoints' in model's syntax). The training model name is explicitly defined as 'SVC', i.e., Support Vector Classification, as the algorithm embedded in the GRASS GIS software.}
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
@@ -534,6 +534,7 @@ NDVI & Normalized Difference Vegetation Index \\
 NIR & Near Infrared \\
 \hl{RS} & \hl{Remote Sensing} \\
 SRTM & Shuttle Radar Topography Mission \\
+\hl{SVC} & \hl{Support Vector Classification} \\
 \hl{SVM} & \hl{Support Vector Machine} \\
 TIFF & Tag Image File Format\\
 UNEP & United Nations Environment Programme \\
@@ -799,8 +800,8 @@ digraph Polina_diagram {
 ')
 \end{lstlisting}
 
-\subsection[\appendixname~\thesubsection]{GRASS GIS script}
-\begin{lstlisting}[language=bash,caption=GRASS GIS code for classification of the Sudd region based on the segmented raster image Landsat 9 OLI/TIRS,style=mystyle,label={lst03}]
+\subsection[\appendixname~\thesubsection]{GRASS GIS script for unsupervised image classification}
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for classification of the Senegal coastal region based on the segmented raster image Landsat 9 OLI/TIRS,style=mystyle,label={lst03}]
 g.list rast
 # importing the image subset with 7 Landsat bands and display the raster map
 r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B1.TIF output=L8_2015f_01 resample=bilinear extent=region resolution=region --overwrite
@@ -838,6 +839,24 @@ r.colors L8_2015f_cluster_reject color=rainbow -e
 d.rast L8_2015f_cluster_reject
 d.legend raster=L8_2015f_cluster_reject title="2015 February" title_fontsize=14 font="Helvetica" fontsize=12 bgcolor=white border_color=white
 d.out.file output=Senegal_2015f_reject format=jpg --overwrite
+\end{lstlisting}
+
+\subsection[\appendixname~\thesubsection]{GRASS GIS script for supervised image classification}
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for Machine Learning (ML) based supervised classification of the Senegal  based on the Support Vector Machine (SVM) algorithm,style=mystyle,label={lst03}]
+# train a SVC model using r.learn.train
+r.learn.train group=L_2023 training_map=training_pixels \
+    model_name=SVC n_estimators=500 save_model=svc_model.gz --overwrite
+# perform prediction using r.learn.predict
+r.learn.predict group=L_2023 load_model=svc_model.gz \	
+output=svc_classification --overwrite
+# display
+r.colors svc_classification color=roygbiv -e
+d.mon wx0
+d.rast svc_classification
+d.grid -g size=00:30:00 color=grey width=0.1 fontsize=16 text_color=grey
+d.legend raster=svc_classification title="SVM 2023" title_fontsize=19 \
+	font="Helvetica" fontsize=17 bgcolor=white border_color=white
+d.out.file output=SVM_2023 format=jpg --overwrite
 \end{lstlisting}
 
 \section[\appendixname~\thesection]{Quantitative estimations of the land cover types in coastal region of Senegal based on the processed the Landsat 8-9 OLI/TIRS images over the evaluated period (2015 to 2023) }\label{App03}
