@@ -181,12 +181,12 @@ Importantly, the study presented here is not intended to suggest that scripting 
 %----------- section ----------->
 \section{Materials and Methods}
 
-To increase the speed and accuracy of image processing, the Geographic Resources Analysis Support System Geographic Information System (GRASS GIS) software was applied as an advanced image processing software with extended functionalities \cite{Neteleretal2008}. The Generic Mapping Tools (GMT) Version 6 \cite{Wessel} is used as a cartographic tool for topographic mapping of the study area\hl{, while the} R software was applied for plotting the flowchart diagram showing the major research steps.  Both the cartographic and remote sensing parts of the work are based on utilising scripting techniques which main advantages include the high speed of data processing and the repeatability of scripts, as explained in earlier works \cite{min13050604,Lemenkova202213,Lemenkova202206}.
+To increase the speed and accuracy of image processing, the Geographic Resources Analysis Support System Geographic Information System (GRASS GIS) software was applied as an advanced image processing software with extended functionalities \cite{Neteleretal2008}. The Generic Mapping Tools (GMT) Version 6 \cite{Wessel} \hl{was} used as a cartographic tool for topographic \hl{ }cartographic and remote sensing parts of the work are based on utilising scripting techniques\hl{. The }main advantages \hl{of scripts}include\hl{ }high speed of data processing and the repeatability\hl{, }as explained earlier works \cite{min13050604,Lemenkova202213,Lemenkova202206}.
 
 %----------- subsection ----------->
 \subsection{Data}
 
-We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in western Senegal during 2015 to 2023, with major details summarised in Table \ref{tab01}, and technical characteristics of the images provided in the tables of the Appendix \ref{App01}. 
+We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in western Senegal during 2015 to 2023\hl{. Major metadata are }summarised in Table \ref{tab01}\hl{.} 
 
 \begin{table}[H]
 \caption{Identifiers (ID) of the 6 Landsat 8-9 OLI/TIRS images on Senegal study area, obtained from the in the EarthExplorer USGS repository}.
@@ -211,15 +211,17 @@ We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in w
 \end{adjustwidth}
 \end{table} 
 
-The images were downloaded from the United States Geological Survey (USGS) EarthExplorer repository, Figure \ref{fig02}. The data contain scenes taken during the winter period (January/February) which enables to better detect plant phenology in semi-arid climate, since summer months are not suitable for plant detection due to high level of droughts in desert areas in the inner regions of the country. Besides, the images were selected using cloudiness and haze below 10\% which restricted the use of images on spring/autumn time. Hence, the best quality and suitability of images was on winter period (January/February). 
+The images were downloaded from the United States Geological Survey (USGS) EarthExplorer repository, Figure \ref{fig02}.  
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=15.0 cm]{Fig_02.jpg}
+		\includegraphics[width=14.0 cm]{Fig_02.jpg}
 \caption{Data capture of the Landsat images from the USGS EarthExplorer repository}\label{fig02}
 \end{figure}
 
-All Landsat images are multispectral and have 30 m resolution in visible spectral bands and are stored in Universal Transverse Mercator (UTM) Zone 28 for western Senegal. It is well known that the high-resolution commercial satellite images (e.g., SPOT, Pleiades) are especially expensive due to the costs of the launch of the satellite, and related operational costs. Therefore, such scenes are not always easily accessible as data source. Hence, the solutions on the open source Landsat 8-9 OLI/TIRS are crucial, and the value of applications of the Landsat products in environmental monitoring projects are high, especially in view of the continuation of the research in future similar works using other Landsat data. The Landsat images used in this study in RGB colours are presented in Figure \ref{fig03}.
+The \hl{RS} data contain scenes taken during the winter period (January/February)\hl{. The selection of winter period is explained by the fact that images taken during winter }enable to better detect plant phenology in semi-arid climate\hl{. In contrast, those collected during }summer months are not suitable for plant detection due to high level of droughts in \hl{the }desert areas \hl{of Senegal, especially }in the inner regions of the country. Besides, the images were \hl{chosen based on minimized} cloudiness and haze below 10\% which restricted the use of images on spring/autumn time. Hence, the best quality and suitability of images was on winter period \hl{during months of}January \hl{and} February.
+
+\hl{The} Landsat images used in this study in RGB colours are presented in Figure \ref{fig03}.All Landsat images are multispectral and have 30 m resolution in visible spectral bands\hl{. The images }are \hl{projected} in Universal Transverse Mercator (UTM) Zone 28 for western Senegal. It is well known that the high-resolution commercial satellite images (e.g., SPOT, Pleiades) are especially expensive due to the costs of the launch of the satellite, and related operational costs. Therefore, such scenes are not always easily accessible as data source. Hence, the solution\hl{ }on the open source Landsat 8-9 OLI/TIRS \hl{is} crucial, and the value of\hl{ }the Landsat products \hl{applied to the }environmental monitoring projects are high\hl{. This is }especially \hl{actual for possible replication of this study or modification} in future similar works using other Landsat data. 
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
@@ -337,38 +339,38 @@ A special focus of this region is laid on mangrove swamplands which are a crucia
 	\begin{subfigure}[b]{.43\textwidth}
 		\centering
 			\includegraphics[width=0.99\textwidth]{Fig_06a.jpg}
-		\caption{February 2015}
+		\caption{2015}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.43\textwidth}
 		\centering
 		\includegraphics[width=0.99\textwidth]{Fig_06b.jpg}
-		\caption{February 2018}
+		\caption{2018}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.43\textwidth}
 		\centering
 		\includegraphics[width=0.99\textwidth]{Fig_06c.jpg}
-		\caption{February 2020}
+		\caption{2020}
 	\end{subfigure}%
 }\\
 \vfill \vspace{1mm}
-\hspace{30pt}\makebox[0.90\linewidth][r]{%
+\hspace{50pt}\makebox[0.90\linewidth][r]{%
 	\begin{subfigure}[b]{.43\textwidth}
 		\centering
 			\includegraphics[width=0.99\textwidth]{Fig_06d.jpg}
-		\caption{February 2021}
+		\caption{2021}
 	\end{subfigure}%
-	\begin{subfigure}[b]{.40\textwidth}
+	\begin{subfigure}[b]{.43\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_06e.jpg}
-		\caption{February 2022}
+		\includegraphics[width=0.99\textwidth]{Fig_06e.jpg}
+		\caption{2022}
 	\end{subfigure}%
-	\begin{subfigure}[b]{.40\textwidth}
+	\begin{subfigure}[b]{.43\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_06f.jpg}
-		\caption{February 2023}
+		\includegraphics[width=0.99\textwidth]{Fig_06f.jpg}
+		\caption{2023}
 	\end{subfigure}%
 }
-\caption{Classification of the Landsat images on 2020 covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}\label{fig06}
+\caption{Classification of the Landsat images on 2020 covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig06}
 \end{figure}  
 
 The data on the land cover types in Senegal at the country level were plotted and visualised in the QGIS software using the Environmental Systems Research Institute (ESRI) format vector layers, Figure \ref{fig07}. According to the Food and Agriculture Organization (FAO)/United Nations Environment Programme (UNEP) classification scheme, the land cover types were defined on the images as 10 major classes, adopted for the study area and generalised from the whole country level using the FAO/UNEP Land Cover Classification System (LCCS): 
@@ -410,17 +412,17 @@ Figure \ref{fig08} shows the accuracy evaluated based on the pixel confidence le
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 			\includegraphics[width=0.95\textwidth]{Fig_08a.jpg}
-		\caption{February 2015}
+		\caption{2015}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 		\includegraphics[width=0.95\textwidth]{Fig_08b.jpg}
-		\caption{February 2018}
+		\caption{2018}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 		\includegraphics[width=0.95\textwidth]{Fig_08c.jpg}
-		\caption{February 2020}
+		\caption{2020}
 	\end{subfigure}%
 }\\
 \vfill \vspace{1mm}
@@ -428,17 +430,17 @@ Figure \ref{fig08} shows the accuracy evaluated based on the pixel confidence le
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 			\includegraphics[width=0.95\textwidth]{Fig_08d.jpg}
-		\caption{February 2021}
+		\caption{2021}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 		\includegraphics[width=0.95\textwidth]{Fig_08e.jpg}
-		\caption{February 2022}
+		\caption{2022}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 		\includegraphics[width=0.95\textwidth]{Fig_08f.jpg}
-		\caption{February 2023}
+		\caption{2023}
 	\end{subfigure}%
 }
 \caption{Accuracy evaluated based on the pixel confidence levels with rejection probability values for the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}\label{fig08}
@@ -451,17 +453,17 @@ The southern sector of the Senegalese vegetation is characterised by the Sudano-
 	\begin{subfigure}[b]{.42\textwidth}
 		\centering
 			\includegraphics[width=0.99\textwidth]{Fig_09a.jpg}
-		\caption{\hl{SVM: February 2015}}
+		\caption{\hl{SVM: 2015}}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.42\textwidth}
 		\centering
 		\includegraphics[width=0.99\textwidth]{Fig_09b.jpg}
-		\caption{\hl{SVM: February 2018}}
+		\caption{\hl{SVM: 2018}}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.42\textwidth}
 		\centering
 		\includegraphics[width=0.99\textwidth]{Fig_09c.jpg}
-		\caption{\hl{February 2020}}
+		\caption{\hl{SVM: 2020}}
 	\end{subfigure}%
 }\\
 \vfill \vspace{1mm}
@@ -469,17 +471,17 @@ The southern sector of the Senegalese vegetation is characterised by the Sudano-
 	\begin{subfigure}[b]{.42\textwidth}
 		\centering
 			\includegraphics[width=0.99\textwidth]{Fig_09d.jpg}
-		\caption{\hl{SVM: February 2021}}
+		\caption{\hl{SVM: 2021}}
 	\end{subfigure}%
-	\begin{subfigure}[b]{.40\textwidth}
+	\begin{subfigure}[b]{.42\textwidth}
 		\centering
-		\includegraphics[width=0.95\textwidth]{Fig_08e.jpg}
-		\caption{\hl{SVM: February 2022}}
+		\includegraphics[width=0.99\textwidth]{Fig_09e.jpg}
+		\caption{\hl{SVM: 2022}}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.40\textwidth}
 		\centering
 		\includegraphics[width=0.95\textwidth]{Fig_08f.jpg}
-		\caption{\hl{SVM: February 2023}}
+		\caption{\hl{SVM: 2023}}
 	\end{subfigure}%
 }
 \caption{\hl{Results of the Support Vector Machine (SVM) - based classification of the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}}\label{fig08}
@@ -622,7 +624,7 @@ UTM & Universal Transverse Mercator \\
 \centering
 \begin{tabularx}{\fulllength}{|l|l|l|l}
     \toprule
-    \textbf{Data Set Attribute} & \textbf{Attribute Value (2015)} & \textbf{Attribute Value (2018)} & \textbf{Attribute Value (2020)} \\ \hline
+    \textbf{Data Set Attribute} & \textbf{Attribute Value (2021)} & \textbf{Attribute Value (2022)} & \textbf{Attribute Value (2023)} \\ \hline
         Landsat Scene Identifier & LC82050502021056LGN00 & LC92050502022051LGN01 & LC92050502023022LGN01 \\ \hline
         Date Acquired & 2021/02/25 & 2022/02/20 & 2023/01/22 \\ \hline
         Collection Category & T1 & T1 & T1 \\ \hline
