@@ -332,9 +332,41 @@ The matching performance of landscape patches over this period is evaluated usin
 %----------- section ----------->
 \section{Results and Discussion}
 
-The analysis of the classified images shows a trend in land cover dynamics of the coastal region of Senegal over Dakar and surrounding regions, Figure \ref{fig06}. The results demonstrate that the dominating land cover type of Senegal remain savannah (73\%) although the areas covered by savannah showed a slight decrease since 2015. The landscapes covered by the croplands and agricultural areas, in contrast, expanded to 22\%. Furthermore, the decline in the areas covered by forests and mangroves are notable. Nevertheless, in general, the savannahs, woodlands, and forests remain the dominating land cover types in Senegal covering over 75\% of the country, which correspond to the similar studies \cite{TAPPAN2004427}. 
+\subsection{\textcolor{blue}{Interpretation of key findings}}
+
+The data on the land cover types in Senegal at the country level were plotted and visualised in the QGIS software using the Environmental Systems Research Institute (ESRI) format vector layers, Figure \ref{fig07}. 
+
+According to the Food and Agriculture Organization (FAO)/United Nations Environment Programme (UNEP) classification scheme, the land cover types were defined on the images as 10 major \hl{cluster} classes, adopted for the study area and generalised from the whole country level using the FAO/UNEP Land Cover Classification System (LCCS): 
+
+ \begin{enumerate}
+        \item Mosaic grassland or shrubland / cropland; 
+        \item Mosaic vegetation / cropland; 
+        \item Mangrove wetlands; 
+        \item Rainfed cropland; 
+        \item Consolidated bare areas;
+        \item Mosaic grassland/forest or shrubland; 
+        \item Closed broadleaved forest or shrubland permanently flooded - brackish water; 
+        \item Salt hardpans; 
+        \item Post flooding or irrigated or aquatic cropland; 
+        \item Water bodies. 
+\end{enumerate}
+
+The quantitative estimations of changes in land cover types over the evaluated period (2015 to 2023) are summarised in the tables in the Appendix \ref{App03} of this study. They report the computed changes in land cover classes for each processed image. Compared to the similar studies, the area of Senegal can be divided into eight ecological zones with eleven land use types. Of these, major land use types in Senegal include the savannahs, cultivated lands, forests, and steppes with savannahs as by far dominating land cover type \cite{WOOMER2004625}. In this research, the classification of the land cover types was adopted to the larger extent of the study with details for the coastal area with included mangrove forests.
+
+\begin{figure}[H]
+\hspace{50pt}\makebox[0.90\linewidth][r]{%
+	\centering
+		\includegraphics[width=15.0 cm]{Fig_07.jpg}
+}
+\caption{Land cover types in Senegal according to FAO classification scheme. Software: QGIS v. 3.22. Map source: author.}
+\label{fig07}
+\end{figure}
+
+The analysis of the classified images \hl{based on clustering approach }shows a trend in land cover dynamics of the coastal region of Senegal over Dakar and surrounding regions, Figure \ref{fig06}. The results demonstrate that the dominating land cover type of Senegal remain savannah (73\%) although the areas covered by savannah showed a slight decrease since 2015. The landscapes covered by the croplands and agricultural areas, in contrast, expanded to 22\%. Furthermore, the decline in the areas covered by forests and mangroves are notable. Nevertheless, in general, the savannahs, woodlands, and forests remain the dominating land cover types in Senegal covering over 75\% of the country, which correspond to the similar studies \cite{TAPPAN2004427}. 
 
 A special focus of this region is laid on mangrove swamplands which are a crucial ecosystems for Senegal, a source of natural resources \cite{Carney} and a habitat for species \cite{Galat}. At the same time, diverse factors have strongly correlated with mangrove losses. These include climate-related processes such as changes in temperatures and precipitation, flooding, and increased salinisation of waters, and human-related factors such as increased processes of intensive urbanisation \cite{land10100996} and active agriculture practices \cite{Branoff}. Overall, the analysis of land cover types over the coastal areas shows the variability in mangroves (coloured bright cyan in Figure \ref{fig06}) which is explained by the high interannual fluctuations in the delta of Saloum River. Thus, the upper tidal zone is flooded during the high tides. In contrast, during the drought period, the coastal area remains drained and subject to evaporation which leads to the salinisation of soil. 
+
+\subsection{\textcolor{blue}{Clustering - based classification}}
 
 \begin{figure}[H]
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
@@ -375,37 +407,54 @@ A special focus of this region is laid on mangrove swamplands which are a crucia
 \caption{Classification of the Landsat images on 2020 covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2020; \textbf{(d)}: 2021; \textbf{(e)}: 2022; \textbf{(f)}: 2023.}\label{fig06}
 \end{figure}  
 
-The data on the land cover types in Senegal at the country level were plotted and visualised in the QGIS software using the Environmental Systems Research Institute (ESRI) format vector layers, Figure \ref{fig07}. According to the Food and Agriculture Organization (FAO)/United Nations Environment Programme (UNEP) classification scheme, the land cover types were defined on the images as 10 major classes, adopted for the study area and generalised from the whole country level using the FAO/UNEP Land Cover Classification System (LCCS): 
-
- \begin{enumerate}
-        \item Mosaic grassland or shrubland / cropland; 
-        \item Mosaic vegetation / cropland; 
-        \item Mangrove wetlands; 
-        \item Rainfed cropland; 
-        \item Consolidated bare areas;
-        \item Mosaic grassland/forest or shrubland; 
-        \item Closed broadleaved forest or shrubland permanently flooded - brackish water; 
-        \item Salt hardpans; 
-        \item Post flooding or irrigated or aquatic cropland; 
-        \item Water bodies. 
-\end{enumerate}
-
-The quantitative estimations of changes in land cover types over the evaluated period (2015 to 2023) are summarised in the tables in the Appendix \ref{App03} of this study. They report the computed changes in land cover classes for each processed image. Compared to the similar studies, the area of Senegal can be divided into eight ecological zones with eleven land use types. Of these, major land use types in Senegal include the savannahs, cultivated lands, forests, and steppes with savannahs as by far dominating land cover type \cite{WOOMER2004625}. In this research, the classification of the land cover types was adopted to the larger extent of the study with details for the coastal area with included mangrove forests.
-
 The cumulative effects of the climate, environmental and anthropogenic factors results in the decreased mangroves colonies which decline in high-salinity waters \cite{dieye2013dynamique}. This is also supported in the study of Lebigre who reports the retreat of the mangrove in front of the advance of the tannes \cite{Lebigre}. At the same time, the trend in rainfall recovery in West Senegal since 1990s \cite{andrieu2020botanical} resulted in the rehabilitation in mangroves which restored their colonies accordingly, which is visible on the images. This corresponds with the results of the previous studies on the location and distribution of \emph{Rhizophora mangle} and \emph{Avicennia germinans} mangrove species in west Senegal \cite{Diaw,rs13101961}. Earlier studies also report the increase in mangrove trees in the estuaries of Senegal since to recent time \cite{FENT2019214}. Changes in land cover types in Senegal continue the existing fluctuations in vegetation patterns as a result of long-term landscape evolution in West Africa, as noted in several studies earlier \cite{Furian,033139ar,LOUM2014100,BRINK2009501}.
 
+The southern sector of the Senegalese vegetation is characterised by the Sudano-Guinean forest savannah and the Guinean forests \cite{Robequain}. The relics of the Guinean forest are distributed in the northern part of Senegal as a narrow band of landscapes stretching parallel to the Atlantic coast. In the southern and eastern regions off Dakar and around the region of Thiès, there are many species that are abundant in the north of the forest and represented by the scattered trees in the Sudano-Sahelian savannah. To the east of Dakar, the northern silvopastoral zone of Senegal presents a vast silvopastoral zone characterized around the Ferlo region, which is characterised by the extreme aridity with dominating land cover types of shrubby savannah and steppe vegetation \cite{land10070755}. The enclaves of hygrophilous vegetation surrounding the coastal wetlands are located in to the north of Dakar with mangroves as dominating land cover type. Besides, this region also includes the occasional groves of the oil palm as spontaneous landscape facies of the Guinean forests.
+
+\subsection{\textcolor{blue}{Support Vector Machine (SVM) - based classification}}
+
+\hl{The Support Vector Machine (SVM) classification of the dynamics of land cover types in Senegal based on the Landsat OLI/TIRS scenes (2015-2023) resulted in the generation of the thematic maps of land cover types cover shown in Figure} \ref{fig09} \hl{in which the most important classes are identified as follows: area of Rainfed cropland class is depicted in aquamarine green, water areas are shown by blue, mosaic vegetation is coloured by bright red, grassland, forest and shrubland areas are shows by orange. The numerical results obtained for the different images using classification models of GRASS GIS are summarised in the Appendix. Generally, the classification of the Landsat OLI/TIRS images using the SVM algorithm using the reflective multispectral bands of the image (channels 1 to 7), provided excellent results for each kernel of ten categorised classes.} 
+
 \begin{figure}[H]
+\hspace{50pt}\makebox[0.95\linewidth][r]{%
+	\begin{subfigure}[b]{.42\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_09a.jpg}
+		\caption{\hl{SVM: 2015}}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.42\textwidth}
+		\centering
+		\includegraphics[width=0.99\textwidth]{Fig_09b.jpg}
+		\caption{\hl{SVM: 2018}}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.42\textwidth}
+		\centering
+		\includegraphics[width=0.99\textwidth]{Fig_09c.jpg}
+		\caption{\hl{SVM: 2020}}
+	\end{subfigure}%
+}\\
+\vfill \vspace{1mm}
 \hspace{50pt}\makebox[0.90\linewidth][r]{%
-	\centering
-		\includegraphics[width=15.0 cm]{Fig_07.jpg}
+	\begin{subfigure}[b]{.42\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_09d.jpg}
+		\caption{\hl{SVM: 2021}}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.42\textwidth}
+		\centering
+		\includegraphics[width=0.99\textwidth]{Fig_09e.jpg}
+		\caption{\hl{SVM: 2022}}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.42\textwidth}
+		\centering
+		\includegraphics[width=0.99\textwidth]{Fig_09f.jpg}
+		\caption{\hl{SVM: 2023}}
+	\end{subfigure}%
 }
-\caption{Land cover types in Senegal according to FAO classification scheme. Software: QGIS v. 3.22. Map source: author.}
-\label{fig07}
-\end{figure}
+\caption{\hl{Results of the Support Vector Machine (SVM) - based classification of the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}}\label{fig09}
+\end{figure} 
 
-The main triggers for changing types of vegetation and landscape patterns of the Senegalese Sahel region include the climatic factors and anthropogenic activities which resulted in the decline and local extinction of woody species \cite{land3030770}. Major human-induced activities include the dynamical agribusiness in the agricultural commodities which includes the increase of croplands and areas of irrigated vegetation \cite{land8030042}. Such activities are vital for local population and the support of living. Nevertheless, the environmental consequences on Senegalese landscapes include land degradation and changed land cover types. Besides, land degradation is recently reported in the savanna landscapes of Senegal which correlates to the trends in land use/cover changes and significant decrease in woodlands \cite{Kalema}. 
-
-Variations in land cover types in western Senegal reflect the relationships and links between changing vegetation and soil characteristics which are subject to climatic factors, moisture level, salinity and organic matter, as noted earlier \cite{MANLAY200089}. Moreover, pattern of changes in agriculture land cover types over time correlate with seasonal fluctuations in crop-fallow cycle. The agricultural plantations and irrigated lands are distributed in the sporadic settlements along the populated and semi-urban areas. Earlier studies also noted \cite{BENNOUR2023101370} that climate variability is the dominant factor that lead to the increasing the actual evaporation and as a result, salinisation of the affected lands in the Senegal River basin.
+\subsection{\textcolor{blue}{Accuracy analysis}}
 
 Figure \ref{fig08} shows the accuracy evaluated based on the pixel confidence levels with rejection probability values for the Landsat images evaluated against the probability of classification of these pixels into correct land cover classes and possible misclassification due to the similar spectral reflectance values in land cover types. It is seen that there are good linear correlations between the contours  of land cover classes and the accuracy of the classification of pixels, based on the properties of spectral reflectance indicating a general assignment to a given land cover type. The results are rather similar for the different land cover types (coastal area, water, savannahs, Guinean forests, agricultural lands, etc) for Landsat images processed by means of the maximal likelihood classification. 
 
@@ -448,46 +497,11 @@ Figure \ref{fig08} shows the accuracy evaluated based on the pixel confidence le
 \caption{Accuracy evaluated based on the pixel confidence levels with rejection probability values for the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}\label{fig08}
 \end{figure} 
 
-The southern sector of the Senegalese vegetation is characterised by the Sudano-Guinean forest savannah and the Guinean forests \cite{Robequain}. The relics of the Guinean forest are distributed in the northern part of Senegal as a narrow band of landscapes stretching parallel to the Atlantic coast. In the southern and eastern regions off Dakar and around the region of Thiès, there are many species that are abundant in the north of the forest and represented by the scattered trees in the Sudano-Sahelian savannah. To the east of Dakar, the northern silvopastoral zone of Senegal presents a vast silvopastoral zone characterized around the Ferlo region, which is characterised by the extreme aridity with dominating land cover types of shrubby savannah and steppe vegetation \cite{land10070755}. The enclaves of hygrophilous vegetation surrounding the coastal wetlands are located in to the north of Dakar with mangroves as dominating land cover type. Besides, this region also includes the occasional groves of the oil palm as spontaneous landscape facies of the Guinean forests.
+\subsection{\textcolor{blue}{Implications and discussion}}
 
-\begin{figure}[H]
-\hspace{50pt}\makebox[0.95\linewidth][r]{%
-	\begin{subfigure}[b]{.42\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_09a.jpg}
-		\caption{\hl{SVM: 2015}}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.42\textwidth}
-		\centering
-		\includegraphics[width=0.99\textwidth]{Fig_09b.jpg}
-		\caption{\hl{SVM: 2018}}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.42\textwidth}
-		\centering
-		\includegraphics[width=0.99\textwidth]{Fig_09c.jpg}
-		\caption{\hl{SVM: 2020}}
-	\end{subfigure}%
-}\\
-\vfill \vspace{1mm}
-\hspace{50pt}\makebox[0.90\linewidth][r]{%
-	\begin{subfigure}[b]{.42\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_09d.jpg}
-		\caption{\hl{SVM: 2021}}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.42\textwidth}
-		\centering
-		\includegraphics[width=0.99\textwidth]{Fig_09e.jpg}
-		\caption{\hl{SVM: 2022}}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.42\textwidth}
-		\centering
-		\includegraphics[width=0.99\textwidth]{Fig_09f.jpg}
-		\caption{\hl{SVM: 2023}}
-	\end{subfigure}%
-}
-\caption{\hl{Results of the Support Vector Machine (SVM) - based classification of the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \textbf{(a)}: February 2015; \textbf{(b)}: February 2018; \textbf{(c)}: February 2020; \textbf{(d)}: February 2021; \textbf{(e)}: February 2022; \textbf{(f)}: February 2023.}}\label{fig08}
-\end{figure} 
+\hl{Variations} in land cover types in western Senegal \hl{detected on the processed and classified satellite images }reflect the relationships and links between changing vegetation and soil characteristics which are subject to climatic factors, moisture level, salinity and organic matter, as noted earlier \cite{MANLAY200089}. Moreover, pattern of changes in agriculture land cover types over time correlate with seasonal fluctuations in crop-fallow cycle. The agricultural plantations and irrigated lands are distributed in the sporadic settlements along the populated and semi-urban areas. Earlier studies also noted \cite{BENNOUR2023101370} that climate variability is the dominant factor that lead to the increasing the actual evaporation and as a result, salinisation of the affected lands in the Senegal River basin.
+
+\hl{The} main triggers for changing types of vegetation and landscape patterns of the Senegalese Sahel region include the climatic factors and anthropogenic activities which resulted in the decline and local extinction of woody species \cite{land3030770}. Major human-induced activities include the dynamical agribusiness in the agricultural commodities which includes the increase of croplands and areas of irrigated vegetation \cite{land8030042}. Such activities are vital for local population and the support of living. Nevertheless, the environmental consequences on Senegalese landscapes include land degradation and changed land cover types. Besides, land degradation is recently reported in the savanna landscapes of Senegal which correlates to the trends in land use/cover changes and significant decrease in woodlands \cite{Kalema}. 
 
 %----------- section ----------->
 \section{Conclusions}
