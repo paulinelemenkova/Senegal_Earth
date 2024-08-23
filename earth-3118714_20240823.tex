@@ -21,7 +21,7 @@
 \copyrightyear{2024}
 %\externaleditor{Academic Editor: Firstname Lastname}
 \datereceived{06 July 2024} 
-\daterevised{17 August 2024}
+\daterevised{23 August 2024}
 \dateaccepted{} 
 \datepublished{} 
 \hreflink{https://doi.org/} % If needed use \linebreak
@@ -163,7 +163,9 @@ Inspired by the existing examples of the {machine learning (ML) methods of the }
 \caption{Study area with shown segments of the Landsat images on a topographic map of Senegal. Software: GMT. Map source: author.}\label{fig01}
 \end{figure}
 
-{The environmental analysis was performed using }a series of {satellite }images {evaluated for the period} from 2015 to 2023. To this end, we explore the advanced approach of {SVM was employed for RS } data processing by the GRASS GIS scripting techniques{. The main goal of this study is to map and evaluate changes in diverse} land cover types of west Senegal, which include both inner regions and coastal mangrove forests in the delta of Saloum River, Figure \ref{fig01}. {To achieve this goal, }the {practical objective} is to classify land cover types in the coastal region of west Senegal using a series of Landsat 8-9 OLI/TIRS {multispectral }satellite images {processed using ML methods of Support Vector Machine as advanced method of automated image classification. Contrary to the existing GIS, programming approach to satellite image processing has a high automation in data handling and is very fast and robust to classify and to compare the satellite images. This is achieved by a combination of the embedded GRASS GIS modules used separately for computing the vegetation indices and plotting the classification maps.}
+{The environmental analysis was performed using }a series of {satellite }images {evaluated for the period} from 2015 to 2023. To this end, we explore the \hl{classification} approach of {SVM \hl{which} was employed for RS } data processing by the GRASS GIS scripting techniques. \hl{The SVM classifier is applied as a widely implemented supervised learning approach. Other advanced Deep Learning (DL) methods which have been developed recently include such methods as autoencoders, a special type of neural network that operates with dimensional latent representation, or vision transformers which differentially weigh the significance of each part of the image. Nevertheless, the SVM is still sufficient and effective approach for many remote sensing (RS) and GIS tasks. Given the availability of SVM in GRASS GIS functionality, this method was employed to the image classification. }
+
+{The main goal of this study is to map and evaluate changes in diverse} land cover types of west Senegal, which include both inner regions and coastal mangrove forests in the delta of Saloum River, Figure \ref{fig01}. {To achieve this goal, }the {practical objective} is to classify land cover types in the coastal region of west Senegal using a series of Landsat 8-9 OLI/TIRS {multispectral }satellite images {processed using ML methods of Support Vector Machine as advanced method of automated image classification. Contrary to the existing GIS, programming approach to satellite image processing has a high automation in data handling and is very fast and robust to classify and to compare the satellite images. This is achieved by a combination of the embedded GRASS GIS modules used separately for computing the vegetation indices and plotting the classification maps.}
 
 {According to} recent studies, mangrove {habitats} are {drastically disappearing. These} ecosystems are currently {being impacted by} anthropogenic {activity}, climate change, and local effects of salinity in {the} soil. \cite{ANDRIEU2020117963,Devaney}. {By evaluating gains and losses in landscape} patches, remote sensing data {can be spatially analyzed} to {better} understand the dynamics of these {distinct} wetland ecosystems. {Our comprehension of the changes} in Senegalese landscapes {is aided by} satellite image analysis, {which also shows how these} landscapes {respond} to the effects of West Africa's changing climate, {including rising} temperatures and evaporation and {falling} precipitation. 
 
@@ -545,6 +547,7 @@ The following abbreviations are used in this manuscript:\\
 \begin{tabular}{@{}ll}
 DCW & Digital Chart of the World \\
 DEM & Digital Elevation Model \\ 
+\hl{DL} & \hl{Deep Learning} \\
 {DN} & {Digital Number} \\
 ESRI & Environmental Systems Research Institute \\
 FAO & Food and Agriculture Organization \\
