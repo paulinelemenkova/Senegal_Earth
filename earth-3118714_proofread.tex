@@ -1,0 +1,3343 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[earth,article,accept,pdftex,moreauthors]{Definitions/mdpi}
+
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{\alph{subfigure}} 
+\DeclareCaptionLabelFormat{subcaptionlabel}{\normalfont(\textbf{#2}\normalfont)} 
+\captionsetup[subfigure]{labelformat=subcaptionlabel,justification=centering}
+
+
+ 
+
+%=================================================================
+%----------
+% journal
+%----------
+
+% MDPI internal commands
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2024}
+\copyrightyear{2024}
+\externaleditor{Academic Editor: }
+\datereceived{6 July 2024} 
+\daterevised{4 September 2024}
+\dateaccepted{5 September 2024} 
+\datepublished{} 
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{subcaption}
+\usepackage{listings}
+\captionsetup[lstlisting]{position=top, labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=off, justification=justified}
+\usepackage{xcolor}
+\usepackage{gensymb} % for \textdegree
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{verbatim}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepmagenta}{RGB}{195,12,214}
+\definecolor{deepgreen}{RGB}{29,122,30}
+\definecolor{mintgreen}{RGB}{192,249,192}
+\definecolor{codepurple}{RGB}{204, 0, 153}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{GainsboroPurple}{RGB}{247,176,247}
+\definecolor{LightSlateGrey}{RGB}{124,118,118}
+%    
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{LightSlateGrey},
+    keywordstyle=\color{deepgreen}\bfseries,
+    emphstyle=\color{deepred},
+    numberstyle=\tiny\color{deepmagenta},
+    stringstyle=\color{deepblue},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\renewcommand*{\lstlistingname}{Listing A\hspace{-2pt}}
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{{\highlighting{Support} %MDPI: Title is different from the one in our system. Please check and confirm which version is correct.
+ Vector Machine Algorithm }for {Mapping }Land Cover {Dynamics} in Senegal, West Africa, Using Earth Observation Data}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{{Support Vector Machine Algorithm }for {Mapping }Land Cover {Dynamics} in Senegal, West Africa, Using Earth Observation Data}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0002-5759-1089} % Polina Add \orcidA{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{\hl{Polina} %MDPI: \hl{} %MDPI: Please carefully check the accuracy of names and affiliations.
+ Lemenkova \textsuperscript{1,2} \orcidA{}}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Polina Lemenkova}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{\hl{Lemenkova,} %MDPI: \hl{} %MDPI: Please carefully check the accuracy of names.
+ P.}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations/Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Department of Geoinformatics, Faculty of Digital and Analytical Sciences, Paris Lodron Universität Salzburg, Schillerstraße 30, A-5020 Salzburg, Austria; polina.lemenkova@plus.ac.at or \highlighting{polina.lemenkova2@unibo.it;} %MDPI: Please check if both e mails should be retained.
+\linebreak Tel.: (+43)-677-6173-2772 or (+39)-344-69-28-732
+
+$^{2}$ \quad Department of Biological, Geological and Environmental Sciences, Alma Mater Studiorum---Università di Bologna, Via Irnerio 42, IT-40126 Bologna, \hl{EM,} %MDPI: Italian region abbreviated. Please check. Also, please check if it can be removed.
+ Italy
+}
+
+% Contact information of the corresponding author
+%\corres{Correspondence: }
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation 3.} 
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{This paper addresses the problem of mapping land cover types in Senegal and recognition of vegetation systems in the Saloum River Delta on the satellite images. Multi-seasonal landscape dynamics {were} analyzed {using} Landsat 8-9 OLI/TIRS {images} from 2015 to 2023{. Two image classification methods were compared, and their performance was evaluated in the\highlighting{ GRASS GIS software} %MDPI: Please state the software version number, creator, and the location (city, country) from where the software was sourced.
+ by means of unsupervised classification using the k-means  clustering algorithm and supervised classification using the Support Vector Machine (SVM) algorithm}. The land cover types were identified using {machine learning (ML)-based} analysis of {the} spectral reflectance of the multispectral images. The results based on the {processed multispectral} images indicated a decrease in savannas, an increase in croplands and agricultural lands, a decline in forests, and changes to coastal wetlands, including mangroves with high biodiversity. {The practical aim is to describe a novel method of creating land cover maps using RS data for each class and to improve accuracy. We accomplish this by calculating the areas occupied by 10 land cover classes within the target area for six consecutive years. Our results indicate that, in comparing the performance of the algorithms, the SVM classification approach increased the accuracy, \highlighting{with 98\% of pixels being stable}, which shows qualitative improvements in image classification. This} paper contributes to the natural resource management and environmental monitoring of Senegal, West Africa, through  advanced cartographic methods \highlighting{applied to remote sensing of Earth observation data}. %MDPI English: Check meaning is retained.
+}
+
+% Keywords
+\keyword{remote sensing; cartography; vegetation; West Africa; satellite image; Landsat; Sahel; climate change; landscape; land cover types} 
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+\PACS{\hl{91.10.Da;} %MDPI: Please confirm if PACS, MSC and JEL should be retained.
+ 91.10.Jf; 91.10.Sp; 91.10.Xa; 96.25.Vt; 91.10.Fc; 95.40.+s; 95.75.Qr; 95.75.Rs; 42.68.Wt}
+\MSC{86A30; 86-08; 86A99; 86A04}
+\JEL{Y91; Q20; Q24; Q23; Q3; Q01; R11; O44; O13; Q5; Q51; Q55; N57; C6; C61}
+
+\begin{document}
+
+%----------- section ----------->
+\section{Introduction}
+
+%----------- subsection ----------->
+
+\subsection{Background}
+{Land cover and land use change are widely known as key elements of landscapes. Maps {showing classification of land cover types} are key data sources for assessment of landscape dynamics and for evaluating environmental trends. }Land cover types (or land use types) refer to {the} physical{ }components of Earth cover {that are physically present and visible on the Earth's surface}. Compared to land use types, which are defined as landscape patches{ }used by{ }people, land cover types  typically represent {natural }physical characteristics of the Earth's surface in terms of structure, patterns, and components. {Characteristics and features of land cover types are visible on  satellite images recorded from space}. {Therefore, }remote {sensing} (RS) data, such as satellite images, are widely used for land cover change analysis {using} classification maps {that show} spatio-temporal changes in land cover/land use patterns. Hence, {land }cover maps are the background geoinformation products necessary for analysts and decision makers. The~use of land cover maps enables the monitoring of environmental changes and evaluation of risks to sustainable development. Therefore, the~use of land cover maps is applicable in diverse research and development sectors such as governments, civil engineering, and industrial planning~\cite{9553499}.
+
+{In monitoring landscape dynamics, {remote sensing} (RS) data are widely used and applied in environmental mapping {with the aim of detecting} identical landscape patterns in a time series of images and{ }analyzing changes using recognition of landscape patches. In~this regard, there is a strong need for machine-based, automated geospatial data processing and image analysis that turns the technical values of pixels in the satellite images into information that provides knowledge and insights for environmental experts and planners. The} identification{ and recognition of land cover types becomes }possible using {the }analysis and synthesis of remote sensing data, such as spaceborne images. Environmental studies often use {such} products{ for landscape analysis, for~example, images }of Landsat~missions. 
+
+Major types of satellite images for effective interpretation of the Earth's landscapes include Sentinel 2 Data~\cite{Ngom,TONG2020111598}, NOAA-AVHRR~\cite{KONARSKA2002491,ANYAMBA2005596,Frederiksen}, SPOT~\cite{SILVA2005188,MARTINEZ2011152}, and~Landsat~\cite{PIMPLE2020118007,Lemenkova202315}, and~the combinations thereof~\cite{rs12193157}. For~instance, the recent Global Land Cover 2000 map was {implemented using }the analysis of the Vegetation Sensor on board the SPOT-4 satellite {image }\cite{Mayaux}. {Another example of such products is presented by the time series of annual global maps of land cover types derived from {the }ESA Sentinel~2 imagery at 10 m~resolution }\cite{Karraetal}. {The }Landsat scenes used for landscape mapping include{ }data acquired from {its }various{ }sensors, such as the Multispectral Scanner (MSS), the Thematic Mapper (TM), the Enhanced Thematic Mapper Plus (ETM+), and the recent product called the Operational Land Imager and Thermal Infrared Sensor (OLI/TIRS).
+
+Certainly, although~diverse images can be used in various combination as data sources for landscape interpretation and environmental mapping, the~general approach of {RS} data processing relies on using {the values of} spectral reflectance obtained as {digital numbers (DNs)} of pixels on the image scene~\cite{ACKER2014}. The~effects of reflectance and absorption of various land cover types in different wavelengths{ }{enable} the discrimination of major land cover types in the multispectral images: water, land, forests (with various types of vegetation), urban zones, {and} desert sands~\cite{rs12101634}. {Such information can be extracted from} variations in brightness, primary colors  (red, green, blue), hue, saturation, and intensity of light{. In~experimental studies, these phenomena {are} utilized to assess land--water borders and distinguish them from other land cover types, leading to an improvement in the recognition of the Earth's objects} \cite{rs13132454}. {The} information{ }provided by the environmental descriptors{ }can be obtained from the analysis of values of pixels recording spectral reflectance of diverse land cover types{. In~{RS}, this can be} derived from the combination of different bands {of the} multispectral imagery, e.g.,~NIR/Red bands for computing the Normalized Difference Vegetation Index (NDVI) and other vegetation indices~\cite{CRIPPEN199071,LI2004463,jmse11040871,RUAN2022157075}.
+
+\subsection{Problem~Formulation}
+
+One of the challenging {problems} in identification of land cover types in the satellite images consists of automatic extraction of the reliable features {visible in the }image scene{. This is true especially in terms of }highly heterogeneous landscape patches in a complex mosaic of intermittent land cover types~\cite{CAMPOS2018211,SYIFA2020919}. In~this regard, image processing and analysis for landscape interpretation {are} fundamental {issues} in environmental mapping and thematic cartography. Identification of land cover types in the {RS data} requires diverse image processing techniques, such as classification, clustering, and segmentation. {Classifying} mixed terrestrial ecoregions {typical for} Senegal requires {advanced methods of} image \mbox{analysis~\cite{BUDDE2004481}}. {Senegal's} landscape is distinctive because {it consists of} a complex {blend} of diverse, semi-arid landscapes, such as forest--savanna mosaics, {which are periodically filled} with Sahelian acacia and West Sudanian {savannas} with diverse tree species, as~well as coastal regions with {dominant} Guinean {mangroves}
+\cite{TAPPAN2004427,DEANS2003253}.
+
+{The current practice {of geographic information system (GIS)-based supervised image processing }involves manually marking different} features in {a{ }landscape, such as} regions of interest (ROIs), singular patches, and~landscape corridors, {because} the {extraction of features from processed images is difficult}
+ \cite{CABRAL2017115}. {The} human factor in landscape {assessment} {involves }some concerns {about} {the }repeatability and reliability, which {suggest} the need for the development of automatic methods {for} image interpretation and {object} recognition~\cite{CONCHEDDA2008578,rs9020181,rs12091436}. {Manual interpretation of} land cover types can {lead to the} misclassification of pixels in the images, which {might }{result in} misinterpretation of {the }selected landscape patches. {As mentioned earlier, implementing quantitative} data interpretation for prediction and analysis {is challenging} in African countries {where fieldwork} data {are limited }\cite{STOORVOGEL2009161}. Therefore, {RS}{-based vegetation mapping and agricultural landscape monitoring are vitally dependent} on using satellite data processed with a high level of automation~\cite{PEREZHOYOS2020102064,BRANDT2016215}.  
+
+{Effective image analysis relies heavily on} the type of {classifier} and the algorithms used for data handling{ }\cite{Lemenkova202212}. Another important factor {is} the quality of imagery for the evaluated {region of interest (ROI)} in {the} study area{, which includes} minimal cloudiness and haze, correct time of image capture {and} coverage{.} Finally, {image analysis is based on} the methodology and approaches {used in} {RS}, {including} data acquisition, preprocessing, description, recognition, classification, segmentation, interpretation, and~accuracy analysis. The~{development} of {computer-based} {programming} methods {has led to} the {growth} of {novel} {image processing} methods, {which} are the primary factors in {effectiveness} \cite{Duncan,jimaging9050098,Purkis,info14040249,DIOUF2001129}. Development of the advanced tools of image processing and related cartographic tasks has resulted in many approaches to utilizing effective methods {for automation} \cite{SUOMALAINEN2021112691,OlsonAnderson,Lemenkova202227,Ali,Olsonetal2019,Lemenkova202229}. {One of these methods is the {machine learning} (ML)-based Support Vector Machine (SVM) algorithm used for} image analysis and synthesis for interpretation of vegetation patterns~\cite{PUERTAS2013112,PETROPOULOS201170,ANEES2024102732,IBRAHIM2024100561}.
+
+{In this respect}{, the~research questions formulated in this study are as follows: \mbox{(1) Can} the Support Vector Machine (SVM) {ML}-based land cover detection method be used with{ GIS} for satellite image analysis? (2) How can the SVM algorithm of ML be employed in geoinformation extracting tasks using scripts? (3) What is the workflow for {RS} data processing for an effective chain of data handling to perform{ }the necessary tasks during SVM-based image classification? Answering these questions enables us to evaluate the effectiveness of  {SVM} as one of the most powerful ML applications in cartographic tasks and RS data analysis.}
+
+\subsection{Related~Work}
+
+{Many reports have recently been published  illustrating} land cover changes in Senegal~\cite{WOOD2004565,ELBERLING200337,Hiraldo}, effects of climate change on landscape variability and vegetation communities~\cite{LIU2004583,TSCHAKERT2004535,LUFAFA20081}, environmental dynamics, and sustainability~\cite{CAMARA2017204}. {Nevertheless, these} approaches do not {take into account} the {benefits} of {programming scripts for} satellite image processing{. At~the same time}, using ML methods increases the automation of mapping {and the speed of data processing, }ensuring the accuracy and objectivity of land cover classification. Indeed, image processing using {ML methods such as {SVM}} partitions the image into structured land patches using automatic analysis of spectral reflectance of the pixels{. {The} obtained {values of pixels are then }assigned }into various classes using principles of machine{-}based vision and pattern recognition. {Through this} approach, it {is easy} to {visualize} and estimate changes in land cover types using images {from} different years as {part of a} time series analysis. Additionally, it overcomes the {problems with} {conventional software programs} used for image processing, which {may include} drawbacks {in} data~processing.
+
+A drought period in Africa in the 1970s and 1980s resulted in climate changes{ that include }such consequences as decreased rainfall and precipitation, raised temperatures, and increased evaporation~\cite{Paturel,Lemenkova202217}. {These climate-related} processes triggered land cover changes in natural vegetation patterns of Sahel ecoregions that affected cultivated areas and croplands, increased spots of bare soil, and~led to changes in surface water~\cite{Fritz,Lemenkova202313}. {To this point}, one of the priorities of image processing methods {for environmental landscape analysis }is to support {land cover} monitoring through {the} interpretation of land cover types using time series analysis{. Regular {monitoring of the Earth's }landscapes }enables us to detect environmental changes, land and soil degradation, and variations in vegetation cover~\cite{MBOW2008210}. Another essential application of image analysis is monitoring coastal zones to {evaluate}  hydrological changes, to evaluate the extent of river flooding in the delta, to detect {soil }erosion~\cite{NDOUR201892,NGOM201634}, and to monitor the degradation of mangroves and coastal ecosystems~\cite{LOMBARD2023102027,CARNEY2014126}
+
+\subsection{Objective and~Motivation}
+
+Inspired by the existing examples of the {ML} methods used to analyze multispectral satellite images in environmental applications, this study integrates advanced cartographic{ }scripting methods with applied techniques of {SVM} image processing for monitoring {landscapes} in Senegal{; see }Figure \ref{fig01}. 
+
+\vspace{-12pt}{}
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=13.5 cm]{Fig_01.jpg}
+\caption{Study area with segments of the Landsat images shown  on a topographic map of Senegal. Software: GMT. Map source: Author.}\label{fig01}
+\end{figure}
+
+{The environmental analysis was performed using }a series of {satellite }images {evaluated for the period} from 2015 to 2023. To~this end, we explore the {classification} approach of {SVM, {which} was employed for RS} data processing by the {scripting techniques of the Geographic Resources Analysis Support System} (GRASS) GIS. {The SVM classifier is applied as a widely implemented supervised learning approach. Other advanced deep learning (DL) methods that have been developed recently include such methods as autoencoders, a~special type of neural network that operates with dimensional latent representation, and~vision transformers, which differentially weigh the significance of each part of the image. Nevertheless, SVM is still a sufficient and effective approach for many remote sensing (RS) and GIS tasks. Given the availability of SVM in GRASS GIS, this method was employed for the image classification. }
+
+{The main goal of this study is to map and evaluate changes in diverse} land cover types in West Senegal, which include both inner regions and coastal mangrove forests in the delta of the Saloum River; see Figure~\ref{fig01}. {To achieve this goal, }the {practical objective} is to classify land cover types in the coastal region of West Senegal using a series of Landsat 8-9 OLI/TIRS {multispectral }satellite images {processed using ML methods, including {SVM} as an advanced method of automated image classification. Contrary to the existing GIS, the programming approach to satellite image processing has a high automation in data handling{. Additionally, it }is {a }very fast and robust {approach }for classifying and comparing{ }satellite images. This is achieved by a combination of the embedded GRASS GIS modules is used separately for computing{ }vegetation indices and plotting the classification maps.}
+
+{According to} recent studies, mangrove {habitats} are {drastically disappearing. {This is because }these} ecosystems are{ }{being impacted by} anthropogenic {activity}, climate change, and~local effects of salinity in {the} soil~\cite{ANDRIEU2020117963,Devaney}. {By evaluating gains and losses in landscape} patches, {RS} data {can be spatially analyzed} to{ }understand the dynamics of these {distinct} wetland ecosystems. {Our comprehension of the changes} in Senegalese landscapes {is aided by} satellite image analysis, {which{ }shows how these} landscapes {respond} to the effects of West Africa's changing climate, {including rising} temperatures{, }evaporation, and {falling} precipitation. 
+
+The goal of using the GRASS GIS scripts for {RS} data analysis is to quantitatively evaluate changes in land cover types in Senegal {as a result of} climate fluctuations {during} a recent eight-year period{. The~approach to achieve this goal is based on }using automated unsupervised classification and supervised classification using the ML method of {SVM}. In~this way, the~maximal likelihood {and SVM }classification {algorithms present} an effective means by which the{ }Landsat scenes can be processed automatically. The~{RS} data obtained from the {United States Geological Survey (}USGS) repository {were} used for {environmental }analysis and{ }monitoring to {evaluate and visualize} variations in landscape patches{. This analysis {is }technically based on the ML-based estimation of spectral reflectance on the satellite images{, which} supports environmental monitoring of the West African landscapes} responding to climate and anthropogenic effects{.} 
+
+The main purpose of this paper is to provide an advanced approach using {ML} to {RS} data analysis and processing{. Such an approach }can {evaluate} the nonlinear behavior of {the }landscapes in West Africa over time{, which indicates} the development of climate settings and{ }the related response of vegetation patterns. {To this end, we} propose a script-based classification and image enhancement technique {using}{ }GRASS GIS{ software} to {analyze} land cover changes in the coastal region of West Senegal. {This} technique {aims} to address the main {challenges associated with} traditional image processing, {such as }structured noise in {the }classified scenes, poor quality {of the} images{, the} misinterpretation of pixels, {and the} low speed of data~handling. 
+
+{The ML-based image analysis is based on using the }{RS} data, {which serve} as a cartographic basis to support optimized decisions made {by} environmental policy makers and planners{. Satellite images processed by the machine-based methods allow for }the identification of vulnerable landscapes and {enable} the monitoring of degraded lands in Senegal. {In order to do this}, a~series of the multispectral satellite images from Landsat with recent OLI/TIRS sensors {taken on different years} was processed with various modules of GRASS GIS{. This time series data analysis{ }enabled us to perform {an }environmental } analysis for monitoring landscape dynamics in~Senegal. 
+
+Importantly, the~study presented here is not intended to suggest that scripting methods {replace }{the role of conventional GIS}. In~contrast, the~programming codes{ }supplement the traditional cartographic methods used in the {RS} software. However, the~integration of a scripting workflow with image analysis{ }and cartographic {tasks} provides an effective approach by which the analysis of land cover changes can be visualized in an automatic way. {In light of this, }the main contributions of this paper are as follows: 
+
+\begin{itemize}
+  \item A combination of the GRASS GIS modules 'i.group', 'i.maxlik', and 'i.cluster' are proposed for {the }{unsupervised }image classification. The~land cover types are classified based on the difference in spectral reflectance of the pixels in {each of }the images.
+  \item {A set of  GRASS GIS modules, {including} 'r.learn.predict', 'r.learn.train', and 'r.random', is used for supervised ML-based image classification using an {SVM} modeling algorithm.}
+  \item The land cover types in  coastal Senegal are defined as  groups of pixels according to the structural similarity between the landscape patches. Orientation, location, and frequency of mangrove fields in the Saloum River Delta are estimated from the analysis of landscape patches in the coastal area.
+  \item To balance {the} robustness and accuracy, a~coarse-to-fine strategy is proposed {using} the interpretation of landscape patches {according to the} FAO scheme of land cover types{. The~data for the whole country were} downscaled to the ROI of the selected study area, with images covering the region of Cape Verde Peninsula and the surrounding territories.
+  \item The proposed image processing and {ML-based }classification algorithms utilizing the {SVM techniques of }GRASS GIS outperform {the }existing traditional software with {graphical user interface (GUI)} approaches in terms of repeatability of scripts and automation {through computer vision. This methodological workflow }is useful for future similar studies {of} land cover type analysis in Senegal {or surrounding areas of West Africa}.
+\end{itemize}
+
+%----------- section ----------->
+\section{Materials and~Methods}
+
+To increase the speed and accuracy of image processing, the{ }GRASS GIS software was applied {for} advanced image processing {due to its extended} functionalities~\cite{Neteleretal2008}. Generic Mapping Tools (GMT) Version 6~\cite{Wessel} {was} used as a cartographic tool for \hl{topography, and} %MDPI English: Check meaning is retained.
+ {RS} {tasks }are based on{ }scripting techniques{. The~}main advantages {of scripts}{ }include{ }their high speed of data processing and repeatability{ }\cite{min13050604,Lemenkova202213,Lemenkova202206}.
+
+%----------- subsection ----------->
+\subsection{Data}
+
+We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in western Senegal from 2015 to 2023{. Major metadata are }summarized in Table~\ref{tab01}{.} 
+
+\vspace{-4pt}{}
+\begin{table}[H]
+\caption{\hl{Identifiers (IDs)} %MDPI: Vertical line removed from the table as it is not allowed. Please check and confirm.
+ of the six {multispectral }Landsat 8-9 OLI/TIRS {images}.}.
+\label{tab01}
+\tablesize{\footnotesize}
+\begin{adjustwidth}{-\extralength}{0cm}
+\setlength{\cellWidtha}{\fulllength/4-2\tabcolsep-0.8in}
+\setlength{\cellWidthb}{\fulllength/4-2\tabcolsep+0.6in}
+\setlength{\cellWidthc}{\fulllength/4-2\tabcolsep+0.6in}
+\setlength{\cellWidthd}{\fulllength/4-2\tabcolsep-0.3in}
+\scalebox{1}[1]{\begin{tabularx}{\fulllength}{>{\raggedright\arraybackslash}m{\cellWidtha}>{\raggedright\arraybackslash}m{\cellWidthb}>{\raggedright\arraybackslash}m{\cellWidthc}>{\raggedright\arraybackslash}m{\cellWidthd}}
+\toprule
+			\textbf{Date} & \textbf{Landsat Product Identifier L1} & \textbf{Landsat Product Identifier L2} & \textbf{Scene ID} \\
+			\midrule
+			\hl{25 February 2015} %MDPI: We revised date format in this column according to our rules. Please check and confirm.
+ & LC08\_L1TP\_205050\_20150225\_20200909\_02\_T1 & LC08\_L2SP\_205050\_20150225\_20200909\_02\_T1 & LC82050502015056LGN01 \\	
+			17 February 2018 & LC08\_L1TP\_205050\_20180217\_20200902\_02\_T1 & LC08\_L2SP\_205050\_20180217\_20200902\_02\_T1 & LC82050502018048LGN00 \\	
+			7 February 2020 & LC08\_L1TP\_205050\_20200207\_20200823\_02\_T1 & LC08\_L2SP\_205050\_20200207\_20200823\_02\_T1 & LC82050502020038LGN00 \\
+			25 February 2021 & LC08\_L1TP\_205050\_20210225\_20210304\_02\_T1 & LC08\_L2SP\_205050\_20210225\_20210304\_02\_T1 & LC82050502021056LGN00 \\
+			20 February 2022 & LC09\_L1TP\_205050\_20220220\_20230427\_02\_T1 & LC09\_L2SP\_205050\_20220220\_20230427\_02\_T1 & LC92050502022051LGN01 \\
+			22 January 2023 & LC09\_L1TP\_205050\_20230122\_20230313\_02\_T1 & LC09\_L2SP\_205050\_20230122\_20230313\_02\_T1 & LC92050502023022LGN01 \\	
+			\bottomrule
+		\end{tabularx}}
+\end{adjustwidth}
+\end{table} 
+
+The images were downloaded from the United States Geological Survey (USGS) EarthExplorer repository; see Figure~\ref{fig02}. The{ }data contain scenes taken during the winter period (January/February){. The~selection of the winter period is explained by the fact that images taken during winter }enable us to better detect plant phenology in a semi-arid climate{. In~contrast, those collected during }summer{ }are not suitable for plant detection due to the high level of droughts in {the }desert areas{, }{especially }in the inner regions of the country. Additionally, the~images were {collected with minimized} cloudiness and haze below 10\%{. }Hence, the~best quality and suitability of images was in the winter period, {during the months of }January {and} February. All Landsat images are multispectral and have a 30~m resolution in visible spectral bands{. The~images }are {projected} in Universal Transverse Mercator (UTM) Zone 28 for western Senegal{.} {The} Landsat images used in this study{ }are presented in Figure~\ref{fig03}.
+
+
+
+\begin{figure}[H]		
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+\includegraphics[width=16.0 cm]{Fig_02.jpg}
+\end{adjustwidth}
+\caption{\hl{Data capture} %MDPI: Please make sure that cut off content does not affect scientific reading.
+ of  Landsat images from the USGS EarthExplorer~repository.}\label{fig02}
+\end{figure}
+
+
+\vspace{-4pt}{}
+\begin{figure}[H]
+\hspace{80pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+\includegraphics[width=0.9\textwidth]{Fig_03a.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+\includegraphics[width=0.9\textwidth]{Fig_03b.jpg}
+
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+	\includegraphics[width=0.9\textwidth]{Fig_03c.jpg}
+
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+}\\
+\vfill \vspace{1mm}
+\hspace{80pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+\includegraphics[width=0.9\textwidth]{Fig_03d.jpg}
+
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+\includegraphics[width=0.9\textwidth]{Fig_03e.jpg}
+
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+\includegraphics[width=0.9\textwidth]{Fig_03f.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+}
+\caption{Landsat images in RGB colors covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal, in February:\hl{ (\textbf{a}) 2015;} %MDPI: Years removed from labels in the picture since they were also provided in the caption. Please check and confirm. Same below.
+ (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022; (\textbf{f}) 2023.}\label{fig03}
+\end{figure} 
+
+It is well-known that the high-resolution commercial satellite images (e.g., SPOT, Pleiades) are{ }expensive due to the {expenses related to} the launch of the satellite and~related operational costs. Therefore, such scenes are not always easily accessible as a data source. Hence, the~use of the open source Landsat 8-9 OLI/TIRS {is} crucial, and~the value of{ these} products {to }environmental monitoring {is} high{. This is }especially {true for{ }replication of this study} in future similar work{.} The {aim} of the multispectral Landsat images was to {examine the impact of both} anthropogenic and climatic factors {on the process of land cover change} in western Senegal. {This was achieved by analyzing and processing} the spectral reflectance characteristics of the pixels {obtained} from the {RS} data{.} 
+
+{The} images were selected for different years (2015 to 2023){ }for comparability{. }{Using RS techniques,} the environmental {characteristics} of the landscapes were {evaluated} in order to analyze how changes in climate are affecting the types of land cover and{, in~particular, the} distribution of mangroves along the {Saloum River Delta.} The {metadata for the}{ }images were evaluated for each scene: four images were selected from the Landsat-8 {OLI-TIRS sensor}, and~two recent scenes were selected from the Landsat-9 {OLI-TIRS sensor instruments}. 
+
+\subsection{Methodology}
+
+The methodology of this study {is based on}{ }scripting software for data processing{. Technically, we propose a novel mapping method using the SVM algorithm in GRASS GIS for improving the image classification task, and we compare it with the conventional method of unsupervised classification using k-means clustering. Major }programming scripts {are} shown in Appendix \ref{App2} for technical reference{. }{The} full codes have been placed in a GitHub repository, including {ML} techniques of {SVM)}. {The} advantage of the GRASS GIS approach {to RS data processing consists of}{ }adjusted modules {enabling us }to analyze{ }spectral properties of the {satellite }images{. Additionally, the~{GMT} {was applied for }cartographic{ }mapping{. This paper presents a series of scripting experiments that utilize both software applications. Methods of{ }applied programming enabled us to evaluate {recent} dynamics of} land cover {types} in Senegal{.} 
+
+The advanced script-based cartographic methods of monitoring and mapping land cover types are built on a growing demand for  time- and cost-effective approaches in cartographic workflow and {RS} data analysis{. Their use enables us} to save time and resources while processing {large }geospatial datasets{ using }satellite images {obtained from  open sources}. Hence, three major script-based tool sets were used in this study for geospatial data analysis and environmental monitoring in West Africa:
+
+ \begin{enumerate}
+        \item The GMT script was used for plotting the topography of the country; see Listing A\ref{lst01}.  
+        \item An R script was used for plotting the methodological flowchart; see Listing A\ref{lst02}. 
+         \item GRASS GIS {scripts were} used for image processing; see {Listings} A\ref{lst03} and A\ref{lst04}.
+  \end{enumerate}       
+
+The main idea was to apply a single workflow framework  for both the image processing and the cartographic mapping tasks using scripts run from the console. This enabled us to reveal the {advantages of }the technical performance of automated geospatial data processing{. More specifically, }using a programming approach that includes{ }various programming suites from the script-based software {presents a novel workflow for geospatial data processing}. {This method demonstrates how adding} scripts {expedites} the process of {image analysis} and cartographic plotting {while also providing} an {overview} of the {study methods}. As~mentioned earlier~\cite{Lemenkova202215}, {the automation of the cartographic procedure} and the workflow's repeatability in future research are the {primary benefits of scripts. Moreover, scripting} enables us to  save significant time due to automation. We were able to {identify} changes in the analysis of landscapes of western Senegal for the {assessment} of environmental {impacts} from climate change {by} using the information {obtained} from {the }automated image analysis and interpretation. {This was done by {evaluating} a} series of images and analyzing {RS} data{.} 
+
+The workflow of the data processing and major methodological steps is shown in Figure~\ref{fig04}, {with the}{ }goal {of performing image} classification and interpretation {in order} to detect changes in land cover types{.} {The} data processing was {technically }implemented {using} GRASS GIS software~\cite{NETELER2012124}{ }and run on a Mac machine with Apple M1 chip and the MacOS operating system. After~preprocessing and data import, the~images were grouped{ }to select {the }necessary {multispectral }raster bands{ }{for image processing. This was performed by} the 'i.group' module {of} GRASS GIS{ }\cite{NetelerMitasova2008}. Afterwards, the~images were clustered using{ }{unsupervised classification. This was carried out utilizing the} module 'i.cluster', which automatically {assigns} pixels {into}  groups {according to} their spectral reflectance. This method of image processing provided enough data to group the pixels into land cover types and to evaluate the values of pixels in the actual scenes for comparison. The~average computation time for image classification and enhancement per Landsat scene is about 2.5~s.
+
+\vspace{-6pt}{}
+\begin{figure}[H]
+		\includegraphics[width=13.0 cm]{Fig_04.jpg}
+\caption{Workflow scheme illustrating the data and the main methodological steps. Software: R {version 4.3.3, library DiagrammeR version 1.0.11. }Diagram source: Author.}\label{fig04}
+\end{figure}
+
+The matching performance of landscape patches over this period is evaluated using GRASS GIS functionality as a sequence of modules utilized for processing each scene separately using a script. The~images were read into the GRASS GIS environment using the 'r.import' module; the list of the available bands was checked using the 'g.list rast' command. The~extent {of the ROI }(UTM Zone 28) and {the }resolution were set to the region of the current image, which was detected automatically along with geospatial data {such as }coordinates, location{, and} projection. The~{false} color composites were plotted to{ }distinguish the area of{ vegetation} in the delta of the  Saloum River (colored in red shadows), land (colored by beige and light brownish shadows), and water areas (colored black for  seawater and navy blue for the  Saloum River); see Figure~\ref{fig05}. 
+
+{The {ML} method of satellite image processing involves using {the SVM} algorithm for data partition and classification. To~perform these steps with fixed ML parameters, we utilize the GRASS GIS modules 'r.random' for generating a training dataset from pixels obtained from the land cover classification, the 'r.learn.train' module for training a Support Vector Classification (SVC) model, and the 'r.learn.predict' module, which {predicts} the pixel's assignment to the target classes. We represent the image dataset as a time series of scenes from 2015 to 2023 represented as color composites from the multispectral bands of Landsat. We denote the number of estimators as 500 in the model and~the number of seed points as 100 pixels, with a total of 1000 evaluated pixels ('npoints' in the model's syntax). The~training model name is explicitly defined as 'SVC', i.e.,~Support Vector Classification, as \hl{it is} the algorithm embedded in the GRASS GIS software.} %MDPI English: Check meaning is retained.
+
+\begin{figure}[H]
+\hspace{80pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+	\includegraphics[width=0.95\textwidth]{Fig_05a.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+\includegraphics[width=0.95\textwidth]{Fig_05b.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+	
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+	\includegraphics[width=0.95\textwidth]{Fig_05c.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+}\\
+\vfill \vspace{1mm}
+\hspace{80pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+			
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+\includegraphics[width=0.95\textwidth]{Fig_05d.jpg}
+
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+	
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+	\includegraphics[width=0.95\textwidth]{Fig_05e.jpg}
+
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+	
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+	\includegraphics[width=0.95\textwidth]{Fig_05f.jpg}
+
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+}
+\caption{False color composites of the Landsat 8-9 OLI/TIRS images with vegetation colored red, using a combination of spectral bands 5 (Near Infrared (NIR)), 4 (Red), and 3 (Green) of the Landsat OLI sensor covering the study area in the Cape Verde Peninsula region and Saloum River Delta, West Senegal, using February scenes: \hl{(\textbf{a}) 2015;} (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022; (\textbf{f}) 2023.}\label{fig05}
+\end{figure} 
+
+{The standard requirements for a training dataset in {the} ML {approach that includes the SVM algorithm} include a supervised classifier to derive an accurate and precise description of the spectral properties of each land cover type. Therefore,{ }the training data were derived from the previous raster dataset in TIFF format {as samples that support vectors through data partition.} {The} target pixels were selected as representative cells located on the edge of the class distribution in feature space. Using GRASS GIS syntax, generating the training pixels from the land cover classification was performed using the following code{:} 'r.random input=L\_2015\_clusters seed=100 npoints=1000 raster=training\_pixels'. Here, the~number of pixels was selected as 1000 for a larger and more representative dataset, and~the seed for training the data was set to~100. 
+
+{Afterwards}, the~contrasting regions that {have} distinguished{ }spectral reflectance values {(}water, savanna, forest, croplands, and urban spaces{)} were used for identification of  similar classes in the evaluated periods{. Then,} the land cover classes were identified using the SVM algorithm{ }with the modules 'r.learn.train', which trains an SVM model, and 'r.learn.predict', which performs prediction of pixels' association with each of the 10 target land cover classes based on the spectral reflectance of pixels in the images.}
+
+%----------- section ----------->
+\section{Results and~Discussion}
+\unskip
+
+\subsection{{Interpretation of Key~Findings}}
+
+{In this section, the~ability of the two algorithms---unsupervised classification by k-means and supervised classification by SVM---to detect land cover changes in the satellite images is evaluated. Specifically, we assessed {the }dynamics in {the }distinct habitats of Senegal ranging from arid landscapes with savanna to humid coastal conditions with mangroves. }The data for the land cover types in Senegal{ were} visualized in the QGIS software using {vector layers in }the Environmental Systems Research Institute (ESRI) format; see Figure~\ref{fig06}. 
+
+\vspace{-2pt}{}
+\begin{figure}[H]
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\centering %% If there is a figure in wide page, please release command \centering
+\makebox[0.90\linewidth][r]{%
+		\includegraphics[width=16.0 cm]{Fig_06.jpg}
+}
+\end{adjustwidth}
+\caption{\hl{Land} cover types in Senegal according to the FAO classification scheme. Software: QGIS v.~3.22. Map source: Author.} %MDPI English: Please carefully check text in all images for errors; here, for example, "brakish" should read "brackish."
+\label{fig06}
+\end{figure}
+
+According to the Food and Agriculture Organization (FAO)/United Nations Environment Programme (UNEP) classification scheme, the~land cover types {in Senegal include} 10 major{ }classes{. These{ }were} adopted for the {target extent of the}{ ROI} {through generalization} at the{ }country level using {the} Land Cover Classification System (LCCS) {of FAO/UNEP}: 
+
+ \begin{enumerate}
+        \item Mosaic grassland or shrubland/cropland; 
+        \item Mosaic vegetation/cropland; 
+        \item Mangrove wetlands; 
+        \item Rainfed cropland; 
+        \item Consolidated bare areas;
+        \item Mosaic grassland/forest or shrubland; 
+        \item Closed broadleaved forest or shrubland permanently flooded---brackish water; 
+        \item Salt hardpans; 
+        \item Post-flooding or irrigated or aquatic cropland; 
+        \item Water bodies. 
+\end{enumerate}
+
+The quantitative estimations of changes in land cover types over the evaluated period (2015 to 2023) are summarized in the tables in Appendix \ref{App03}{. }They report the computed changes in land cover classes for each processed image. {The analysis of these values shows that the northern and southern coastal ecosystems of western Senegal have a relatively small{ degree of change }over the estimated period. In~contrast, in~the arid north, areas associated with forests and mosaic types of vegetation demonstrate higher magnitudes of change, suggesting a higher {level of }instability compared to {the }estuaries in the south{.}} {The} classification of the land cover types was adapted to the larger extent of the {ROI} with details for the coastal area, {including} mangrove forests. {The} territory of Senegal{ }comprises eight major biological zones with 11 different forms of land use. Of~these, major{ }types{ }include the {savanna}, cultivated lands, forests, and~steppes{ }as the dominating types of land cover {in the semi-arid zones }\cite{WOOMER2004625}. 
+
+A special focus of {coastal Senegalese landscapes is} mangrove swampland, a crucial {habitat} {in the west of the country}{. Mangroves provide }a source of natural resources~\cite{Carney} and a habitat for {wildlife }species~\cite{Galat}. At~the same time, diverse factors have strongly correlated with mangrove losses. These include climate-related processes such as changes in temperature and precipitation, flooding, and increased salinization of waters, as well as~human-related factors such as increases in intensive urbanization~\cite{land10100996} and active agriculture practices~\cite{Branoff}. Overall, the~analysis of land cover types over the coastal area shows the variability in mangroves ({bright} cyan in Figure~\ref{fig06}){. Coastal dynamics }are explained by{ }high interannual fluctuations in the delta of the Saloum River{:} the upper tidal zone is flooded during  high tide{, while }during the drought period, {it} remains drained, with {high evaporation resulting in soil} salinization. 
+
+\subsection{{Clustering-Based~Classification}}
+
+{The overview of Figure} \ref{fig07}, {on which are overlaid the \hl{2013}--2023 Landsat OLI/TIRS time series and the land cover %MDPI English: Check if this number should be 2015 instead.
+types for each{ }case, shows the diversity of habitats and {the }intensity of changes {detected} in the images classified by the k-means algorithm.} The analysis of the classified images {based on clustering}{ }shows a trend in land cover dynamics of the coastal region of Senegal over Dakar and {its surroundings}. 
+
+\begin{figure}[H]
+\hspace{100pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.43\textwidth}
+	
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+	\centering
+			\includegraphics[width=0.9\textwidth]{Fig_07a.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.43\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+		\includegraphics[width=0.9\textwidth]{Fig_07b.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.43\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+		\includegraphics[width=0.9\textwidth]{Fig_07c.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+}\\
+\vfill \vspace{1mm}
+\hspace{100pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.43\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+			\includegraphics[width=0.9\textwidth]{Fig_07d.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.43\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+		\includegraphics[width=0.9\textwidth]{Fig_07e.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.43\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+		\includegraphics[width=0.9\textwidth]{Fig_07f.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+}
+\caption{Classification of the Landsat images from 2020 covering the Cape Verde Peninsula region and the Saloum River Delta, West Senegal:\hl{ (\textbf{a}) 2015;} (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022; (\textbf{f}) 2023.}\label{fig07}
+\end{figure}  
+
+The results demonstrate that the dominating land cover type of Senegal {remains} savanna (73\%), although the areas covered by savanna showed a slight decrease since 2015. {In contrast, }the landscapes covered by  croplands and agricultural areas{ }expanded to 22\%. Furthermore, the~decline in the area covered by forests and mangroves {is} notable. Nevertheless, in~general, {the dominating land cover types in Senegal remain }savannas, woodlands, and~forests{, }covering over 75\% of the country, a result aligned with similar studies~\cite{TAPPAN2004427}. 
+
+{The {maps of land cover }change based on the classified imagery display different spatial patterns. While forest and savanna in the subplots{ }have a significantly higher magnitude {of }values than the background{,} this is not the case for {the }bushland and grasslands, {where the} difference between the values inside and outside is minimal. {The }croplands demonstrate moderate changes that indicate {the measures taken for }sustainable management  in Senegal. Overall, landscape heterogeneity can be observed in comparing the processed images.} The southern sector of  Senegalese vegetation is characterized by the Sudano-Guinean forest savanna and the Guinean forests~\cite{Robequain}. 
+
+{The most pronounced variations} in land cover types in western Senegal {detected on the processed and classified satellite images }reflect the relationships and links between changing vegetation and soil characteristics that are subject to climatic factors, moisture level, salinity, and organic matter, as~noted earlier~\cite{MANLAY200089}. Moreover, {the }pattern of changes in {the agricultural} land cover types over time correlate with seasonal fluctuations in {the }crop--fallow cycle. Agricultural plantations and irrigated lands are distributed in  sporadic settlements along the populated and semi-urban areas. Earlier studies also noted~\cite{BENNOUR2023101370} that climate variability is the dominant factor that leads to increasing the actual evaporation and, as a result, to {land }salinization in the {basin of the }Senegal~River. 
+
+\subsection{{Support Vector Machine (SVM)-Based Classification}}
+
+{The {SVM-based} classification of the dynamics of land cover types in Senegal based on the Landsat OLI/TIRS scenes (2015--2023) resulted in the generation of the thematic maps of land cover types  shown in Figure} \ref{fig08}, {in which the most important classes are identified as follows: the {rainfed} cropland class is depicted in aquamarine; water areas are shown in blue; mosaic vegetation is colored bright red; and grassland, forest, and shrubland areas are shown in orange. The~numerical results obtained for the different images using classification models of GRASS GIS are summarized in \hl{Appendix.} %MDPI: Please add citation for specific appendix (A,B or C).
+ Generally, the~classification of the Landsat {scenes} using{ }the SVM algorithm {applied to} the reflective multispectral bands of the image (channels 1 to 7) provided excellent results for each kernel of the 10 categorized classes.} 
+
+{The aim of the SVM application{ }is to improve the accuracy of recognition of land cover types and {to }increase the quality of{ }mapping. The~feasibility of land cover change analysis depends on the quality of {cartographic techniques} when processing {RS} data. Erroneously recognizing trends may arise from the use of land cover regions derived from unadjusted classifiers that exhibit imbalanced misclassification between distinct groups. Therefore, in~our work, we used the {effective} approach of the {SVM} algorithm proposed by  GRASS GIS, which presents a {ML} approach for image classification. {The} scripts used for SVM-based image processing are presented in Appendix} \ref{App2}.
+
+{The} detected {landscape dynamics evaluated using a time series of the satellite images indicate the cumulative effects of anthropogenic activities and }climate change {in the} semi-arid region of West Africa. {This involves such processes as }variability of precipitation, increase in temperature, land erosion, and wildfire. These factors control the distribution of croplands, natural vegetation systems, and coastal mangrove colonies in western Senegal. {The} main triggers for changing types of vegetation and landscape patterns in the Senegalese Sahel{ }include{ }climatic factors and anthropogenic activities, which have resulted in the decline and local extinction of woody species~\cite{land3030770}. 
+
+{Among other land cover types, the} relics of the Guinean forest are distributed in the northern part of Senegal as a narrow band of landscapes stretching parallel to the Atlantic coast. In~the southern and eastern regions off Dakar and around the region of Thiès, there are many species that are abundant in the north of the forest and represented by the scattered trees in the Sudano-Sahelian~savanna. 
+
+\begin{figure}[H]
+\hspace{80pt}\makebox[0.95\linewidth][r]{%
+	\begin{subfigure}[b]{.42\textwidth}
+	
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+	\centering
+			\includegraphics[width=0.99\textwidth]{Fig_08a.jpg}
+		\caption{{SVM: 2015}}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.42\textwidth}
+	
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+	\centering
+		\includegraphics[width=0.99\textwidth]{Fig_08b.jpg}
+		\caption{{SVM: 2018}}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.42\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+		\includegraphics[width=0.99\textwidth]{Fig_08c.jpg}
+		\caption{{SVM: 2020}}
+\end{adjustwidth}
+	\end{subfigure}%
+}\\
+\vfill \vspace{1mm}
+\hspace{80pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.42\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+			\includegraphics[width=0.99\textwidth]{Fig_08d.jpg}
+		\caption{{SVM: 2021}}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.42\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+		\includegraphics[width=0.99\textwidth]{Fig_08e.jpg}
+		\caption{{SVM: 2022}}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.42\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+		\includegraphics[width=0.99\textwidth]{Fig_08f.jpg}
+		\caption{{SVM: 2023}}
+\end{adjustwidth}
+	\end{subfigure}%
+}
+\caption{{\hl{Results} %MDPI: Please check if SVM:Year is necessary since years are already presented in the caption for each label of the subfigures.
+ of the Support Vector Machine (SVM)-based classification of the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: (\textbf{a}) February 2015; (\textbf{b}) February 2018; (\textbf{c}) February 2020; (\textbf{d}) February 2021; (\textbf{e}) February 2022; (\textbf{f}) February 2023.}}\label{fig08}
+\end{figure} 
+
+To the east of Dakar, the~northern silvopastoral zone of Senegal presents a vast silvopastoral zone characterized around the Ferlo region, which is {notable for} its extreme aridity, dominated by land cover types of shrubby savanna and steppe vegetation~\cite{land10070755}. The~enclaves of hygrophilous vegetation surrounding the coastal wetlands are located to the north of Dakar, with mangroves as {the }dominant land cover type. Additionally, this region  includes the occasional groves of the oil palm as spontaneous landscape features of the Guinean~forests.
+
+\subsection{{Accuracy~Analysis}}
+
+Figure~\ref{fig09} shows the {results of the }accuracy {assessment}. {The correctness of the assignment of pixels to the target classes was }evaluated based on the pixel confidence levels with rejection probability values{. Using {the }algorithms embedded in GRASS GIS, six classified} Landsat images {were }evaluated against the probability of the{ identified }pixels being classified into {the }correct land cover class{. In~this way, }possible misclassification {that may arise due} to the similar spectral reflectance values in land cover types {was assessed}. It can be seen that there {is a} good linear correlation{ }between the contours of {the }land cover classes and the accuracy of the classification of pixels{. The~estimation of the values of }spectral reflectance {indicates} a general assignment to a given land cover type. The~results are{ }similar {for the classified} Landsat images processed by means of {scripts and correspond to} the different land cover types, {such as }coastal {areas}, water, savanna, Guinean forests, and agricultural lands{.} 
+
+\begin{figure}[H]
+\hspace{80pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_09a.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+		\includegraphics[width=0.95\textwidth]{Fig_09b.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+\centering
+		\includegraphics[width=0.95\textwidth]{Fig_09c.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+}\\
+\vfill \vspace{1mm}
+\hspace{80pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+	
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+	\centering
+			\includegraphics[width=0.95\textwidth]{Fig_09d.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+	
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+	\centering
+		\includegraphics[width=0.95\textwidth]{Fig_09e.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+	
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+	\centering
+		\includegraphics[width=0.95\textwidth]{Fig_09f.jpg}
+		\caption{}
+\end{adjustwidth}
+	\end{subfigure}%
+}
+\caption{Accuracy evaluated based on the pixel confidence levels with rejection probability values for the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \hl{(\textbf{a}) 2015;} (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022;(\textbf{f}) 2023.}\label{fig09}
+\end{figure}
+\unskip 
+
+\subsection{{Implications and~Discussion}}
+
+{Land} cover types in Senegal {present} fluctuations in vegetation patterns as a result of long-term landscape evolution in West Africa~\cite{Furian,033139ar,LOUM2014100,BRINK2009501}. {The} cumulative effects of {climate}, environmental, and anthropogenic factors {led to a decrease in} mangrove colonies, which decline in high-salinity waters~\cite{dieye2013dynamique}. This is also supported by {previous studies that} report the retreat of the mangrove in the advance of the tannes~\cite{Lebigre}. At~the same time, the{ }trend in rainfall recovery in West Senegal since the 1990s~\cite{andrieu2020botanical} has resulted in the rehabilitation of mangroves, which restored their colonies accordingly, {as also }visible on the images. This corresponds with the results of the {existing reports} on the location and distribution of \emph{Rhizophora mangle} and \emph{Avicennia germinans} mangrove species in western Senegal~\cite{Diaw,rs13101961}. Earlier {works} also {noted} the increase in mangrove trees in the estuaries of Senegal{ }\cite{FENT2019214}. {In addition to {the }coastal ecosystems, the~areas occupied by crop production follow the same trend in changes, possibly due to vegetation removal associated with plot preparation on agricultural land.}
+
+{Human-induced activities such as agricultural, demographic, and socioeconomic changes have affected {the} environmental settings {and habitats }of Senegal. Although~the {human impacts} on the region were negligible for decades{ }due to the relatively low population density of Senegal, recently, a natural increase in the population{ }has accelerated {the }exploitation of  natural and mineral resources{. }As a result, this has triggered {land} degradation in {the} coastal areas. Consequently, select landscapes of Senegal are subject to the deterioration of valuable habitats, fragmentation of patches, and land cover changes.} Major human-induced {factors in Senegal are related to} dynamic agribusiness in terms of  agricultural commodities, which {increases the }  areas of irrigated vegetation {and croplands} \cite{land8030042}. {Although such }activities are vital for supporting the local population{, }the environmental consequences on Senegalese landscapes include{ }changed land cover types. Additionally, land degradation{ }in the savanna landscapes { }correlates with  trends in land{ }cover changes and a significant decrease in woodlands~\cite{Kalema}.
+
+To summarize, this paper reports the results obtained from experimental investigations into land cover types in Senegal analyzed using a {ML} approach and the {SVM} algorithm, compared and evaluated against the traditional unsupervised classification method of k-means clustering. The~performance of SVM demonstrated reliable results {in image processing, }outperforming clustering in terms of accuracy and speed of data processing. To~this end, {a }time series of{ }Landsat {scenes was} processed using GRASS GIS software. The~image processing was designed using {a set of modules processed by scripts for automation. }Interactive processing and scripts adjusted for each scene provided an effective way to process satellite images {in workflow chain}. Such automation enabled us to represent complex interactions within the landscapes in a short-term perspective{ }by accurate {ML}-based {mapping} {using a comparison of the SVM and k-means methods}. In~this way, this study has presented an advanced data-driven method of image analysis for automatically detecting changes in land cover types in a selected ROI of Senegal{.}
+
+%----------- section ----------->
+\section{Conclusions}
+
+{Mapping land cover types, discriminating mangroves, and monitoring savanna ecosystems {are} essential for proper land management in Senegal. In~{this} study, the~potential for employing the SVM algorithm classifier in conjunction with Landsat OLI/TIRS multispectral satellite images was evaluated to map areas {of} land cover in the environment of Senegal{.} }In an effort to drive research in this field, this paper proposed a series of  image classification experiments using the GRASS GIS scripting approach, which served as a means of ranking landscapes{. Using processed satellite images, }land cover development {was evaluated} in the condition of the unstable environmental setting of western Senegal{, which has been }affected by climate change {and human activities}. {{The practical} aim was }to evaluate the variations {in} land cover types in the western segment of Senegal around the Cape Verde Peninsula and Dakar and its surroundings{ during} 2015--2023. The~presented results confirm that {RS} data{ }can be effectively used to evaluate the variations in landscapes in West Africa{.} 
+
+{To }evaluate the performance of GRASS GIS{ }in image processing, {the }{multispectral bands of six} images were analyzed for matching{ }landscape comparisons for different years{, }and the classification accuracy is reported as rejection probability for pixels in each Landsat scene. Hence, the~advantage of the use of the {RS} data for environmental monitoring is that they provide an efficient way to map and visualize the remotely located regions that are otherwise difficult to reach, such as{ }West Africa. The~analysis of the extent and distribution of the selected landscapes in a series of satellite images and the decrease in minor patches enabled us to detect  environmental landscape dynamics in a selected {ROI}. We also provided{ }remarks on the {factors affecting changes in} land cover types{ }based on the analysis of the processed images compared to  previous {case }studies {in} the published literature. {The} major driving factors {include the} related environmental climate processes {and human activities} that resulted in land cover changes in Senegal. Such notes can be used in{ }similar works {with a }focus on  environmental changes, and  land cover type changes in Senegal can continue to be investigated{.}
+
+\vspace{6pt}{}
+\authorcontributions{\hl{ } %MDPI: Please fill in this part accordingly. Same below.
+%For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported.
+}
+
+\funding{\hl{ } %MDPI: Funding is necessary for the back part. Please add information considering funding.
+%The publication was funded by the Editorial Office of Earth, Multidisciplinary Digital Publishing Institute (MDPI), by providing 100\% discount for the APC of this manuscript.
+}
+
+
+\dataavailability{{\hl{The author's} %MDPI: ICS and IRBS removed as they are not necessary for this manuscript.
+ GitHub repository, with scripts used for image classification and the results of the Support Vector Machine (SVM) ML-based processing of the satellite images, is available online at:} \href{https://github.com/paulinelemenkova/Senegal_Scripts}{https://github.com/paulinelemenkova/Senegal\_Scripts} {(accessed on 14 August 2024)}.} 
+
+\acknowledgments{The author thanks the reviewers for reading and reviewing this~manuscript.}
+
+\conflictsofinterest{The author declares no conflicts of~interest.} 
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+DCW & Digital Chart of the World \\
+DEM & Digital Elevation Model \\ 
+{DL} & {Deep Learning} \\
+{DN} & {Digital Number} \\
+ESRI & Environmental Systems Research Institute \\
+FAO & Food and Agriculture Organization \\
+GEBCO & General Bathymetric Chart of the Oceans \\ 
+GMT & Generic Mapping Tools \\
+GRASS & Geographic Resources Analysis Support System \\
+LCCS & Land Cover Classification System \\
+GIS & Geographic Information System \\
+{GUI} & {Graphical User Interface} \\
+Landsat MSS  & Landsat Multispectral Scanner  \\
+Landsat TM & Landsat Thematic Mapper \\
+Landsat ETM+ & Landsat Enhanced Thematic Mapper Plus \\
+Landsat OLI/TIRS & Landsat Operational Land Imager and Thermal Infrared Sensor \\
+{ML} & {Machine Learning} \\
+NDVI & Normalized Difference Vegetation Index \\
+NIR & Near-Infrared \\
+{ROI} & {Region of Interest} \\
+{RS} & {Remote Sensing} \\
+SRTM & Shuttle Radar Topography Mission \\
+{SVC} & {Support Vector Classification} \\
+{SVM} & {Support Vector Machine} \\
+TIFF & Tag Image File Format\\
+UNEP & United Nations Environment Programme \\
+USGS & United States Geological Survey\\
+UTM & Universal Transverse Mercator \\
+\end{tabular}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+\appendixtitles{yes} % Leave argument ''no'' if all appendix headings stay EMPTY (then no dot is printed after ''Appendix A''). If~the appendix sections contain a heading then change the argument to ''yes''.
+\appendixstart
+\appendix
+\section[\appendixname~\thesection]{Metadata of the Landsat 8-9 OLI/TIRS Images}\label{App01}
+\subsection[\appendixname~\thesubsection]{Images from 2015, 2018, and 2020}
+
+
+\vspace{-6pt}{}
+\begin{table}[H]
+\tablesize{\scriptsize}
+\caption{Metadata of Landsat OLI/TIRS satellite images of Senegal for the years 2015, 2018, and~2020.\label{tabApp}}
+\begin{adjustwidth}{-\extralength}{0.5cm}
+\setlength{\tabcolsep}{5.25mm}
+\begin{tabularx}{\fulllength}{llll}
+    \toprule
+    \textbf{Dataset Attribute} & \textbf{Attribute Value (2015)} & \textbf{Attribute Value (2018)} & \textbf{Attribute Value (2020)} \\ 
+\midrule
+
+\hl{ine} %MDPI English: Check if this word/abbreviation is needed here and below, or if this should be deleted.
+        Landsat Scene Identifier & LC82050502015056LGN01 & LC82050502018048LGN00 & LC82050502020038LGN00 \\ ine
+        Date Acquired & 2015/02/25 & 2018/02/17 & 2020/02/07 \\ ine
+        Collection Category & T1 & T1 & T1 \\ ine
+        Collection Number & 2 & 2 & 2 \\ ine
+        WRS Path & 205 & 205 & 205 \\ ine
+        WRS Row & 50 & 50 & 50 \\ ine
+        Target WRS Path & 205 & 205 & 205 \\ ine
+        Target WRS Row & 50 & 50 & 50 \\ ine
+        Nadir/Off Nadir & NADIR & NADIR & NADIR \\ ine
+        Roll Angle & 0.000 & 0.000 & 0.000 \\ ine
+        Date Product Generated L2 & \hl{9 September 2020} %MDPI: We revised date format according to our rules. Please check and confirm.
+ & \hl{2 September 2020} & \hl{23 August 2020} \\ ine
+        Date Product Generated L1 & \hl{9 September 2020} & \hl{2 September 2020} & \hl{23 August 2020} \\ ine
+        Start Time & \hl{25 February 2015} 11:27:00.070962 & 17 February 2018 11:26:59.893161 & \hl{7 February 2020} 11:27:15.666422 \\ ine
+        Stop Time & \hl{25 February 2015} 11:27:31.840958 & 17 February 2018 11:27:31.663159 & \hl{7 February 2020} 11:27:47.436421 \\ ine
+        Station Identifier & LGN & LGN & LGN \\ ine
+        Day/Night Indicator & DAY & DAY & DAY \\ ine
+        Land Cloud Cover & 0.04 & 2.05 & 0.20 \\ 
+
+
+
+ine
+        Scene Cloud Cover L1 & 0.05 & 2.22 & 2.80 \\ ine
+        Ground Control Points Model & 771 & 726 & 742 \\ ine
+        Ground Control Points Version & 5 & 5 & 5 \\ ine
+        Geometric RMSE Model & 3.594 & 4.364 & 4.488 \\ ine
+        Geometric RMSE Model X & 2.608 & 3.059 & 3.131 \\ 
+
+\bottomrule
+ \end{tabularx}
+ \end{adjustwidth}
+\end{table}
+
+\begin{table}[H]\ContinuedFloat
+\caption{{\em Cont.}}
+\begin{adjustwidth}{-\extralength}{0.5cm}
+\setlength{\tabcolsep}{8.2mm}
+\begin{tabularx}{\fulllength}{llll}
+    \toprule
+    \textbf{Data Set Attribute} & \textbf{Attribute Value (2015)} & \textbf{Attribute Value (2018)} & \textbf{Attribute Value (2020)} \\ 
+\midrule
+
+ine
+        Geometric RMSE Model Y & 2.472 & 3.113 & 3.215 \\ ine
+        Processing Software Version & LPGS\_15.3.1c & LPGS\_15.3.1c & LPGS\_15.3.1c \\ ine
+        Sun Elevation L0RA & 53.48558579 & 51.49601301 & 49.10812112 \\ ine
+        Sun Azimuth L0RA & 128.54617537 & 131.78990105 & 135.75967932 \\ ine
+        TIRS SSM Model & FINAL & FINAL & FINAL \\ ine
+        Data Type L2 & OLI\_TIRS\_L2SP & OLI\_TIRS\_L2SP & OLI\_TIRS\_L2SP \\ ine
+        Sensor Identifier & OLI\_TIRS & OLI\_TIRS & OLI\_TIRS \\ ine
+        Satellite & 8 & 8 & 8 \\ ine
+        Product Map Projection L1 & UTM & UTM & UTM \\ ine
+        UTM Zone & 28 & 28 & 28 \\ 
+ine
+        Datum & WGS84 & WGS84 & WGS84 \\ ine
+        Ellipsoid & WGS84 & WGS84 & WGS84 \\ ine
+        Scene Center Lat DMS & ''14°27'25.70\hl{''''} %MDPI: Please check if double '' is correct.
+N'' & ''14°27'24.62''''N'' & ''14°27'24.37''''N'' \\ ine
+        Scene Center Long DMS & ''16°39'49.72\hl{''''}W'' & ''16°38'25.62''''W'' & ''16°38'00.28''''W'' \\ ine
+        Corner Upper Left Lat DMS & ''15°29'56.47\hl{''''}N'' & ''15°29'57.59''''N'' & ''15°29'57.84''''N'' \\ ine
+        Corner Upper Left Long DMS & ''17°44'21.55''''W'' & ''17°42'51.05''''W'' & ''17°42'30.92''''W'' \\ ine
+        Corner Upper Right Lat DMS & ''15°30'54.65''''N'' & ''15°30'54.86''''N'' & ''15°30'54.94''''N'' \\ ine
+        Corner Upper Right Long DMS & ''15°36'21.85''''W'' & ''15°35'01.32''''W'' & ''15°34'31.12''''W'' \\ ine
+        Corner Lower Left Lat DMS & ''13°23'18.24''''N'' & ''13°23'19.18''''N'' & ''13°23'19.39''''N'' \\ ine
+        Corner Lower Left Long DMS & ''17°42'48.92''''W'' & ''17°41'19.25''''W'' & ''17°40'59.34''''W'' \\ ine
+        Corner Lower Right Lat DMS & ''13°24'08.14''''N'' & ''13°24'08.32''''N'' & ''13°24'08.39''''N'' \\ ine
+        Corner Lower Right Long DMS & ''15°36'01.33''''W'' & ''15°34'41.56''''W'' & ''15°34'11.60''''W'' \\ ine
+        Scene Center Latitude & 14.45714 & 14.45684 & 14.45677 \\ ine
+        Scene Center Longitude & $-$16.66381 & $-$16.64045 & $-$16.63341 \\ ine
+        Corner Upper Left Latitude & 15.49902 & 15.49933 & 15.49940 \\ ine
+        Corner Upper Left Longitude & $-$17.73932 & $-$17.71418 & $-$17.70859 \\ ine
+        Corner Upper Right Latitude & 15.51518 & 15.51524 & 15.51526 \\ ine
+        Corner Upper Right Longitude & $-$15.60607 & $-$15.58370 & $-$15.57531 \\ ine
+        Corner Lower Left Latitude & 13.38840 & 13.38866 & 13.38872 \\ ine
+        Corner Lower Left Longitude & $-$17.71359 & $-$17.68868 & $-$17.68315 \\ ine
+        Corner Lower Right Latitude & 13.40226 & 13.40231 & 13.40233 \\ ine
+        Corner Lower Right Longitude & $-$15.60037 & $-$15.57821 & $-$15.56989 \\
+    \bottomrule
+ \end{tabularx}
+ \end{adjustwidth}
+\end{table}
+
+\subsection[\appendixname~\thesubsection]{Images from 2021, 2022, and 2023}
+
+
+\vspace{-6pt}{}
+\begin{table}[H]
+\tablesize{\scriptsize}
+\caption{Metadata of Landsat OLI/TIRS satellite images of Senegal for the years 2021, 2022, and~2023.\label{tabApp}}
+\begin{adjustwidth}{-\extralength}{0.5cm}
+\setlength{\tabcolsep}{6.5mm}
+\begin{tabularx}{\fulllength}{llll}
+    \toprule
+    \textbf{Data Set Attribute} & \textbf{Attribute Value (2021)} & \textbf{Attribute Value (2022)} & \textbf{Attribute Value (2023)} \\ 
+\midrule
+\hl{ine}
+        Landsat Scene Identifier & LC82050502021056LGN00 & LC92050502022051LGN01 & LC92050502023022LGN01 \\ ine
+        Date Acquired & \hl{25 February 2021} & \hl{20 February 2022} & \hl{22 January 2023} \\ ine
+        Collection Category & T1 & T1 & T1 \\ ine
+        Collection Number & 2 & 2 & 2 \\ ine
+        WRS Path & 205 & 205 & 205 \\ ine
+        WRS Row & 50 & 50 & 50 \\ ine
+        Target WRS Path & 205 & 205 & 205 \\ ine
+        Target WRS Row & 50 & 50 & 50 \\ ine
+        Nadir/Off Nadir & NADIR & NADIR & NADIR \\ ine
+        Roll Angle & 0.000 & 0.000 & 0.000 \\ ine
+        Date Product Generated L2 & \hl{4 March 2021} & \hl{27 April 2023} & \hl{13 March 2023} \\ ine
+        Date Product Generated L1 & \hl{4 March 2021} & \hl{27 April 2023} & \hl{13 March 2023} \\ ine
+        Start Time & \hl{25 February 2021} 11:27:13.15558 & \hl{20 February 2022} 11:27:20 & \hl{22 January 2023} 11:27:31 \\ ine
+        Stop Time & \hl{25 February 2021} 11:27:44.925579 & \hl{20 February 2022} 11:27:52 & \hl{22 January 2023} 11:28:03 \\ ine
+        Station Identifier & LGN & LGN & LGN \\ ine
+        Day/Night Indicator & DAY & DAY & DAY \\ ine
+        Land Cloud Cover & 0.09 & 0.54 & 0.21 \\ ine
+        Scene Cloud Cover L1 & 0.06 & 0.37 & 0.15 \\ ine
+        Ground Control Points Model & 734 & 706 & 709 \\ ine
+        Ground Control Points Version & 5 & 5 & 5 \\ ine
+        Geometric RMSE Model & 5.012 & 5.380 & 5.233 \\ ine
+        Geometric RMSE Model X & 3.552 & 3.866 & 3.747 \\ ine
+        Geometric RMSE Model Y & 3.536 & 3.741 & 3.653 \\ ine
+        Processing Software Version & LPGS\_15.4.0 & LPGS\_16.2.0 & LPGS\_16.2.0 \\ ine
+        Sun Elevation L0RA & 53.68773361 & 52.31756922 & 46.40104898 \\ ine
+        Sun Azimuth L0RA & 128.38743700 & 130.64790443 & 140.80741499 \\ ine
+        TIRS SSM Model & FINAL & N/A & N/A \\ ine
+        Data Type L2 & OLI\_TIRS\_L2SP & OLI\_TIRS\_L2SP & OLI\_TIRS\_L2SP \\ ine
+        Sensor Identifier & OLI\_TIRS & OLI\_TIRS & OLI\_TIRS \\
+
+
+
+
+ ine
+        Satellite & 8 & 9 & 9 \\ ine
+        Product Map Projection L1 & UTM & UTM & UTM \\ ine
+        UTM Zone & 28 & 28 & 28 \\ ine
+        Datum & WGS84 & WGS84 & WGS84 \\ ine
+        Ellipsoid & WGS84 & WGS84 & WGS84 \\ 
+
+\bottomrule
+ \end{tabularx}
+ \end{adjustwidth}
+\end{table}
+
+\begin{table}[H]\ContinuedFloat
+\caption{{\em Cont.}}
+\begin{adjustwidth}{-\extralength}{0.5cm}
+\setlength{\tabcolsep}{8.35mm}
+\begin{tabularx}{\fulllength}{llll}
+     \toprule
+    \textbf{Data Set Attribute} & \textbf{Attribute Value (2021)} & \textbf{Attribute Value (2022)} & \textbf{Attribute Value (2023)} \\ 
+\midrule
+
+ine
+        Scene Center Lat DMS & ''14°27'25.24\hl{''''}N'' & ''14°27'25.16''''N'' & ''14°27'24.19''''N'' \\ ine
+        Scene Center Long DMS & ''16°38'36.71\hl{''''}W'' & ''16°39'35.46''''W'' & ''16°38'55.97''''W'' \\ ine
+        Corner Upper Left Lat DMS & ''15°29'57.37\hl{''''}N'' & ''15°29'46.86''''N'' & ''15°29'47.36''''N'' \\ ine
+        Corner Upper Left Long DMS & ''17°43'11.14''''W'' & ''17°44'11.36''''W'' & ''17°43'31.15''''W'' \\ ine
+        Corner Upper Right Lat DMS & ''15°30'54.83''''N'' & ''15°30'44.93''''N'' & ''15°30'45''''N'' \\ ine
+        Corner Upper Right Long DMS & ''15°35'11.36''''W'' & ''15°36'01.69''''W'' & ''15°35'31.49''''W'' \\ ine
+        Corner Lower Left Lat DMS & ''13°23'18.96''''N'' & ''13°23'18.35''''N'' & ''13°23'18.74''''N'' \\ ine
+        Corner Lower Left Long DMS & ''17°41'39.19''''W'' & ''17°42'38.95''''W'' & ''17°41'59.10''''W'' \\ ine
+        Corner Lower Right Lat DMS & ''13°24'08.32''''N'' & ''13°24'08.21''''N'' & ''13°24'08.24''''N'' \\ ine
+        Corner Lower Right Long DMS & ''15°34'51.53''''W'' & ''15°35'41.39''''W'' & ''15°35'11.47''''W'' \\ ine
+        Scene Center Latitude & 14.45701 & 14.45699 & 14.45672 \\ ine
+        Scene Center Longitude & $-$16.64353 & $-$16.65985 & $-$16.64888 \\ ine
+        Corner Upper Left Latitude & 15.49927 & 15.49635 & 15.49649 \\ ine
+        Corner Upper Left Longitude & $-$17.71976 & $-$17.73649 & $-$17.72532 \\ ine
+        Corner Upper Right Latitude & 15.51523 & 15.51248 & 15.51250 \\ ine
+        Corner Upper Right Longitude & $-$15.58649 & $-$15.60047 & $-$15.59208 \\ ine
+        Corner Lower Left Latitude & 13.38860 & 13.38843 & 13.38854 \\ ine
+        Corner Lower Left Longitude & $-$17.69422 & $-$17.71082 & $-$17.69975 \\ ine
+        Corner Lower Right Latitude & 13.40231 & 13.40228 & 13.40229 \\ ine
+        Corner Lower Right Longitude & $-$15.58098 & $-$15.59483 & $-$15.58652 \\  
+    \bottomrule
+ \end{tabularx}
+ \end{adjustwidth}
+\end{table}
+
+\section[\appendixname~\thesection]{Programming Scripts}\label{App2}
+\subsection[\appendixname~\thesubsection]{GMT Script}
+
+\begin{lstlisting}[language=bash,caption=GMT code for topographic mapping of the Senegal region based on the GEBCO/SRTM dataset.,style=mystyle,label={lst01}]
+exec bash
+# Extract a subset of ETOPO1m for the study area
+gmt grdcut ETOPO1_Ice_g_gmt4.grd -R-18/-11/12/17 -Gsn1_relief.nc
+gmt grdcut GEBCO_2019.nc -R-18/-11/12/17 -Gsn_relief.nc
+gdalinfo -stats sn1_relief.nc
+gmt makecpt -Cillumination -V -T-5000/500 -Ic > pauline.cpt
+# create mask of vector layer from the DCW of country's polygon
+gmt pscoast -R-18/-11/12/17 -JM6.5i -Dh -M -ESN > Senegal.txt
+ps=Topo_SN.ps
+# Make background transparent image
+gmt grdimage sn_relief.nc -Cpauline.cpt -R-18/-11/12/17 -JM6.5i -I+a15+ne0.75 -t40 -Xc -P -K > $ps
+.5i
+# Add isolines
+gmt grdcontour sn1_relief.nc -R -J -C250 -A250+f7p,26,darkbrown -Wthinner,darkbrown -O -K >> $ps
+# Add coastlines, borders, rivers
+gmt pscoast -R -J \
+    -Ia/thinner,blue -Na -N1/thicker,tomato -W0.1p -Df -O -K >> $ps
+gmt pscoast -R -J -Ia/thinner,blue -Na -Sroyalblue1 -W2/thin,blue,0.1p -Df -O -K >> $ps
+gmt psclip -R-18/-11/12/17 -JM6.5i Senegal.txt -O -K >> $ps
+gmt grdimage sn_relief.nc -Cpauline.cpt -R-18/-11/12/17 -JM6.5i -I+a15+ne0.75 -Xc -P -O -K >> $ps
+# Add isolines
+gmt grdcontour sn1_relief.nc -R -J -C100 -A250+f7p,26,darkbrown -Wthinnest,darkbrown -O -K >> $ps
+# Add coastlines, borders, rivers
+gmt pscoast -R -J \
+    -Ia/thinner,blue -Na -N1/thicker,tomato -W0.1p -Df -O -K >> $ps
+gmt pscoast -R -J -Ia/thinner,blue -Na -Sroyalblue1 -W2/thin,blue,0.1p -Df -O -K >> $ps
+gmt psclip -C -O -K >> $ps
+gmt psscale -Dg-18/11.5+w16.5c/0.15i+h+o0.3/0i+ml+e -R -J -Cpauline.cpt \
+    -Bg1000f50a500+l''Colormap: 'illumination', ESRI cartographic and geospatial gradient, continuous, 126 segments, C=RGB'' \
+    -I0.2 -By+l''m'' -O -K >> $ps    
+# Add grid
+gmt psbasemap -R -J \
+    --MAP_FRAME_AXES=WEsN  --FORMAT_GEO_MAP=ddd:mm:ssF \
+        -Bpxg4f1a2 -Bpyg4f1a1 -Bsxg2 -Bsyg1 \
+    -B+t''Topographic map of Senegal'' -O -K >> $ps
+# Add scalebar, directional rose
+gmt psbasemap -R -J \
+    -Lx14.0c/-2.5c+c10+w200k+l''Mercator projection. Scale (km)''+f \
+    -UBL/0p/-70p -O -K >> $ps
+gmt psxy -R -J -Sj1c -W1.7p,red3 -O -K << EOF >> $ps
+-16.68 14.46 -13 4.0 4.0
+EOF
+# Texts
+gmt pstext -R -J -N -O -K \
+-F+f11p,21,darkred+jLB >> $ps << EOF
+-13.60 13.60 Tambacounda
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+-13.67 13.77 0.20c
+EOF
+# repeated likewise for all the text annotations using coordinates
+gmt psbasemap -R -J -O -K -DjTL+w3.2c+o-0.2c/-0.2c+stmp >> $ps
+read x0 y0 w h < tmp
+gmt pscoast --MAP_GRID_PEN_PRIMARY=thinnest,lightgray --MAP_FRAME_PEN=thick,white -Rg -JG-1.0/8.0N/$w -Da -Glightgoldenrod1 -A5000 -Bga -Wfaint -ESN+gred -Sroyalblue1 -O -K -X$x0 -Y$y0 >> $ps
+gmt psxy -R -J -O -K -T  -X-${x0} -Y-${y0} >> $ps
+gmt logo -Dx7.0/-3.1+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y5.5c -N -O \
+    -F+f10p,0,black+jLB >> $ps << EOF
+2.5 11.0 Digital elevation data: SRTM/GEBCO, 15 arc sec resolution grid
+EOF
+gmt psconvert Topo_SN.ps -A0.5c -E720 -Tj -Z
+\end{lstlisting}
+
+\subsection[\appendixname~\thesubsection]{R Script}
+\begin{lstlisting}[language=r,caption=R code for modeling the flowchart of the methodological process.,style=mystyle,label={lst02}]
+DiagrammeR::grViz('
+digraph Polina_diagram {
+ # graph statement
+  graph [layout = dot, rankdir = TB,   # layout top-to-bottom fontsize = 12]
+  node [shape = circle,
+       fixedsize = true, width = 2.0]  
+  subgraph cluster2 {
+  node [fillcolor = Bisque, shape = egg, fontname = Helvetica, fontcolor = darkslategray, shape = rectangle, fixedsize = true, width = 4.0, color = darkslategray, linewidth = 2.0]
+  A66 [label = 'Landsat 9 OL/TIRS image \nJanuary 2023 \nLC92050502023022LGN01', shape = rectangle, fontsize = 22, height = 1.5]
+  A55 [label = 'Landsat 9 OL/TIRS image \nFebruary 2022 \nLC92050502022051LGN01', shape = rectangle, fontsize = 22, height = 1.5]
+  A44 [label = 'Landsat 8 OL/TIRS image \nFebruary 2021 \nLC82050502021056LGN00', shape = rectangle, fontsize = 22, height = 1.5]
+  A33 [label = 'Landsat 8 OL/TIRS image \nFebruary 2020 \nLC82050502020038LGN00', shape = rectangle, fontsize = 22, height = 1.5]
+  A22 [label = 'Landsat 8 OL/TIRS image \nFebruary 2018 \nLC82050502018048LGN00', shape = rectangle, fontsize = 22, height = 1.5]
+  A11 [label = 'Landsat 8 OL/TIRS image \nFebruary 2015 \nLC82050502015056LGN01', shape = rectangle, fontsize = 22, height = 1.5]
+  }
+  
+  A11 -> A22 [fontcolor = red, color = red, style = dashed]
+  A33 -> A44 [fontcolor = red, color = red, style = dashed]
+  A55 -> A66 [fontcolor = red, color = red, style = dashed]
+  
+  
+  E [label = 'Data import \npreprocessing \nGDAL', fontcolor = darkgreen, shape = egg, fontsize = 24, height = 2.0, width = 2.3 ]
+  A44 -> E [fontcolor = darkgreen,color = darkgreen, style = dashed]
+  
+  F [label = 'Data processing \nGRASS GIS', fontcolor = black, height = 1.5, width = 2.5, shape = tab, fontsize = 24]
+  subgraph cluster6 {
+  node [fillcolor = Bisque, shape = egg, fontname = Helvetica, fontcolor = darkslategray, shape = rectangle, fixedsize = true, width = 2.5, color = darkslategray]
+  F6 [label = '6. Data import \nd.out.file module', fontcolor = black, shape = rectangle, width = 3.5, height = 1.3, fontsize = 22]
+  F5 [label = '5. Visualization \nd.rast, d.legend \nr.colors', fontcolor = black, shape = rectangle, width = 3.5, height = 1.3, fontsize = 22]
+  F4 [label = '4. Accuracy \nassessment', fontcolor = black, shape = rectangle, width = 2.5, height = 1.3, fontsize = 22]
+  F3 [label = '3. Classification\n k-means \ni.maxlik module', fontcolor = black, shape = rectangle, width = 2.5, height = 1.3, fontsize = 22]
+  F2 [label = '2. Clustering \ni.cluster module', fontcolor = black, shape = rectangle, width = 2.5, height = 1.3, fontsize = 22]
+  F1 [label = '1. Grouping \ni.group module', fontcolor = black, shape = rectangle, width = 2.5, height = 1.3, fontsize = 22]
+  }
+  
+  F1 -> F2 [fontcolor = red, color = red, style = dashed]
+  F3 -> F4 [fontcolor = red, color = red, style = dashed]
+  F5 -> F6 [fontcolor = red, color = red, style = dashed]
+  E -> F [fontcolor = red, color = red, fontsize = 20, style = twodash]
+  F -> {F3} [fontcolor = red, color = red, style = dashed]
+}
+')
+\end{lstlisting}
+
+\subsection[\appendixname~\thesubsection]{GRASS GIS Script for Unsupervised Image Classification}
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for classification of the Senegal coastal region based on the segmented raster image Landsat 9 OLI/TIRS.,style=mystyle,label={lst03}]
+g.list rast
+# importing the image subset with 7 Landsat bands and display the raster map
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B1.TIF output=L8_2015f_01 resample=bilinear extent=region resolution=region --overwrite
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B2.TIF output=L8_2015f_02 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B3.TIF output=L8_2015f_03 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B4.TIF output=L8_2015f_04 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B5.TIF output=L8_2015f_05 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B6.TIF output=L8_2015f_06 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Senegal/LC08_L2SP_205050_20150225_20200909_02_T1_SR_B7.TIF output=L8_2015f_07 extent=region resolution=region
+g.list rast
+# Set computational region to match the scene
+g.region raster=L8_2015f_01 -p
+# store VIZ, NIR, MIR into group/subgroup (leaving out TIR)
+i.group group=L8_2015f subgroup=res_30m \
+  input=L8_2015f_01,L8_2015f_02,L8_2015f_03,L8_2015f_04,L8_2015f_05,L8_2015f_06,L8_2015f_07
+# Clustering: generating signature file and report using k-means clustering algorithm
+i.cluster group=L8_2015f subgroup=res_30m \
+  signaturefile=cluster_L8_2015f \
+  classes=10 reportfile=rep_clust_L8_2015f.txt --overwrite
+# Classification by i.maxlik module
+i.maxlik group=L8_2015f subgroup=res_30m \
+  signaturefile=cluster_L8_2015f \
+  output=L8_2015f_cluster_classes reject=L8_2015f_cluster_reject --overwrite
+# Mapping
+d.mon wx0
+g.region raster=L8_2015f_cluster_classes -p
+r.colors L8_2015f_cluster_classes color=roygbiv -e
+# d.rast.leg L8_2014_cluster_classes
+d.rast L8_2015f_cluster_classes
+d.legend raster=L8_2015f_cluster_classes title=''2015 February'' title_fontsize=14 font=''Helvetica'' fontsize=12 bgcolor=white border_color=white
+d.out.file output=Senegal_2015f format=jpg --overwrite
+d.mon wx1
+g.region raster=L8_2015f_cluster_classes -p
+r.colors L8_2015f_cluster_reject color=rainbow -e
+d.rast L8_2015f_cluster_reject
+d.legend raster=L8_2015f_cluster_reject title=''2015 February'' title_fontsize=14 font=''Helvetica'' fontsize=12 bgcolor=white border_color=white
+d.out.file output=Senegal_2015f_reject format=jpg --overwrite
+\end{lstlisting}
+
+\subsection[\appendixname~\thesubsection]{GRASS GIS Script for Supervised Image Classification}
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for machine learning (ML)-based supervised classification of  Senegal  based on the Support Vector Machine (SVM) algorithm.,style=mystyle,label={lst04}]
+# train a SVC model using r.learn.train
+r.learn.train group=L_2023 training_map=training_pixels \
+    model_name=SVC n_estimators=500 save_model=svc_model.gz --overwrite
+# perform prediction using r.learn.predict
+r.learn.predict group=L_2023 load_model=svc_model.gz \	
+output=svc_classification --overwrite
+# display
+r.colors svc_classification color=roygbiv -e
+d.mon wx0
+d.rast svc_classification
+d.grid -g size=00:30:00 color=grey width=0.1 fontsize=16 text_color=grey
+d.legend raster=svc_classification title=''SVM 2023'' title_fontsize=19 \
+	font=''Helvetica'' fontsize=17 bgcolor=white border_color=white
+d.out.file output=SVM_2023 format=jpg --overwrite
+\end{lstlisting}
+
+\section[\appendixname~\thesection]{Quantitative Estimations of  Land Cover Types in the Coastal Region of Senegal Based on the Processed  Landsat 8-9 OLI/TIRS Images over the Evaluated Period (2015 to 2023) }\label{App03}
+
+\subsection[\appendixname~\thesubsection]{\hl{Landsat 8} %MDPI: Please check if listings in this part need captions.
+ OLI/TIRS Image from February 2015}
+\vspace{6pt}{}
+\begin{scriptsize}
+\begin{verbatim}
+Location: Senegal
+Mapset:   PERMANENT
+Group:    L8_2015f
+Subgroup: res_30m
+ L8_2015f_01@PERMANENT
+ L8_2015f_02@PERMANENT
+ L8_2015f_03@PERMANENT
+ L8_2015f_04@PERMANENT
+ L8_2015f_05@PERMANENT
+ L8_2015f_06@PERMANENT
+ L8_2015f_07@PERMANENT
+Result signature file: cluster_L8_2015f
+
+Region
+  North:   1715415.00  East:    435015.00
+  South:   1481685.00  West:    206085.00
+  Res:          30.00  Res:         30.00
+  Rows:          7791  Cols:         7631  Cells: 59453121
+Mask: no
+
+Cluster parameters
+  Nombre de classes initiales: 	10
+ Minimum class size:           17
+ Minimum class separation:     0.000000
+ Percent convergence:          98.000000
+ Maximum number of iterations: 30
+
+ Row sampling interval:        77
+ Col sampling interval:        76
+
+Sample size: 6923 points
+
+means and standard deviations for 7 bands
+
+moyennes 9313.63 9913.36 11418.5 12779 15559.1 18683.2 17049.6
+écart-type 1408.81 1655.33 2620.26 4080.9 6172.67 8792.36 7774.72
+
+initial means for each band
+
+classe 1    7904.83 8258.03 8798.21 8698.08 9386.46 9890.85 9274.9
+classe 2    8217.9 8625.88 9380.49 9604.95 10758.2 11844.7 11002.6
+classe 3    8530.97 8993.73 9962.77 10511.8 12129.9 13798.6 12730.3
+classe 4    8844.03 9361.58 10545 11418.7 13501.6 15752.4 14458
+classe 5    9157.1 9729.43 11127.3 12325.5 14873.3 17706.3 16185.8
+classe 6    9470.17 10097.3 11709.6 13232.4 16245 19660.1 17913.5
+classe 7    9783.24 10465.1 12291.9 14139.3 17616.7 21614 19641.2
+classe 8    10096.3 10833 12874.2 15046.1 18988.4 23567.9 21368.9
+classe 9    10409.4 11200.8 13456.4 15953 20360.1 25521.7 23096.6
+classe 10   10722.4 11568.7 14038.7 16859.9 21731.8 27475.6 24824.3
+
+class means/stddev for each band
+
+class 1 (2503)
+moyennes 7708.27 7971.29 8281.61 7838.63 7724.56 7842.02 7776.85
+écart-type 614.836 518.68 555.632 565.1 556.362 236.765 141.089
+
+class 2 (174)
+moyennes 8368.75 8750.26 9831.58 9975.27 13720.3 10955.7 9432.93
+écart-type 376.061 402.119 588.14 812.133 1208.55 495.643 348.885
+
+class 3 (41)
+moyennes 8950.56 9432.93 10755.2 11252.4 14627.3 12748.4 10559.9
+écart-type 842.571 891.022 1064.14 1331.77 1254.33 890.258 651.371
+
+class 4 (26)
+moyennes 9312.5 9943.73 11357.9 12152.8 15320.6 15316.1 12905.9
+écart-type 1334.09 1698.16 2286.65 2493.63 930.095 1614.89 1416.64
+
+class 5 (97)
+moyennes 9063.18 9615.93 10987.1 12135.6 16577.5 18103.9 14902.9
+écart-type 660.968 663.225 782.596 885.988 1296.56 1089.48 1060.51
+
+class 6 (190)
+moyennes 9312.92 9975.98 11545 13060.4 17391.5 20272.1 17042.2
+écart-type 605.69 613.508 738.417 788.717 1013.67 909.448 960.596
+
+class 7 (398)
+moyennes 9686.85 10409.6 12166.7 14010.4 18333.7 22099.6 18938.7
+écart-type 577.552 601.118 740.347 817.552 887.638 924.991 1002.24
+
+class 8 (748)
+moyennes 9968.69 10749.5 12677.7 14839.1 19219 24041.5 20993.1
+écart-type 384.465 399.768 541.802 640.277 811.262 764.889 1038.03
+
+class 9 (1023)
+moyennes 10295.7 11120.8 13318.6 15784.4 20276.4 25806.6 23111.7
+écart-type 326.204 350.963 499.745 613.788 743.646 678.212 995.761
+
+class 10 (1723)
+moyennes 10810.3 11678.3 14315 17326.7 21862 27917.3 25880.4
+écart-type 477.098 531.086 761.098 998.069 966.941 946.319 1281.54
+
+Distribution des classes
+       2503        174         41         26         97
+        190        398        748       1023       1723
+
+######## iteration 1 ###########
+10 classes, 94.03% points stable
+Distribution des classes
+       2480        192         47         30        100
+        200        397        752       1241       1484
+
+######## iteration 2 ###########
+10 classes, 95.96% points stable
+Distribution des classes
+       2478        190         51         29        109
+        209        397        815       1305       1340
+
+######## iteration 3 ###########
+10 classes, 96.23% points stable
+Distribution des classes
+       2478        184         60         25        116
+        217        421        859       1334       1229
+
+######## iteration 4 ###########
+10 classes, 96.68% points stable
+Distribution des classes
+       2479        180         64         24        119
+        232        450        880       1355       1140
+
+######## iteration 5 ###########
+10 classes, 97.21% points stable
+Distribution des classes
+       2480        179         64         25        122
+        241        491        891       1346       1084
+
+######## iteration 6 ###########
+10 classes, 97.18% points stable
+Distribution des classes
+       2480        179         65         24        127
+        250        524        903       1356       1015
+
+######## iteration 7 ###########
+10 classes, 97.75% points stable
+Distribution des classes
+       2480        179         65         23        134
+        265        539        919       1344        975
+
+######## iteration 8 ###########
+10 classes, 97.66% points stable
+Distribution des classes
+       2480        179         65         23        138
+        285        556        933       1327        937
+
+######## iteration 9 ###########
+10 classes, 97.86% points stable
+Distribution des classes
+       2480        179         65         23        142
+        311        566        941       1305        911
+
+######## iteration 10 ###########
+10 classes, 98.02% points stable
+Distribution des classes
+       2480        179         65         24        146
+        332        579        946       1284        888
+
+########## final results #############
+10 classes (convergence=98.0%)
+
+class separability matrix
+
+         1     2     3     4     5     6     7     8     9    10
+
+  1      0
+  2    2.6     0
+  3    2.9   0.9     0
+  4    3.5   1.7   1.0     0
+  5    5.8   2.7   1.5   1.0     0
+  6    7.8   4.2   2.6   1.2   1.1     0
+  7    9.8   5.4   3.4   1.6   1.9   0.8     0
+  8   12.5   6.9   4.3   2.2   2.8   1.6   0.8     0
+  9   15.0   8.3   5.3   2.7   3.8   2.6   1.8   1.0     0
+ 10   13.9   8.4   5.7   3.1   4.3   3.2   2.5   1.9   1.1     0
+
+class means/stddev for each band
+
+class 1 (2480)
+moyennes 7702.51 7964.65 8269.03 7821.72 7687.6 7827.04 7769.4
+écart-type 612.7 513.618 538.446 535.084 396.623 175.906 116.846
+
+class 2 (179)
+moyennes 8297.44 8655.15 9673.68 9747.75 13631.1 10728.5 9287.23
+écart-type 374.25 372.167 496.471 647.696 1391.23 696.653 421.041
+
+class 3 (65)
+moyennes 8954.78 9466.29 10844.6 11399.3 13997.9 12546.1 10492
+écart-type 654.232 681.113 820.521 1001.57 1421.5 1222.53 836.924
+
+class 4 (24)
+moyennes 10531.6 11332.8 13190.9 14415.4 16089.6 15780.6 13457.2
+écart-type 1243.88 1529.2 2002.57 2126.12 1348.97 1895.08 1678.55
+
+class 5 (146)
+moyennes 8898.16 9461 10810.7 12009.3 16763 18658.5 15324.3
+écart-type 404.72 353.277 409.337 649.647 1382.33 1197.85 1087.53
+
+class 6 (332)
+moyennes 9503.49 10204.1 11885.1 13566.5 17903.4 21153.7 17968.3
+écart-type 579.936 595.056 729.293 799.238 987.119 961.223 928.767
+
+class 7 (579)
+moyennes 9874.77 10634.7 12493 14531.4 18863.9 23223.6 20046.3
+écart-type 497.731 523.55 685.055 776.898 898.427 846.63 901.884
+
+class 8 (946)
+moyennes 10145.7 10950.4 13011 15340 19793.5 25070.2 22208.9
+écart-type 318.816 345.68 499.136 637.58 857.969 687.293 964.907
+
+class 9 (1284)
+moyennes 10479 11319.6 13710.5 16414.9 20943.1 26902 24529.5
+écart-type 308.917 338.535 462.98 589.57 662.867 668.832 869.355
+
+class 10 (888)
+moyennes 11071.3 11960.8 14774.2 17995.2 22506.2 28565.2 26783.6
+écart-type 469.146 531.252 724.073 878.44 835.179 791.24 1013.62
+#################### CLASSES ####################
+
+10 classes, 98.02% points stable
+
+######## CLUSTER END (Fri Jul 28 16:58:35 2023) ########
+
+\end{verbatim}
+\end{scriptsize}
+
+\subsection[\appendixname~\thesubsection]{Landsat 8 OLI/TIRS Image from February 2018}
+\begin{scriptsize}
+\begin{verbatim}
+
+Location: Senegal
+Mapset:   PERMANENT
+Group:    L8_2018f
+Subgroup: res_30m
+ L8_2018f_01@PERMANENT
+ L8_2018f_02@PERMANENT
+ L8_2018f_03@PERMANENT
+ L8_2018f_04@PERMANENT
+ L8_2018f_05@PERMANENT
+ L8_2018f_06@PERMANENT
+ L8_2018f_07@PERMANENT
+Result signature file: cluster_L8_2018f
+
+Region
+  North:   1715145.00  East:    435015.00
+  South:   1481685.00  West:    209355.00
+  Res:          30.00  Res:         30.00
+  Rows:          7782  Cols:         7522  Cells: 58536204
+Mask: no
+
+Cluster parameters
+  Nombre de classes initiales: 	10
+ Minimum class size:           17
+ Minimum class separation:     0.000000
+ Percent convergence:          98.000000
+ Maximum number of iterations: 30
+
+ Row sampling interval:        77
+ Col sampling interval:        75
+
+Sample size: 7009 points
+
+means and standard deviations for 7 bands
+
+moyennes 8857.44 9492.87 10953.4 12229.7 15198.4 18028.8 15884.1
+écart-type 1621.26 1786.57 2482.6 3723.54 5842.65 8100.61 6660.89
+
+initial means for each band
+
+classe 1    7236.18 7706.31 8470.82 8506.2 9355.74 9928.24 9223.22
+classe 2    7596.46 8103.32 9022.51 9333.66 10654.1 11728.4 10703.4
+classe 3    7956.74 8500.34 9574.2 10161.1 11952.5 13528.5 12183.6
+classe 4    8317.02 8897.35 10125.9 10988.6 13250.8 15328.6 13663.8
+classe 5    8677.3 9294.36 10677.6 11816 14549.2 17128.8 15144
+classe 6    9037.58 9691.38 11229.3 12643.5 15847.6 18928.9 16624.2
+classe 7    9397.86 10088.4 11781 13470.9 17145.9 20729.1 18104.4
+classe 8    9758.14 10485.4 12332.6 14298.4 18444.3 22529.2 19584.6
+classe 9    10118.4 10882.4 12884.3 15125.8 19742.7 24329.3 21064.8
+classe 10   10478.7 11279.4 13436 15953.3 21041 26129.5 22545
+
+class means/stddev for each band
+
+class 1 (2403)
+moyennes 7025.72 7388.7 7878.26 7537.53 7520.7 7696.79 7654.33
+écart-type 876.124 788.054 722.17 679.73 615.7 351.733 278.397
+
+class 2 (172)
+moyennes 8244.99 8643.94 9646.46 9683.51 13048 10536.1 9337.4
+écart-type 607.341 538.888 574.945 658.593 1473.34 507.789 685.588
+
+class 3 (54)
+moyennes 8434.26 9040.37 10488.3 10949.8 13355.8 12442.6 10824.8
+écart-type 1110.78 998.131 932.028 1023.89 1418.08 801.709 1082.7
+
+class 4 (54)
+moyennes 8482.3 9044.26 10774 11464.2 14641.1 14702 12465.4
+écart-type 907.771 1145.32 855.87 991.749 1398.46 860.045 1151.78
+
+class 5 (108)
+moyennes 8777.68 9379.79 10667.9 11668.6 15965.4 17160.8 14226.1
+écart-type 853.549 797.446 671.475 816.731 1669.22 1007.64 1139.25
+
+class 6 (206)
+moyennes 8961.07 9666.94 11222.5 12566.3 16796.6 19213.9 15756.8
+écart-type 753.46 661.341 727.188 777.205 1234.98 854.702 874.231
+
+class 7 (398)
+moyennes 9340.86 10100.9 11741.2 13426.2 17780.8 21026.7 17500.4
+écart-type 831.339 799.109 701.629 684.796 833.681 933.273 783.303
+
+class 8 (836)
+moyennes 9615.52 10387.7 12217.9 14224.5 18744.5 22966.9 19275.4
+écart-type 484.651 457.958 538.072 601.26 827.493 771.913 901.151
+
+class 9 (1315)
+moyennes 9896.03 10698.6 12709.9 15019.5 19718.5 24587.7 21016.1
+écart-type 457.581 436.544 473.69 548.46 717.103 666.677 920.163
+
+class 10 (1463)
+moyennes 10460.6 11305.4 13649.4 16332.8 21077.1 26573.8 23634.1
+écart-type 1034.73 1026.42 1039.6 1120.3 1101.26 1037.7 1333.34
+
+Distribution des classes
+       2403        172         54         54        108
+        206        398        836       1315       1463
+
+######## iteration 1 ###########
+10 classes, 93.94% points stable
+Distribution des classes
+       2346        222         61         56        112
+        216        412        858       1464       1262
+
+######## iteration 2 ###########
+10 classes, 95.86% points stable
+Distribution des classes
+       2327        236         65         58        117
+        220        429        909       1527       1121
+
+######## iteration 3 ###########
+10 classes, 96.66% points stable
+Distribution des classes
+       2320        242         66         58        118
+        233        433        985       1528       1026
+
+######## iteration 4 ###########
+10 classes, 97.05% points stable
+Distribution des classes
+       2317        244         67         58        120
+        245        450       1035       1522        951
+
+######## iteration 5 ###########
+10 classes, 97.65% points stable
+Distribution des classes
+       2315        246         67         58        124
+        254        468       1066       1513        898
+
+######## iteration 6 ###########
+10 classes, 97.87% points stable
+Distribution des classes
+       2314        246         68         59        126
+        262        492       1091       1490        861
+
+######## iteration 7 ###########
+10 classes, 97.72% points stable
+Distribution des classes
+       2314        247         67         59        132
+        265        527       1108       1468        822
+
+######## iteration 8 ###########
+10 classes, 97.73% points stable
+Distribution des classes
+       2314        247         67         60        139
+        272        550       1137       1431        792
+
+######## iteration 9 ###########
+10 classes, 97.82% points stable
+Distribution des classes
+       2314        247         67         61        148
+        283        565       1155       1408        761
+
+######## iteration 10 ###########
+10 classes, 97.87% points stable
+Distribution des classes
+       2314        247         67         63        159
+        288        587       1166       1382        736
+
+######## iteration 11 ###########
+10 classes, 97.97% points stable
+Distribution des classes
+       2314        247         67         65        166
+        300        600       1180       1362        708
+
+######## iteration 12 ###########
+10 classes, 97.97% points stable
+Distribution des classes
+       2314        247         67         67        174
+        306        618       1199       1336        681
+
+######## iteration 13 ###########
+10 classes, 97.82% points stable
+Distribution des classes
+       2314        247         67         68        183
+        320        631       1215       1311        653
+
+######## iteration 14 ###########
+10 classes, 97.67% points stable
+Distribution des classes
+       2314        247         67         71        189
+        339        649       1216       1294        623
+
+######## iteration 15 ###########
+10 classes, 97.75% points stable
+Distribution des classes
+       2314        247         67         78        187
+        366        664       1214       1271        601
+
+######## iteration 16 ###########
+10 classes, 97.86% points stable
+Distribution des classes
+       2314        247         67         83        191
+        375        698       1210       1241        583
+
+######## iteration 17 ###########
+10 classes, 97.67% points stable
+Distribution des classes
+       2314        247         68         84        198
+        392        724       1208       1214        560
+
+######## iteration 18 ###########
+10 classes, 97.77% points stable
+Distribution des classes
+       2314        247         69         85        203
+        409        744       1220       1180        538
+
+######## iteration 19 ###########
+10 classes, 98.13% points stable
+Distribution des classes
+       2314        246         70         87        207
+        420        771       1218       1157        519
+
+########## final results #############
+10 classes (convergence=98.1%)
+
+class separability matrix
+
+         1     2     3     4     5     6     7     8     9    10
+
+  1      0
+  2    2.1     0
+  3    2.8   0.9     0
+  4    3.8   1.6   0.9     0
+  5    5.5   2.7   1.8   0.8     0
+  6    7.3   3.7   2.6   1.6   0.8     0
+  7    9.7   4.9   3.6   2.4   1.7   0.8     0
+  8   11.2   5.8   4.3   3.1   2.4   1.5   0.8     0
+  9   13.6   6.9   5.2   3.9   3.2   2.4   1.6   0.9     0
+ 10    9.3   5.9   4.6   3.6   3.1   2.5   2.0   1.4   0.9     0
+
+class means/stddev for each band
+
+class 1 (2314)
+moyennes 6973.65 7333.17 7802.18 7449.64 7428.58 7651.15 7624.97
+écart-type 843.931 743.306 609.592 501.577 345.569 249.854 217.016
+
+class 2 (246)
+moyennes 8252.11 8657.06 9652.88 9648.4 12056.2 9895.76 8929.32
+écart-type 557.912 494.393 540.394 611.288 2106.96 900.212 650.071
+
+class 3 (70)
+moyennes 8590.16 9205.93 10637.7 11065.5 12784.4 12166.4 10782.5
+écart-type 1067.97 929.601 879.515 980.828 1360.11 857.334 1097.74
+
+class 4 (87)
+moyennes 8600 9184.85 10676.8 11445.1 15283.8 15305.9 12848.6
+écart-type 912.171 1068.36 783.743 980.84 1744.45 1027.32 1099.21
+
+class 5 (207)
+moyennes 8858.84 9488.23 10930.6 12115.5 16366.1 18473.8 15114.5
+écart-type 676.137 631.376 684.995 773.703 1487.35 981.082 958.443
+
+class 6 (420)
+moyennes 9293.96 10069.1 11712.3 13349.1 17673.2 20665.3 17190.3
+écart-type 922.304 860.24 762.823 749.532 931.792 978.143 799.221
+
+class 7 (771)
+moyennes 9572.57 10340.5 12145.3 14124.8 18643 22810.7 19095.9
+écart-type 469.21 442.231 519.984 585.987 852.925 740.509 837.032
+
+class 8 (1218)
+moyennes 9858.67 10659.5 12653.4 14932 19617.3 24380.3 20745.2
+écart-type 484.521 463.705 507.611 581.417 763.351 679.252 844.481
+
+class 9 (1157)
+moyennes 10151.4 10976 13175.7 15709.2 20443.3 25921.2 22794.1
+écart-type 308.902 292.289 375.14 497.641 661.54 633.314 862.877
+
+class 10 (519)
+moyennes 10972.1 11840.8 14389.4 17280.3 21993 27486 24867.4
+écart-type 1562.41 1542.91 1405.19 1333.89 1222.02 1065.41 1187.97
+
+#################### CLASSES ####################
+
+10 classes, 98.13% points stable
+
+######## CLUSTER END (Fri Jul 28 19:59:34 2023) ########
+
+\end{verbatim}
+\end{scriptsize}
+
+\subsection[\appendixname~\thesubsection]{Landsat 8 OLI/TIRS Image from February 2020}
+\begin{scriptsize}
+\begin{verbatim}
+
+Location: Senegal
+Mapset:   PERMANENT
+Group:    L8_2020f
+Subgroup: res_30m
+ L8_2020f_01@PERMANENT
+ L8_2020f_02@PERMANENT
+ L8_2020f_03@PERMANENT
+ L8_2020f_04@PERMANENT
+ L8_2020f_05@PERMANENT
+ L8_2020f_06@PERMANENT
+ L8_2020f_07@PERMANENT
+Result signature file: cluster_L8_2020f
+
+Region
+  North:   1715415.00  East:    435015.00
+  South:   1481685.00  West:    209355.00
+  Res:          30.00  Res:         30.00
+  Rows:          7791  Cols:         7522  Cells: 58603902
+Mask: no
+
+Cluster parameters
+  Nombre de classes initiales: 	10
+ Minimum class size:           17
+ Minimum class separation:     0.000000
+ Percent convergence:          98.000000
+ Maximum number of iterations: 30
+
+ Row sampling interval:        77
+ Col sampling interval:        75
+
+Sample size: 7019 points
+
+means and standard deviations for 7 bands
+
+moyennes 9083.83 9752.19 11309.8 12660.8 15669.2 18426 16517.6
+écart-type 1543.97 1736.65 2521.06 3917.12 6100.01 8265.57 7020.52
+
+initial means for each band
+
+classe 1    7539.85 8015.54 8788.73 8743.63 9569.16 10160.4 9497.05
+classe 2    7882.96 8401.46 9348.96 9614.1 10924.7 11997.2 11057.2
+classe 3    8226.06 8787.39 9909.19 10484.6 12280.3 13834 12617.3
+classe 4    8569.17 9173.31 10469.4 11355 13635.8 15670.8 14177.4
+classe 5    8912.27 9559.23 11029.7 12225.5 14991.4 17507.6 15737.5
+classe 6    9255.38 9945.15 11589.9 13096 16347 19344.4 17297.6
+classe 7    9598.49 10331.1 12150.1 13966.5 17702.5 21181.1 18857.7
+classe 8    9941.59 10717 12710.4 14836.9 19058.1 23017.9 20417.9
+classe 9    10284.7 11102.9 13270.6 15707.4 20413.6 24854.7 21978
+classe 10   10627.8 11488.8 13830.8 16577.9 21769.2 26691.5 23538.1
+
+class means/stddev for each band
+
+class 1 (2462)
+moyennes 7211.87 7635.75 8230.97 7806.78 7768.17 7995.81 7969.81
+écart-type 526.693 555.399 717.049 625.503 683.423 368.145 296.641
+
+class 2 (151)
+moyennes 8230.97 8631.27 9677.65 9672.28 13741.1 10679 9296.59
+écart-type 527.748 570.343 706.969 853.031 1124.61 528.113 423.434
+
+class 3 (37)
+moyennes 8907.43 9529.78 11033 11653.5 13593.8 13001.9 11181
+écart-type 702.35 683.603 1186.27 1550.73 971.094 1016.7 872.869
+
+class 4 (52)
+moyennes 8996.48 9559.69 10903.2 11524.1 15370.3 15205.8 12684.4
+écart-type 798.4 847.117 1087.63 1263.82 1549.33 897.804 926.343
+
+class 5 (118)
+moyennes 8988.28 9631.89 11060.3 12112.4 16470.8 17744.5 14596.6
+écart-type 724.575 766.586 903.884 1007.71 1483.12 1171.72 919.712
+
+class 6 (212)
+moyennes 9239.58 9942.75 11523.7 12951.1 17223.6 19755.3 16495.6
+écart-type 641.91 639.603 760.009 816.876 1108.93 971.252 835.724
+
+class 7 (427)
+moyennes 9520.33 10286 12035.1 13822.2 18250.7 21545.8 18263.6
+écart-type 530.374 535.672 683.599 748.033 995.498 910.479 1078.38
+
+class 8 (790)
+moyennes 9846.31 10634 12513 14635.6 19310.4 23432.2 20130.1
+écart-type 393.007 413.585 577.216 679.58 1011.3 729.564 1139.33
+
+class 9 (1126)
+moyennes 10185.5 11022 13135.2 15626.8 20457.7 25120.9 21898.5
+écart-type 319.918 338.3 471.731 586.261 961.045 652.206 1145.82
+
+class 10 (1644)
+moyennes 10724.7 11587.7 14063 16982.8 21776.8 27057.3 24488.8
+écart-type 475.297 518.812 729.047 925.558 919.804 968.935 1491.99
+
+Distribution des classes
+       2462        151         37         52        118
+        212        427        790       1126       1644
+
+######## iteration 1 ###########
+10 classes, 93.96% points stable
+Distribution des classes
+       2417        190         46         58        118
+        224        414        803       1347       1402
+
+######## iteration 2 ###########
+10 classes, 95.81% points stable
+Distribution des classes
+       2404        203         44         64        127
+        228        417        854       1426       1252
+
+######## iteration 3 ###########
+10 classes, 96.68% points stable
+Distribution des classes
+       2400        206         45         66        135
+        230        439        897       1440       1161
+
+######## iteration 4 ###########
+10 classes, 97.01% points stable
+Distribution des classes
+       2396        210         46         71        135
+        237        472        911       1454       1087
+
+######## iteration 5 ###########
+10 classes, 97.22% points stable
+Distribution des classes
+       2394        212         46         75        140
+        248        491        931       1453       1029
+
+######## iteration 6 ###########
+10 classes, 97.51% points stable
+Distribution des classes
+       2394        212         48         74        145
+        270        506        940       1442        988
+
+######## iteration 7 ###########
+10 classes, 97.45% points stable
+Distribution des classes
+       2394        211         51         73        150
+        290        535        927       1447        941
+
+######## iteration 8 ###########
+10 classes, 97.54% points stable
+Distribution des classes
+       2393        210         54         75        154
+        312        551        939       1419        912
+
+######## iteration 9 ###########
+10 classes, 97.63% points stable
+Distribution des classes
+       2392        210         55         78        157
+        337        562        951       1394        883
+
+######## iteration 10 ###########
+10 classes, 97.99% points stable
+Distribution des classes
+       2391        211         56         80        159
+        353        576        965       1371        857
+
+######## iteration 11 ###########
+10 classes, 98.15% points stable
+Distribution des classes
+       2391        211         56         83        159
+        367        598        972       1348        834
+
+########## final results #############
+10 classes (convergence=98.1%)
+
+class separability matrix
+
+         1     2     3     4     5     6     7     8     9    10
+
+  1      0
+  2    1.9     0
+  3    2.7   1.0     0
+  4    3.9   2.1   0.9     0
+  5    6.1   3.1   1.6   0.9     0
+  6    6.6   3.9   2.2   1.4   1.0     0
+  7    8.5   5.1   2.9   2.2   1.8   0.7     0
+  8    9.7   5.9   3.5   2.8   2.6   1.4   0.8     0
+  9   11.5   7.2   4.3   3.6   3.6   2.2   1.6   0.8     0
+ 10   11.0   7.3   4.7   4.0   4.1   2.8   2.3   1.6   0.9     0
+
+class means/stddev for each band
+
+class 1 (2391)
+moyennes 7174.13 7597.81 8180.06 7743.75 7681.17 7961.31 7950.84
+écart-type 474.355 506.243 651.214 496.461 399.352 301.276 273.692
+
+class 2 (211)
+moyennes 8265.83 8662.6 9678.62 9648.93 12791.6 10147.2 9043.17
+écart-type 474.465 474.914 566.938 690.234 1903.84 857.025 485.482
+
+class 3 (56)
+moyennes 9047.8 9694.07 11237.7 11844.9 13414.8 12763.5 10983.3
+écart-type 842.033 869.921 1189.56 1403.88 1106.82 1314.85 1024.01
+
+class 4 (83)
+moyennes 9380.73 10028 11507.2 12260.1 16175.5 15868 13405.5
+écart-type 1038.06 1114.75 1325.39 1632.15 1924.21 859.971 1121.43
+
+class 5 (159)
+moyennes 8836.65 9450.75 10813.8 11997.1 16565.9 18847.2 15422.1
+écart-type 403.779 359.336 415.253 545.655 1077.34 877.599 906.505
+
+class 6 (367)
+moyennes 9423.02 10182.4 11899.3 13572.1 17943 20712.5 17364.6
+écart-type 612.1 615.543 754.174 823.19 1058.68 992.025 889.261
+
+class 7 (598)
+moyennes 9674.92 10440.4 12239.9 14200.3 18780.9 22750.7 19495.3
+écart-type 384.698 387.804 541.838 641.686 1023.19 770.277 1025.82
+
+class 8 (972)
+moyennes 10047.9 10871.7 12888.1 15256.2 20058.7 24396.6 21007.5
+écart-type 343.349 369.808 518.198 630.15 1057.62 740.142 1126.64
+
+class 9 (1348)
+moyennes 10407.7 11254.2 13522.1 16201.9 21042 26036.4 23049.6
+écart-type 336.99 361.142 501.239 651.252 880.583 671.315 987.174
+
+class 10 (834)
+moyennes 10949.2 11823 14433.3 17487.2 22196.4 27709.5 25560.3
+écart-type 491.77 547.304 748.697 934.506 897.309 844.818 1136.09
+
+#################### CLASSES ####################
+
+10 classes, 98.15% points stable
+
+######## CLUSTER END (Fri Jul 28 18:25:15 2023) ########
+
+\end{verbatim}
+\end{scriptsize}
+
+\subsection[\appendixname~\thesubsection]{Landsat 8 OLI/TIRS Image from February 2021}
+\begin{scriptsize}
+\begin{verbatim}
+
+Location: Senegal
+Mapset:   PERMANENT
+Group:    L8_2021f
+Subgroup: res_30m
+ L8_2021f_01@PERMANENT
+ L8_2021f_02@PERMANENT
+ L8_2021f_03@PERMANENT
+ L8_2021f_04@PERMANENT
+ L8_2021f_05@PERMANENT
+ L8_2021f_06@PERMANENT
+ L8_2021f_07@PERMANENT
+Result signature file: cluster_L8_2021f
+
+Region
+  North:   1715415.00  East:    435015.00
+  South:   1481685.00  West:    209355.00
+  Res:          30.00  Res:         30.00
+  Rows:          7791  Cols:         7522  Cells: 58603902
+Mask: no
+
+Cluster parameters
+  Nombre de classes initiales: 	10
+ Minimum class size:           17
+ Minimum class separation:     0.000000
+ Percent convergence:          98.000000
+ Maximum number of iterations: 30
+
+ Row sampling interval:        77
+ Col sampling interval:        75
+
+Sample size: 7018 points
+
+means and standard deviations for 7 bands
+
+moyennes 9103.03 9794.56 11362.2 12712.1 15680.1 18312.7 16272.1
+écart-type 1494.79 1731.05 2554.95 3927.55 6122.9 8260.3 6924.15
+
+initial means for each band
+
+classe 1    7608.24 8063.5 8807.27 8784.6 9557.25 10052.4 9347.93
+classe 2    7940.42 8448.18 9375.03 9657.39 10917.9 11888 10886.6
+classe 3    8272.59 8832.86 9942.8 10530.2 12278.5 13723.6 12425.3
+classe 4    8604.77 9217.54 10510.6 11403 13639.2 15559.3 13964
+classe 5    8936.94 9602.22 11078.3 12275.8 14999.8 17394.9 15502.7
+classe 6    9269.12 9986.9 11646.1 13148.5 16360.5 19230.5 17041.4
+classe 7    9601.29 10371.6 12213.9 14021.3 17721.1 21066.1 18580.1
+classe 8    9933.47 10756.3 12781.6 14894.1 19081.8 22901.8 20118.8
+classe 9    10265.6 11140.9 13349.4 15766.9 20442.4 24737.4 21657.5
+classe 10   10597.8 11525.6 13917.2 16639.7 21803 26573 23196.2
+
+class means/stddev for each band
+
+class 1 (2472)
+moyennes 7313.61 7696.41 8232.04 7837.92 7742.14 7931.25 7880.26
+écart-type 523.008 574.873 740.83 667.615 597.157 326.44 221.817
+
+class 2 (162)
+moyennes 8367.74 8788.43 9871.6 9907.87 13579.2 10720.3 9384.91
+écart-type 551.281 578.474 738.688 868.216 1280.37 510.118 395.672
+
+class 3 (39)
+moyennes 8860.13 9479.1 10889.1 11353.3 14026.3 12695 11036.6
+écart-type 995.855 1068.1 1280.86 1258.34 1432.8 987.66 940.02
+
+class 4 (52)
+moyennes 8990.67 9572.25 10911.4 11588.4 15314.2 15146.8 12747.7
+écart-type 1053.52 1085.71 1273.12 1320.13 1385.28 1102.05 995.233
+
+class 5 (111)
+moyennes 8919.6 9586.4 11049.8 12041.2 16704.5 17443.7 14294.6
+écart-type 772.356 773.025 855.924 967.103 1465.14 1107.34 861.372
+
+class 6 (191)
+moyennes 9221.2 9972.19 11635.4 13050.4 17569.3 19529.4 16048.3
+écart-type 760.844 777.297 906.372 985.172 1371.94 1015.06 961.004
+
+class 7 (375)
+moyennes 9554.95 10380.6 12217.9 13998.3 18422.8 21362.9 17907.5
+écart-type 676.841 675.041 824.381 903.755 1005.47 983.878 1008.25
+
+class 8 (768)
+moyennes 9829.27 10696.1 12661.2 14797.4 19473.4 23316.6 19666.1
+écart-type 428.049 420.829 530.225 620.714 878.759 770.735 1045.84
+
+class 9 (1262)
+moyennes 10151.2 11058.1 13225.5 15720.3 20503.2 25045.5 21495.6
+écart-type 369.177 375.082 483.879 587.818 844.55 650.355 1165.65
+
+class 10 (1586)
+moyennes 10682.9 11595.3 14094.6 16964.8 21697.6 26923.8 24278.5
+écart-type 477.378 511.286 708.716 895.261 882.054 904.887 1404.13
+
+Distribution des classes
+       2472        162         39         52        111
+        191        375        768       1262       1586
+
+######## iteration 1 ###########
+10 classes, 93.84% points stable
+Distribution des classes
+       2412        222         40         50        122
+        190        391        798       1414       1379
+
+######## iteration 2 ###########
+10 classes, 95.97% points stable
+Distribution des classes
+       2385        252         33         59        118
+        203        399        859       1451       1259
+
+######## iteration 3 ###########
+10 classes, 97.16% points stable
+Distribution des classes
+       2375        263         30         64        117
+        213        419        892       1454       1191
+
+######## iteration 4 ###########
+10 classes, 97.52% points stable
+Distribution des classes
+       2368        270         29         72        110
+        222        439        921       1457       1130
+
+######## iteration 5 ###########
+10 classes, 97.38% points stable
+Distribution des classes
+       2366        272         28         77        109
+        232        474        930       1452       1078
+
+######## iteration 6 ###########
+10 classes, 97.65% points stable
+Distribution des classes
+       2364        274         28         78        111
+        242        500        954       1433       1034
+
+######## iteration 7 ###########
+10 classes, 97.82% points stable
+Distribution des classes
+       2363        275         28         79        114
+        256        527        959       1417       1000
+
+######## iteration 8 ###########
+10 classes, 97.86% points stable
+Distribution des classes
+       2363        275         28         80        120
+        266        554        967       1394        971
+
+######## iteration 9 ###########
+10 classes, 97.99% points stable
+Distribution des classes
+       2363        275         28         83        128
+        277        568        979       1367        950
+
+######## iteration 10 ###########
+10 classes, 98.03% points stable
+Distribution des classes
+       2363        275         29         84        136
+        285        586        986       1352        922
+
+########## final results #############
+10 classes (convergence=98.0%)
+
+class separability matrix
+
+         1     2     3     4     5     6     7     8     9    10
+
+  1      0
+  2    2.0     0
+  3    2.8   1.0     0
+  4    4.0   1.7   0.9     0
+  5    5.8   2.4   1.6   0.7     0
+  6    6.2   3.1   2.0   1.3   0.9     0
+  7    9.2   4.4   2.9   2.1   1.8   0.7     0
+  8   10.9   5.4   3.6   2.8   2.6   1.4   0.8     0
+  9   13.4   6.5   4.4   3.6   3.6   2.1   1.6   0.8     0
+ 10   12.6   6.8   4.8   4.0   4.0   2.7   2.3   1.6   1.0     0
+
+class means/stddev for each band
+
+class 1 (2363)
+moyennes 7248.41 7625.27 8135.66 7730.27 7642.36 7879.37 7847.06
+écart-type 416.1 461.809 582.787 424.33 314.927 198.22 146.336
+
+class 2 (275)
+moyennes 8476.43 8932.59 10007 9975.02 12183.4 10106.5 9101
+écart-type 538.712 566.342 673.216 745.985 2196.19 1014.59 587.313
+
+class 3 (29)
+moyennes 9693.86 10405.4 12096.4 12615.7 13407.4 12209.3 10704
+écart-type 1489.42 1526.72 1577.5 1226.12 1259.09 1301.44 920.006
+
+class 4 (84)
+moyennes 9118.45 9712.07 11054 11807.6 15279.8 15479 13169.4
+écart-type 847.439 899.74 1128.4 1347.33 1213.07 1068.09 1063.26
+
+class 5 (136)
+moyennes 8654.04 9337.13 10847.5 11891.2 17562.1 18244.7 14672.5
+écart-type 419.602 378.092 402.881 617.514 1690.72 1120.92 910.851
+
+class 6 (285)
+moyennes 9482.41 10268.2 12016.5 13608.5 17771.1 20200.2 16810.6
+écart-type 823.372 837.363 1022.37 1097.31 1217.51 1136.29 1023.16
+
+class 7 (586)
+moyennes 9664.83 10504.9 12390.8 14355.7 18922 22427.3 18858.6
+écart-type 494.386 484.571 577.002 639.285 909.522 843.101 1002.59
+
+class 8 (986)
+moyennes 10011.5 10920.3 13011.5 15386.7 20210.8 24268.9 20383.3
+écart-type 432.35 438.117 562.814 669.664 896.054 758.305 925.124
+
+class 9 (1352)
+moyennes 10313.4 11212.2 13478.1 16085.4 20837.1 25786.6 22669.8
+écart-type 307.442 315.031 441.953 601.243 875.44 643.19 969.061
+
+class 10 (922)
+moyennes 10868.6 11786.6 14394.2 17374.8 22039.6 27432.4 25108.8
+écart-type 499.141 546.18 733.711 900.124 851.524 791.249 1102.95
+
+#################### CLASSES ####################
+
+10 classes, 98.03% points stable
+
+######## CLUSTER END (Fri Jul 28 19:30:36 2023) ########
+
+\end{verbatim}
+\end{scriptsize}
+
+\subsection[\appendixname~\thesubsection]{Landsat 9 OLI/TIRS Image from February 2022}
+\begin{scriptsize}
+\begin{verbatim}
+Location: Senegal
+Mapset:   PERMANENT
+Group:    L8_2022f
+Subgroup: res_30m
+ L8_2022f_01@PERMANENT
+ L8_2022f_02@PERMANENT
+ L8_2022f_03@PERMANENT
+ L8_2022f_04@PERMANENT
+ L8_2022f_05@PERMANENT
+ L8_2022f_06@PERMANENT
+ L8_2022f_07@PERMANENT
+Result signature file: cluster_L8_2022f
+
+Region
+  North:   1715145.00  East:    435015.00
+  South:   1481685.00  West:    209355.00
+  Res:          30.00  Res:         30.00
+  Rows:          7782  Cols:         7522  Cells: 58536204
+Mask: no
+
+Cluster parameters
+  Nombre de classes initiales: 	10
+ Minimum class size:           17
+ Minimum class separation:     0.000000
+ Percent convergence:          98.000000
+ Maximum number of iterations: 30
+
+ Row sampling interval:        77
+ Col sampling interval:        75
+
+Sample size: 7041 points
+
+means and standard deviations for 7 bands
+
+moyennes 8956.71 9688.81 11275.1 12528.6 15363.6 18204.7 16340.9
+écart-type 1511.52 1718.3 2416.99 3735.33 5813.88 8173 7014.93
+
+initial means for each band
+
+classe 1    7445.19 7970.5 8858.07 8793.25 9549.73 10031.7 9325.94
+classe 2    7781.08 8352.35 9395.18 9623.32 10841.7 11848 10884.8
+classe 3    8116.98 8734.19 9932.29 10453.4 12133.7 13664.2 12443.7
+classe 4    8452.87 9116.04 10469.4 11283.5 13425.7 15480.4 14002.6
+classe 5    8788.76 9497.88 11006.5 12113.5 14717.6 17296.6 15561.4
+classe 6    9124.66 9879.73 11543.6 12943.6 16009.6 19112.9 17120.3
+classe 7    9460.55 10261.6 12080.7 13773.7 17301.6 20929.1 18679.2
+classe 8    9796.45 10643.4 12617.8 14603.8 18593.6 22745.3 20238.1
+classe 9    10132.3 11025.3 13154.9 15433.8 19885.5 24561.5 21796.9
+classe 10   10468.2 11407.1 13692 16263.9 21177.5 26377.7 23355.8
+
+class means/stddev for each band
+
+class 1 (2499)
+moyennes 7149.81 7606.11 8327.64 7934.83 7897.52 8088.78 7974.9
+écart-type 476.729 530.897 654.697 572.875 544.465 242.083 133.289
+
+class 2 (177)
+moyennes 8366.47 8874.42 9974.55 10024.6 13424.4 10727.8 9321.19
+écart-type 480.74 474.197 597.638 749.492 998.659 442.422 297.4
+
+class 3 (44)
+moyennes 8977.66 9664.75 11152.6 11719.6 14047.7 12299.9 10322
+écart-type 929.913 925.424 974.416 1071.45 935.147 695.042 524.734
+
+class 4 (57)
+moyennes 8973.72 9634.61 11008.9 11676 15389 15103.2 12441.3
+écart-type 1178.34 1172.76 1286.07 1292.94 1304.08 1079.66 1085.64
+
+class 5 (118)
+moyennes 8716.79 9452.54 10918.9 11928 16323.4 17608.6 14432.4
+écart-type 590.858 512.119 543.432 701.413 1159.46 820.033 896.658
+
+class 6 (236)
+moyennes 9167.5 9967.39 11607.4 12914.8 17126.9 19303 16103.9
+écart-type 697.739 661.239 686.203 750.139 1032.78 965.321 803.594
+
+class 7 (420)
+moyennes 9447.76 10301.8 12089.2 13762.9 18023.4 21262.5 17926.6
+écart-type 558.716 522.992 595.324 651.946 809.997 868.978 912.509
+
+class 8 (691)
+moyennes 9809.44 10698.2 12615.3 14572.7 18869.4 23083.1 19899
+écart-type 555.148 530.208 604.799 692.872 786.72 826.893 954.473
+
+class 9 (1048)
+moyennes 10013.8 10930.4 13014.9 15326.5 19885 24925.2 21760.2
+écart-type 449.179 412.151 437.629 544.111 717.896 650.93 926.959
+
+class 10 (1751)
+moyennes 10494.8 11435.8 13838.4 16597 21217.4 26858.5 24400.9
+écart-type 532.17 537.28 701.184 909.995 921.828 954.891 1374.72
+
+Distribution des classes
+       2499        177         44         57        118
+        236        420        691       1048       1751
+
+######## iteration 1 ###########
+10 classes, 93.75% points stable
+Distribution des classes
+       2446        219         59         57        130
+        231        429        698       1271       1501
+
+######## iteration 2 ###########
+10 classes, 95.48% points stable
+Distribution des classes
+       2418        246         62         61        135
+        238        430        752       1358       1341
+
+######## iteration 3 ###########
+10 classes, 96.07% points stable
+Distribution des classes
+       2398        265         64         65        133
+        255        436        794       1423       1208
+
+######## iteration 4 ###########
+10 classes, 96.49% points stable
+Distribution des classes
+       2388        271         69         66        140
+        262        454        819       1476       1096
+
+######## iteration 5 ###########
+10 classes, 96.69% points stable
+Distribution des classes
+       2384        269         75         68        148
+        271        471        855       1488       1012
+
+######## iteration 6 ###########
+10 classes, 97.06% points stable
+Distribution des classes
+       2373        275         80         68        158
+        284        488        871       1492        952
+
+######## iteration 7 ###########
+10 classes, 97.12% points stable
+Distribution des classes
+       2361        274         92         71        164
+        292        523        873       1486        905
+
+######## iteration 8 ###########
+10 classes, 96.79% points stable
+Distribution des classes
+       2355        258        113         74        178
+        292        561        888       1457        865
+
+######## iteration 9 ###########
+10 classes, 96.45% points stable
+Distribution des classes
+       2343        211        169         79        186
+        308        572        908       1444        821
+
+######## iteration 10 ###########
+10 classes, 96.65% points stable
+Distribution des classes
+       2318        193        210         82        192
+        324        583        934       1423        782
+
+######## iteration 11 ###########
+10 classes, 97.40% points stable
+Distribution des classes
+       2292        211        215         85        197
+        343        586        960       1407        745
+
+######## iteration 12 ###########
+10 classes, 97.80% points stable
+Distribution des classes
+       2284        215        215         87        205
+        356        589        995       1383        712
+
+######## iteration 13 ###########
+10 classes, 98.30% points stable
+Distribution des classes
+       2280        217        215         85        215
+        366        599       1005       1371        688
+
+########## final results #############
+10 classes (convergence=98.3%)
+
+class separability matrix
+
+         1     2     3     4     5     6     7     8     9    10
+
+  1      0
+  2    1.9     0
+  3    3.4   1.4     0
+  4    3.9   2.4   1.3     0
+  5    6.8   4.2   2.7   0.8     0
+  6    9.0   5.6   3.8   1.5   0.9     0
+  7   10.8   6.8   4.7   2.2   1.6   0.8     0
+  8   13.0   8.2   5.8   2.9   2.5   1.6   0.8     0
+  9   17.2  10.3   7.3   3.7   3.5   2.6   1.8   0.9     0
+ 10   14.2   9.7   7.2   4.0   3.9   3.2   2.4   1.7   1.0     0
+
+class means/stddev for each band
+
+class 1 (2280)
+moyennes 7025.48 7464.39 8158.28 7778.01 7761.86 8031.61 7946.13
+écart-type 178.779 226.943 324.92 184.599 131.481 79.2823 57.5162
+
+class 2 (217)
+moyennes 8478.77 9119.74 10140.9 9614.1 9235.62 8685.39 8285.76
+écart-type 679.055 564.86 649.425 743.536 854.907 480.424 295.583
+
+class 3 (215)
+moyennes 8427.28 8962.44 10114.7 10244.3 13546.1 10937.7 9454.59
+écart-type 589.808 616.69 783.836 1006.66 898.821 722.578 510.69
+
+class 4 (85)
+moyennes 8974.04 9646.82 11063 11772.7 15562.5 15252 12472.7
+écart-type 1091.02 1070.91 1170.3 1258.08 1317.05 1278.05 1152.57
+
+class 5 (215)
+moyennes 8894.27 9662.64 11198.8 12319.1 16667.8 18360.8 15174.8
+écart-type 650.006 601.662 640.83 740.228 1243.47 914.766 855.948
+
+class 6 (366)
+moyennes 9363.72 10204.3 11954.8 13520 17753.4 20518.5 17151.1
+écart-type 642.708 608.057 663.767 714.718 885.718 931.806 745.633
+
+class 7 (599)
+moyennes 9692.46 10568.2 12430.5 14297.5 18566.7 22456.7 19229.1
+écart-type 512.937 502.549 626.257 724.265 846.028 818.41 826.925
+
+class 8 (1005)
+moyennes 9949.63 10862.3 12901.4 15109.7 19602.2 24435.6 21202.7
+écart-type 527.455 484.451 494.992 618.607 810.149 750.457 868.985
+
+class 9 (1371)
+moyennes 10245.7 11177.4 13428.2 15984.8 20603.3 26095.9 23331.5
+écart-type 331.531 317.553 397.462 511.39 639.139 608.235 870.287
+
+class 10 (688)
+moyennes 10814.1 11759.8 14340.3 17338.4 21931.3 27748 25717.5
+écart-type 623.912 645.156 793.88 948.838 928.213 772.474 992.741
+
+#################### CLASSES ####################
+
+10 classes, 98.30% points stable
+
+######## CLUSTER END (Fri Jul 28 19:40:07 2023) ########
+
+\end{verbatim}
+\end{scriptsize}
+
+\subsection[\appendixname~\thesubsection]{Landsat 9 OLI/TIRS Image from February 2023}
+\begin{scriptsize}
+\begin{verbatim}
+
+Location: Senegal
+Mapset:   PERMANENT
+Group:    L8_2023f
+Subgroup: res_30m
+ L8_2023f_01@PERMANENT
+ L8_2023f_02@PERMANENT
+ L8_2023f_03@PERMANENT
+ L8_2023f_04@PERMANENT
+ L8_2023f_05@PERMANENT
+ L8_2023f_06@PERMANENT
+ L8_2023f_07@PERMANENT
+Result signature file: cluster_L8_2023f
+
+Region
+  North:   1715145.00  East:    435015.00
+  South:   1481685.00  West:    209355.00
+  Res:          30.00  Res:         30.00
+  Rows:          7782  Cols:         7522  Cells: 58536204
+Mask: no
+
+Cluster parameters
+  Nombre de classes initiales: 	10
+ Minimum class size:           17
+ Minimum class separation:     0.000000
+ Percent convergence:          98.000000
+ Maximum number of iterations: 30
+
+ Row sampling interval:        77
+ Col sampling interval:        75
+
+Sample size: 7040 points
+
+means and standard deviations for 7 bands
+
+moyennes 8748.83 9249.98 10407.4 11511.3 14630.9 16933.1 14828.1
+écart-type 1191.3 1448.72 2255.67 3457.16 5679.26 7632.14 6217.75
+
+initial means for each band
+
+classe 1    7557.53 7801.27 8151.69 8054.12 8951.65 9300.92 8610.34
+classe 2    7822.27 8123.2 8652.95 8822.38 10213.7 10997 9992.06
+classe 3    8087 8445.14 9154.21 9590.64 11475.8 12693 11373.8
+classe 4    8351.73 8767.08 9655.47 10358.9 12737.8 14389 12755.5
+classe 5    8616.47 9089.02 10156.7 11127.2 13999.9 16085 14137.2
+classe 6    8881.2 9410.95 10658 11895.4 15261.9 17781.1 15518.9
+classe 7    9145.93 9732.89 11159.3 12663.7 16524 19477.1 16900.7
+classe 8    9410.67 10054.8 11660.5 13431.9 17786.1 21173.1 18282.4
+classe 9    9675.4 10376.8 12161.8 14200.2 19048.1 22869.2 19664.1
+classe 10   9940.13 10698.7 12663 14968.4 20310.2 24565.2 21045.8
+
+class means/stddev for each band
+
+class 1 (2496)
+moyennes 7397.33 7594.23 7783.32 7379.16 7315.58 7469.63 7457.21
+écart-type 257.134 379.462 656.612 476.84 486.298 184.185 103.77
+
+class 2 (158)
+moyennes 7876.46 8178.05 9049.89 8908.23 12997.6 9679.61 8534.34
+écart-type 525.091 609.018 853.878 1046.68 1198.88 489.001 400.555
+
+class 3 (36)
+moyennes 8382.67 8870.58 10132.7 10466.1 13936.5 11387.3 9487.14
+écart-type 947.565 1065.53 1372.44 1691.4 1632.83 953.406 696.225
+
+class 4 (57)
+moyennes 8251.86 8600.88 9571.46 9959.93 15437 14481.2 11342.6
+écart-type 533.787 587.414 837.827 1029.4 1271.36 860 557.976
+
+class 5 (134)
+moyennes 8416.31 8815.56 9833.32 10574.2 15771.8 16461.1 13140.7
+écart-type 406.687 433.512 557.12 723.845 1367.17 906.857 862.696
+
+class 6 (266)
+moyennes 8708.59 9204.28 10390.3 11470 16474.1 18107.3 14574.8
+écart-type 475.259 531.153 700.063 818.458 1227.04 969.829 863.811
+
+class 7 (443)
+moyennes 9099.78 9692.12 11043.4 12467 17136.3 19840.7 16357.9
+écart-type 568.161 626.07 793.584 804.164 936.815 918.436 828.39
+
+class 8 (737)
+moyennes 9302.5 9950.57 11478.8 13254.1 18110 21558.5 17941.3
+écart-type 374.83 425.163 583.044 633.254 877.581 798.585 957.001
+
+class 9 (1139)
+moyennes 9569.47 10281.3 11997.1 14137.3 19165.5 23156.4 19494.1
+écart-type 401.813 455.841 596 639.838 825.612 693.586 1018.06
+
+class 10 (1574)
+moyennes 10089.2 10861.3 12962 15506.7 20357.8 25237.8 22318.4
+écart-type 634.665 725.644 1032.03 1216.96 1066.29 1182.48 1657.15
+
+Distribution des classes
+       2496        158         36         57        134
+        266        443        737       1139       1574
+
+######## iteration 1 ###########
+10 classes, 92.90% points stable
+Distribution des classes
+       2457        189         47         67        139
+        262        463        736       1386       1294
+
+######## iteration 2 ###########
+10 classes, 94.94% points stable
+Distribution des classes
+       2456        190         46         77        150
+        265        461        799       1489       1107
+
+######## iteration 3 ###########
+10 classes, 95.65% points stable
+Distribution des classes
+       2456        189         46         81        170
+        258        486        853       1514        987
+
+######## iteration 4 ###########
+10 classes, 96.08% points stable
+Distribution des classes
+       2457        187         47         85        181
+        269        506        908       1495        905
+
+######## iteration 5 ###########
+10 classes, 96.83% points stable
+Distribution des classes
+       2457        186         47         91        190
+        269        541        948       1455        856
+
+######## iteration 6 ###########
+10 classes, 97.09% points stable
+Distribution des classes
+       2457        180         53         91        199
+        285        564        970       1432        809
+
+######## iteration 7 ###########
+10 classes, 97.64% points stable
+Distribution des classes
+       2456        178         56         91        204
+        296        579       1010       1401        769
+
+######## iteration 8 ###########
+10 classes, 97.64% points stable
+Distribution des classes
+       2454        174         61         92        207
+        305        597       1051       1373        726
+
+######## iteration 9 ###########
+10 classes, 97.68% points stable
+Distribution des classes
+       2454        169         63         96        212
+        316        615       1081       1339        695
+
+######## iteration 10 ###########
+10 classes, 97.74% points stable
+Distribution des classes
+       2451        165         70         96        222
+        322        633       1110       1303        668
+
+######## iteration 11 ###########
+10 classes, 98.07% points stable
+Distribution des classes
+       2447        164         75         96        228
+        337        643       1128       1276        646
+
+########## final results #############
+10 classes (convergence=98.1%)
+
+class separability matrix
+
+         1     2     3     4     5     6     7     8     9    10
+
+  1      0
+  2    3.0     0
+  3    2.0   1.1     0
+  4    4.3   1.9   1.3     0
+  5    6.2   3.3   1.9   0.9     0
+  6    8.3   4.5   2.5   1.8   0.8     0
+  7    8.6   4.9   2.9   2.3   1.4   0.8     0
+  8   11.1   6.4   3.7   3.2   2.3   1.6   0.7     0
+  9   12.9   7.6   4.3   4.0   3.1   2.5   1.5   0.8     0
+ 10    9.8   6.6   4.3   4.0   3.3   2.8   2.0   1.5   0.9     0
+
+class means/stddev for each band
+
+class 1 (2447)
+moyennes 7384.68 7577.4 7750.19 7338.65 7256.2 7449.93 7447.4
+écart-type 233.526 354.406 605.312 359.398 190.13 96.7428 65.728
+
+class 2 (164)
+moyennes 7768.28 8005.41 8737.76 8518.4 13138.8 9607.03 8456.8
+écart-type 205.996 186.285 242.11 330.13 1262.87 607.591 379.622
+
+class 3 (75)
+moyennes 8525.51 9128.15 10591.1 10928.9 11174.8 9722.17 8725.32
+écart-type 918.434 942.837 1086.16 1169.19 1692.48 1530.59 939.662
+
+class 4 (96)
+moyennes 8163.46 8518.08 9519.66 9865.24 16131.8 14749.6 11550
+écart-type 412.115 431.61 583.174 750.222 1677.81 1030.87 735.6
+
+class 5 (228)
+moyennes 8568.15 9033.46 10155.7 11075.6 16134 17188.2 13740.3
+écart-type 483.059 558.081 776.923 904.11 1382.8 872.156 678.826
+
+class 6 (337)
+moyennes 8871.33 9394.43 10612 11902 16595.4 19221.5 15596.3
+écart-type 402.996 432.52 557.997 635.147 984.32 833.374 715.065
+
+class 7 (643)
+moyennes 9260.18 9891.57 11366 12992.1 17749 20723.4 17203.5
+écart-type 521.521 573.699 738.973 756.273 952.239 979.531 836.2
+
+class 8 (1128)
+moyennes 9463.09 10163.8 11815.7 13862 18902.5 22691.9 18913.4
+écart-type 380.886 443.357 597.014 679.936 942.091 744.636 887.704
+
+class 9 (1276)
+moyennes 9787.57 10519.4 12406.4 14745.2 19700.1 24299.8 21058.5
+écart-type 334.318 380.658 525.448 612.7 810.222 749.323 968.629
+
+class 10 (646)
+moyennes 10470 11283.8 13627.1 16372.5 20992.3 26212.4 23777.5
+écart-type 775.83 898.648 1231.43 1389.82 1174.18 1099.88 1360.82
+
+#################### CLASSES ####################
+
+10 classes, 98.07% points stable
+
+######## CLUSTER END (Fri Jul 28 19:46:42 2023) ########
+
+\end{verbatim}
+\end{scriptsize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+
+\begin{thebibliography}{999}
+
+\bibitem[Karra et~al.(2021)Karra, Kontgis, Statman-Weil, Mazzariello, Mathis,
+  and Brumby]{9553499}
+Karra, K.; Kontgis, C.; Statman-Weil, Z.; Mazzariello, J.C.; Mathis, M.;
+  Brumby, S.P.
+\newblock Global land use/land cover with Sentinel 2 and deep learning.
+\newblock In Proceedings of the 2021 IEEE International Geoscience and Remote
+  Sensing Symposium IGARSS, \hl{Brussels, Belgium, 11--16 July 2021;} %MDPI: We added location and date of the conference. Please check.
+ pp. 4704--4707.
+\newblock {\url{https://doi.org/10.1109/IGARSS47720.2021.9553499}}.
+
+\bibitem[Ngom et~al.(2020)Ngom, Mbaye, Baratoux, Baratoux, Catry, Dessay, Faye,
+  Sow, and Delaitre]{Ngom}
+Ngom, N.M.; Mbaye, M.; Baratoux, D.; Baratoux, L.; Catry, T.; Dessay, N.; Faye,
+  G.; Sow, E.H.; Delaitre, E.
+\newblock Mapping Artisanal and Small-Scale Gold Mining in Senegal Using
+  Sentinel 2 Data.
+\newblock {\em GeoHealth} {\bf 2020}, {\em 4},~e2020GH000310.
+\newblock {\url{https://doi.org/10.1029/2020GH000310}}.
+
+\bibitem[Tong et~al.(2020)Tong, Brandt, Hiernaux, Herrmann, Rasmussen,
+  Rasmussen, Tian, Tagesson, Zhang, and Fensholt]{TONG2020111598}
+Tong, X.; Brandt, M.; Hiernaux, P.; Herrmann, S.; Rasmussen, L.V.; Rasmussen,
+  K.; Tian, F.; Tagesson, T.; Zhang, W.; Fensholt, R.
+\newblock The forgotten land use class: Mapping of fallow fields across the
+  Sahel using Sentinel-2.
+\newblock {\em Remote Sens. Environ.} {\bf 2020}, {\em 239},~111598.
+\newblock {\url{https://doi.org/10.1016/j.rse.2019.111598}}.
+
+\bibitem[Konarska et~al.(2002)Konarska, Sutton, and Castellon]{KONARSKA2002491}
+Konarska, K.M.; Sutton, P.C.; Castellon, M.
+\newblock Evaluating scale dependence of ecosystem service valuation: A
+  comparison of NOAA-AVHRR and Landsat TM datasets.
+\newblock {\em Ecol. Econ.} {\bf 2002}, {\em 41},~491--507.
+\newblock {\url{https://doi.org/10.1016/S0921-8009(02)00096-4}}.
+
+\bibitem[Anyamba and Tucker(2005)]{ANYAMBA2005596}
+Anyamba, A.; Tucker, C.
+\newblock Analysis of Sahelian vegetation dynamics using NOAA-AVHRR NDVI data
+  from 1981–2003.
+\newblock {\em J. Arid Environ.} {\bf 2005}, {\em 63},~\hl{596--614.} %MDPI: We removed extra information. Please check.
+  {\url{https://doi.org/10.1016/j.jaridenv.2005.03.007}}.
+
+\bibitem[Frederiksen and Lawesson(1992)]{Frederiksen}
+Frederiksen, P.; Lawesson, J.E.
+\newblock Vegetation types and patterns in Senegal based on multivariate
+  analysis of field and NOAA-AVHRR satellite data.
+\newblock {\em J. Veg. Sci.} {\bf 1992}, {\em 3},~535--544.
+\newblock {\url{https://doi.org/10.2307/3235810}}.
+
+\bibitem[Silva et~al.(2005)Silva, Sá, and Pereira]{SILVA2005188}
+Silva, J.M.; Sá, A.C.; Pereira, J.M.
+\newblock Comparison of burned area estimates derived from SPOT-VEGETATION and
+  Landsat ETM+ data in Africa: Influence of spatial pattern and vegetation
+  type.
+\newblock {\em Remote Sens. Environ.} {\bf 2005}, {\em 96},~188--201.
+\newblock {\url{https://doi.org/10.1016/j.rse.2005.02.004}}.
+
+\bibitem[Martínez et~al.(2011)Martínez, Gilabert, García-Haro, Faye, and
+  Meliá]{MARTINEZ2011152}
+Martínez, B.; Gilabert, M.; García-Haro, F.; Faye, A.; Meliá, J.
+\newblock Characterizing land condition variability in Ferlo, Senegal
+  (2001–2009) using multi-temporal 1-km Apparent Green Cover (AGC) SPOT
+  Vegetation data.
+\newblock {\em Glob. Planet. Chang.} {\bf 2011}, {\em 76},~152--165.
+\newblock {\url{https://doi.org/10.1016/j.gloplacha.2011.01.001}}.
+
+\bibitem[Pimple et~al.(2020)Pimple, Simonetti, Hinks, Oszwald, Berger, Pungkul,
+  Leadprathom, Pravinvongvuthi, Maprasoap, and Gond]{PIMPLE2020118007}
+Pimple, U.; Simonetti, D.; Hinks, I.; Oszwald, J.; Berger, U.; Pungkul, S.;
+  Leadprathom, K.; Pravinvongvuthi, T.; Maprasoap, P.; Gond, V.
+\newblock A history of the rehabilitation of mangroves and an assessment of
+  their diversity and structure using Landsat annual composites (1987–2019)
+  and transect plot inventories.
+\newblock {\em For. Ecol. Manag.} {\bf 2020}, {\em 462},~118007.
+\newblock {\url{https://doi.org/10.1016/j.foreco.2020.118007}}.
+
+\bibitem[Lemenkova(2023)]{Lemenkova202315}
+Lemenkova, P.
+\newblock {Mapping Wetlands of Kenya Using Geographic Resources Analysis
+  Support System (GRASS GIS) with Remote Sensing Data}.
+\newblock {\em Transylv. Rev. Syst. Ecol. Res.}
+  {\bf 2023}, {\em 25},~1--18.
+\newblock {\url{https://doi.org/10.2478/trser-2023-0008}}.
+
+\bibitem[Ogilvie et~al.(2020)Ogilvie, Poussin, Bader, Bayo, Bodian, Dacosta,
+  Dia, Diop, Martin, and Sambou]{rs12193157}
+Ogilvie, A.; Poussin, J.C.; Bader, J.C.; Bayo, F.; Bodian, A.; Dacosta, H.;
+  Dia, D.; Diop, L.; Martin, D.; Sambou, S.
+\newblock Combining Multi-Sensor Satellite Imagery to Improve Long-Term
+  Monitoring of Temporary Surface Water Bodies in the Senegal River Floodplain.
+\newblock {\em Remote Sens.} {\bf 2020}, {\em 12}, 3157.
+\newblock {\url{https://doi.org/10.3390/rs12193157}}.
+
+\bibitem[Mayaux et~al.(2004)Mayaux, Bartholomé, Fritz, and Belward]{Mayaux}
+Mayaux, P.; Bartholomé, E.; Fritz, S.; Belward, A.
+\newblock A new land-cover map of Africa for the year 2000.
+\newblock {\em J. Biogeogr.} {\bf 2004}, {\em 31},~861--877.
+\newblock {\url{https://doi.org/10.1111/j.1365-2699.2004.01073.x}}.
+
+\bibitem[Karra et~al.(2024)Karra, Kontgis, Statman-Weil, Mazzariello, Mathis,
+  and Brumby]{Karraetal}
+Karra, K.; Kontgis, C.; Statman-Weil, Z.; Mazzariello, J.C.; Mathis, M.;
+  Brumby, S.P.
+\newblock {ESRI 10m Annual Land Cover (2017--2023)}.
+\newblock 2024. \hl{Available} %MDPI: We added link. Please check and confirm.
+ online: \url{https://gee-community-catalog.org/projects/S2TSLULC/#class-definitions} \hl{(accessed on)} %MDPI: Please add the access date (Format: Date Month Year). e.g., (accessed on 1 January 2020).
+.
+
+\bibitem[Acker et~al.(2014)Acker, Williams, Chiu, Ardanuy, Miller, Schueler,
+  Vachon, and Manore]{ACKER2014}
+Acker, J.; Williams, R.; Chiu, L.; Ardanuy, P.; Miller, S.; Schueler, C.;
+  Vachon, P.; Manore, M.
+\newblock Remote Sensing from Satellites. In {\em Reference Module in Earth
+  Systems and Environmental Sciences}; Elsevier:  \hl{Amsterdam, The Netherlands,} %newly added information, please confirm
+  2014.
+\newblock {\url{https://doi.org/10.1016/B978-0-12-409548-9.09440-9}}.
+
+\bibitem[Hakimdavar et~al.(2020)Hakimdavar, Hubbard, Policelli, Pickens,
+  Hansen, Fatoyinbo, Lagomasino, Pahlevan, Unninayar, Kavvada, Carroll, Smith,
+  Hurwitz, Wood, and Schollaert~Uz]{rs12101634}
+Hakimdavar, R.; Hubbard, A.; Policelli, F.; Pickens, A.; Hansen, M.; Fatoyinbo,
+  T.; Lagomasino, D.; Pahlevan, N.; Unninayar, S.; Kavvada, A.;  et~al.
+\newblock Monitoring Water-Related Ecosystems with Earth Observation Data in
+  Support of Sustainable Development Goal (SDG) 6 Reporting.
+\newblock {\em Remote Sens.} {\bf 2020}, {\em 12}, 1634.
+\newblock {\url{https://doi.org/10.3390/rs12101634}}.
+
+\bibitem[Taveneau et~al.(2021)Taveneau, Almar, Bergsma, Sy, Ndour, Sadio, and
+  Garlan]{rs13132454}
+Taveneau, A.; Almar, R.; Bergsma, E.W.J.; Sy, B.A.; Ndour, A.; Sadio, M.;
+  Garlan, T.
+\newblock Observing and Predicting Coastal Erosion at the Langue de Barbarie
+  Sand Spit around Saint Louis (Senegal, West Africa) through Satellite-Derived
+  Digital Elevation Model and Shoreline.
+\newblock {\em Remote Sens.} {\bf 2021}, {\em 13}, 2454.
+\newblock {\url{https://doi.org/10.3390/rs13132454}}.
+
+\bibitem[Crippen(1990)]{CRIPPEN199071}
+Crippen, R.E.
+\newblock Calculating the vegetation index faster.
+\newblock {\em Remote Sens. Environ.} {\bf 1990}, {\em 34},~71--73.
+\newblock {\url{https://doi.org/10.1016/0034-4257(90)90085-Z}}.
+
+\bibitem[Li et~al.(2004)Li, Lewis, Rowland, Tappan, and Tieszen]{LI2004463}
+Li, J.; Lewis, J.; Rowland, J.; Tappan, G.; Tieszen, L.
+\newblock Evaluation of land performance in Senegal using multi-temporal NDVI
+  and rainfall series.
+\newblock {\em J. Arid Environ.} {\bf 2004}, {\em 59},~463--480.
+\newblock {\url{https://doi.org/10.1016/j.jaridenv.2004.03.019}}.
+
+\bibitem[Lemenkova and Debeir(2023)]{jmse11040871}
+Lemenkova, P.; Debeir, O.
+\newblock Computing Vegetation Indices from the Satellite Images Using GRASS
+  GIS Scripts for Monitoring Mangrove Forests in the Coastal Landscapes of
+  Niger Delta, Nigeria.
+\newblock {\em J. Mar. Sci. Eng.} {\bf 2023}, {\em 11}, 871.
+\newblock {\url{https://doi.org/10.3390/jmse11040871}}.
+
+\bibitem[Ruan et~al.(2022)Ruan, Yan, Zhang, Fan, and Yang]{RUAN2022157075}
+Ruan, L.; Yan, M.; Zhang, L.; Fan, X.S.; Yang, H.
+\newblock Spatial-temporal NDVI pattern of global mangroves: A growing trend
+  during 2000–2018.
+\newblock {\em Sci. Total Environ.} {\bf 2022}, {\em 844},~157075.
+\newblock {\url{https://doi.org/10.1016/j.scitotenv.2022.157075}}.
+
+\bibitem[Campos and Brito(2018)]{CAMPOS2018211}
+Campos, J.C.; Brito, J.C.
+\newblock Mapping underrepresented land cover heterogeneity in arid regions:
+  The Sahara-Sahel example.
+\newblock {\em ISPRS J. Photogramm. Remote Sens.} {\bf 2018},
+  {\em 146},~211--220.
+\newblock {\url{https://doi.org/10.1016/j.isprsjprs.2018.09.012}}.
+
+\bibitem[Syifa et~al.(2020)Syifa, Park, and Lee]{SYIFA2020919}
+Syifa, M.; Park, S.J.; Lee, C.W.
+\newblock Detection of the Pine Wilt Disease Tree Candidates for Drone Remote
+  Sensing Using Artificial Intelligence Techniques.
+\newblock {\em Engineering} {\bf 2020}, {\em 6},~919--926.
+\newblock {\url{https://doi.org/10.1016/j.eng.2020.07.001}}.
+
+\bibitem[Budde et~al.(2004)Budde, Tappan, Rowland, Lewis, and
+  Tieszen]{BUDDE2004481}
+Budde, M.; Tappan, G.; Rowland, J.; Lewis, J.; Tieszen, L.
+\newblock Assessing land cover performance in Senegal, West Africa using 1-km
+  integrated NDVI and local variance analysis.
+\newblock {\em J. Arid Environ.} {\bf 2004}, {\em 59},~\hl{481--498.} %MDPI: We removed extra information. Please check. Same below.
+\newblock
+  {\url{https://doi.org/10.1016/j.jaridenv.2004.03.020}}.
+
+\bibitem[Tappan et~al.(2004)Tappan, Sall, Wood, and Cushing]{TAPPAN2004427}
+Tappan, G.; Sall, M.; Wood, E.; Cushing, M.
+\newblock Ecoregions and land cover trends in Senegal.
+\newblock {\em J. Arid Environ.} {\bf 2004}, {\em 59},~\hl{427--462.}
+  {\url{https://doi.org/10.1016/j.jaridenv.2004.03.018}}.
+
+\bibitem[Deans et~al.(2003)Deans, Diagne, Nizinski, Lindley, Seck, Ingleby, and
+  Munro]{DEANS2003253}
+Deans, J.; Diagne, O.; Nizinski, J.; Lindley, D.; Seck, M.; Ingleby, K.; Munro,
+  R.
+\newblock Comparative growth, biomass production, nutrient use and soil
+  amelioration by nitrogen-fixing tree species in semi-arid Senegal.
+\newblock {\em For. Ecol. Manag.} {\bf 2003}, {\em 176},~253--264.
+\newblock {\url{https://doi.org/10.1016/S0378-1127(02)00296-7}}.
+
+\bibitem[Cabral and Costa(2017)]{CABRAL2017115}
+Cabral, A.I.; Costa, F.L.
+\newblock Land cover changes and landscape pattern dynamics in Senegal and
+  Guinea Bissau borderland.
+\newblock {\em Appl. Geogr.} {\bf 2017}, {\em 82},~115--128.
+\newblock {\url{https://doi.org/10.1016/j.apgeog.2017.03.010}}.
+
+\bibitem[Conchedda et~al.(2008)Conchedda, Durieux, and
+  Mayaux]{CONCHEDDA2008578}
+Conchedda, G.; Durieux, L.; Mayaux, P.
+\newblock An object-based method for mapping and change analysis in mangrove
+  ecosystems.
+\newblock {\em ISPRS J. Photogramm. Remote Sens.} {\bf 2008},
+  {\em 63},~\hl{578--589.}
+  {\url{https://doi.org/10.1016/j.isprsjprs.2008.04.002}}.
+
+\bibitem[Silva et~al.(2017)Silva, Bacao, and Caetano]{rs9020181}
+Silva, J.; Bacao, F.; Caetano, M.
+\newblock Specific Land Cover Class Mapping by Semi-Supervised Weighted Support
+  Vector Machines.
+\newblock {\em Remote Sens.} {\bf 2017}, {\em 9}, 181.
+\newblock {\url{https://doi.org/10.3390/rs9020181}}.
+
+\bibitem[Samasse et~al.(2020)Samasse, Hanan, Anchang, and Diallo]{rs12091436}
+Samasse, K.; Hanan, N.P.; Anchang, J.Y.; Diallo, Y.
+\newblock A High-Resolution Cropland Map for the West African Sahel Based on
+  High-Density Training Data, Google Earth Engine, and Locally Optimized
+  Machine Learning.
+\newblock {\em Remote Sens.} {\bf 2020}, {\em 12}, 1436.
+\newblock {\url{https://doi.org/10.3390/rs12091436}}.
+
+\bibitem[Stoorvogel et~al.(2009)Stoorvogel, Kempen, Heuvelink, and {de
+  Bruin}]{STOORVOGEL2009161}
+Stoorvogel, J.; Kempen, B.; Heuvelink, G.; {de Bruin}, S.
+\newblock Implementation and evaluation of existing knowledge for digital soil
+  mapping in Senegal.
+\newblock {\em Geoderma} {\bf 2009}, {\em 149},~161--170.
+\newblock {\url{https://doi.org/10.1016/j.geoderma.2008.11.039}}.
+
+\bibitem[Pérez-Hoyos et~al.(2020)Pérez-Hoyos, Udías, and
+  Rembold]{PEREZHOYOS2020102064}
+Pérez-Hoyos, A.; Udías, A.; Rembold, F.
+\newblock Integrating multiple land cover maps through a multi-criteria
+  analysis to improve agricultural monitoring in Africa.
+\newblock {\em Int. J. Appl. Earth Obs. Geoinf.} {\bf 2020}, {\em 88},~102064.
+\newblock {\url{https://doi.org/10.1016/j.jag.2020.102064}}.
+
+\bibitem[Brandt et~al.(2016)Brandt, Hiernaux, Rasmussen, Mbow, Kergoat,
+  Tagesson, Ibrahim, Wélé, Tucker, and Fensholt]{BRANDT2016215}
+Brandt, M.; Hiernaux, P.; Rasmussen, K.; Mbow, C.; Kergoat, L.; Tagesson, T.;
+  Ibrahim, Y.Z.; Wélé, A.; Tucker, C.J.; Fensholt, R.
+\newblock Assessing woody vegetation trends in Sahelian drylands using MODIS
+  based seasonal metrics.
+\newblock {\em Remote Sens. Environ.} {\bf 2016}, {\em 183},~215--225.
+\newblock {\url{https://doi.org/10.1016/j.rse.2016.05.027}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202212}
+Lemenkova, P.
+\newblock {Handling Dataset with Geophysical and Geological Variables on the
+  Bolivian Andes by the GMT Scripts}.
+\newblock {\em Data} {\bf 2022}, {\em 7},~74.
+\newblock {\url{https://doi.org/10.3390/data7060074}}.
+
+\bibitem[Duncan et~al.(2018)Duncan, Owen, Thompson, Koldewey, Primavera, and
+  Pettorelli]{Duncan}
+Duncan, C.; Owen, H.J.F.; Thompson, J.R.; Koldewey, H.J.; Primavera, J.H.;
+  Pettorelli, N.
+\newblock Satellite remote sensing to monitor mangrove forest resilience and
+  resistance to sea level rise.
+\newblock {\em Methods Ecol. Evol.} {\bf 2018}, {\em
+  9},~1837--1852.
+\newblock {\url{https://doi.org/10.1111/2041-210X.12923}}.
+
+\bibitem[Lemenkova and Debeir(2023)]{jimaging9050098}
+Lemenkova, P.; Debeir, O.
+\newblock Multispectral Satellite Image Analysis for Computing Vegetation
+  Indices by R in the Khartoum Region of Sudan, Northeast Africa.
+\newblock {\em J. Imaging} {\bf 2023}, {\em 9}, 98.
+\newblock {\url{https://doi.org/10.3390/jimaging9050098}}.
+
+\bibitem[Purkis and Klemas(2011)]{Purkis}
+Purkis, S.; Klemas, V. Monitoring changes in global vegetation cover.
+\newblock In {\em Remote Sensing and Global Environmental Change}; John Wiley
+  \& Sons Ltd.:  \hl{Hoboken, NJ, USA,} %newly added information, please confirm
+  2011; Chapter~5, pp. 63--90.
+\newblock {\url{https://doi.org/10.1002/9781118687659.ch5}}.
+
+\bibitem[Lemenkova and Debeir(2023)]{info14040249}
+Lemenkova, P.; Debeir, O.
+\newblock Recognizing the Wadi Fluvial Structure and Stream Network in the Qena
+  Bend of the Nile River, Egypt, on Landsat 8-9 OLI Images.
+\newblock {\em Information} {\bf 2023}, {\em 14}, 249.
+\newblock {\url{https://doi.org/10.3390/info14040249}}.
+
+\bibitem[Diouf and Lambin(2001)]{DIOUF2001129}
+Diouf, A.; Lambin, E.
+\newblock Monitoring land-cover changes in semi-arid regions: Remote sensing
+  data and field observations in the Ferlo, Senegal.
+\newblock {\em J. Arid Environ.} {\bf 2001}, {\em 48},~129--148.
+\newblock {\url{https://doi.org/10.1006/jare.2000.0744}}.
+
+\bibitem[Suomalainen et~al.(2021)Suomalainen, Oliveira, Hakala, Koivumäki,
+  Markelin, Näsi, and Honkavaara]{SUOMALAINEN2021112691}
+Suomalainen, J.; Oliveira, R.A.; Hakala, T.; Koivumäki, N.; Markelin, L.;
+  Näsi, R.; Honkavaara, E.
+\newblock Direct reflectance transformation methodology for drone-based
+  hyperspectral imaging.
+\newblock {\em Remote Sens. Environ.} {\bf 2021}, {\em 266},~112691.
+\newblock {\url{https://doi.org/10.1016/j.rse.2021.112691}}.
+
+\bibitem[Olson and Anderson(2021)]{OlsonAnderson}
+Olson, D.; Anderson, J.
+\newblock Review on unmanned aerial vehicles, remote sensors, imagery
+  processing, and their applications in agriculture.
+\newblock {\em Agron. J.} {\bf 2021}, {\em 113},~971--992.
+\newblock {\url{https://doi.org/10.1002/agj2.20595}}.
+
+\bibitem[Lemenkova and Debeir(2022)]{Lemenkova202227}
+Lemenkova, P.; Debeir, O.
+\newblock {Satellite Image Processing by Python and R Using Landsat 9 OLI/TIRS
+  and SRTM DEM Data on Côte d’Ivoire, West Africa}.
+\newblock {\em J. Imaging} {\bf 2022}, {\em 8},~317.
+\newblock {\url{https://doi.org/10.3390/jimaging8120317}}.
+
+\bibitem[Ali et~al.(2016)Ali, Cawkwell, Dwyer, Barrett, and Green]{Ali}
+Ali, I.; Cawkwell, F.; Dwyer, E.; Barrett, B.; Green, S.
+\newblock {Satellite remote sensing of grasslands: From observation to
+  management}.
+\newblock {\em J. Plant Ecol.} {\bf 2016}, {\em 9},~649--671.
+\newblock {\url{https://doi.org/10.1093/jpe/rtw005}}.
+
+\bibitem[Olson et~al.(2019)Olson, Chatterjee, Franzen, and Day]{Olsonetal2019}
+Olson, D.; Chatterjee, A.; Franzen, D.W.; Day, S.S.
+\newblock Relationship of Drone-Based Vegetation Indices with Corn and
+  Sugarbeet Yields.
+\newblock {\em Agron. J.} {\bf 2019}, {\em 111},~2545--2557.
+\newblock {\url{https://doi.org/10.2134/agronj2019.04.0260}}.
+
+\bibitem[Lemenkova and Debeir(2022)]{Lemenkova202229}
+Lemenkova, P.; Debeir, O.
+\newblock {R Libraries for Remote Sensing Data Classification by k-means
+  Clustering and NDVI Computation in Congo River Basin, DRC}.
+\newblock {\em Appl. Sci.} {\bf 2022}, {\em 12},~12554.
+\newblock {\url{https://doi.org/10.3390/app122412554}}.
+
+\bibitem[Puertas et~al.(2013)Puertas, Brenning, and Meza]{PUERTAS2013112}
+Puertas, O.L.; Brenning, A.; Meza, F.J.
+\newblock Balancing misclassification errors of land cover classification maps
+  using support vector machines and Landsat imagery in the Maipo river basin
+  (Central Chile, 1975–2010).
+\newblock {\em Remote Sens. Environ.} {\bf 2013}, {\em 137},~112--123.
+\newblock {\url{https://doi.org/10.1016/j.rse.2013.06.003}}.
+
+\bibitem[Petropoulos et~al.(2011)Petropoulos, Kontoes, and
+  Keramitsoglou]{PETROPOULOS201170}
+Petropoulos, G.P.; Kontoes, C.; Keramitsoglou, I.
+\newblock Burnt area delineation from a uni-temporal perspective based on
+  Landsat TM imagery classification using Support Vector Machines.
+\newblock {\em Int. J. Appl. Earth Obs. Geoinf.} {\bf 2011}, {\em 13},~70--80.
+\newblock {\url{https://doi.org/10.1016/j.jag.2010.06.008}}.
+
+\bibitem[Anees et~al.(2024)Anees, Mehmood, Khan, Sajjad, Alahmadi, Alharbi, and
+  Luo]{ANEES2024102732}
+Anees, S.A.; Mehmood, K.; Khan, W.R.; Sajjad, M.; Alahmadi, T.A.; Alharbi,
+  S.A.; Luo, M.
+\newblock Integration of machine learning and remote sensing for above ground
+  biomass estimation through Landsat-9 and field data in temperate forests of
+  the Himalayan region.
+\newblock {\em Ecol. Informatics} {\bf 2024}, {\em 82},~102732.
+\newblock {\url{https://doi.org/10.1016/j.ecoinf.2024.102732}}.
+
+\bibitem[Ibrahim et~al.(2024)Ibrahim, Balzter, and Tansey]{IBRAHIM2024100561}
+Ibrahim, S.; Balzter, H.; Tansey, K.
+\newblock Machine learning feature importance selection for predicting
+  aboveground biomass in African savannah with landsat 8 and ALOS PALSAR data.
+\newblock {\em Mach. Learn. Appl.} {\bf 2024}, {\em
+  16},~100561.
+\newblock {\url{https://doi.org/10.1016/j.mlwa.2024.100561}}.
+
+\bibitem[Wood et~al.(2004)Wood, Tappan, and Hadj]{WOOD2004565}
+Wood, E.; Tappan, G.; Hadj, A.
+\newblock Understanding the drivers of agricultural land use change in
+  south-central Senegal.
+\newblock {\em J. Arid Environ.} {\bf 2004}, {\em 59},~\hl{565--582.}
+  {\url{https://doi.org/10.1016/j.jaridenv.2004.03.022}}.
+
+\bibitem[Elberling et~al.(2003)Elberling, Touré, and
+  Rasmussen]{ELBERLING200337}
+Elberling, B.; Touré, A.; Rasmussen, K.
+\newblock Changes in soil organic matter following groundnut–millet cropping
+  at three locations in semi-arid Senegal, West Africa.
+\newblock {\em Agric. Ecosyst. Environ.} {\bf 2003}, {\em
+  96},~37--47.
+\newblock {\url{https://doi.org/10.1016/S0167-8809(03)00010-0}}.
+
+\bibitem[Hiraldo(2018)]{Hiraldo}
+Hiraldo, R.
+\newblock Experiencing primitive accumulation as alienation: Mangrove forest
+  privatization, enclosures and the everyday adaptation of bodies to capital in
+  rural Senegal.
+\newblock {\em J. Agrar. Chang.} {\bf 2018}, {\em 18},~517--535.
+\newblock {\url{https://doi.org/10.1111/joac.12247}}.
+
+\bibitem[Liu et~al.(2004)Liu, Kairé, Wood, Diallo, and Tieszen]{LIU2004583}
+Liu, S.; Kairé, M.; Wood, E.; Diallo, O.; Tieszen, L.
+\newblock Impacts of land use and climate change on carbon dynamics in
+  south-central Senegal.
+\newblock {\em J. Arid Environ.} {\bf 2004}, {\em 59},~\hl{583--604.}
+  {\url{https://doi.org/10.1016/j.jaridenv.2004.03.023}}.
+
+\bibitem[Tschakert and Tappan(2004)]{TSCHAKERT2004535}
+Tschakert, P.; Tappan, G.
+\newblock The social context of carbon sequestration: Considerations from a
+  multi-scale environmental history of the Old Peanut Basin of Senegal.
+\newblock {\em J. Arid Environ.} {\bf 2004}, {\em 59},~\hl{535--564.}
+  {\url{https://doi.org/10.1016/j.jaridenv.2004.03.021}}.
+
+\bibitem[Lufafa et~al.(2008)Lufafa, Bolte, Wright, Khouma, Diedhiou, Dick,
+  Kizito, Dossa, and Noller]{LUFAFA20081}
+Lufafa, A.; Bolte, J.; Wright, D.; Khouma, M.; Diedhiou, I.; Dick, R.; Kizito,
+  F.; Dossa, E.; Noller, J.
+\newblock Regional carbon stocks and dynamics in native woody shrub communities
+  of Senegal's Peanut Basin.
+\newblock {\em Agric. Ecosyst. Environ.} {\bf 2008}, {\em
+  128},~1--11.
+\newblock {\url{https://doi.org/10.1016/j.agee.2008.04.013}}.
+
+\bibitem[Camara et~al.(2017)Camara, Hardy, Dioh, Gueye, Piqué, Carré, Sall,
+  and Diouf]{CAMARA2017204}
+Camara, A.; Hardy, K.; Dioh, E.; Gueye, M.; Piqué, R.; Carré, M.; Sall, M.;
+  Diouf, M.W.
+\newblock Amas et sites coquilliers du delta du Saloum (Sénégal): Passé et
+  présent.
+\newblock {\em L'Anthropologie} {\bf 2017}, {\em 121},~\hl{204--214.}
+  {\url{https://doi.org/10.1016/j.anthro.2017.03.018}}.
+
+\bibitem[Paturel et~al.(2017)Paturel, Mahé, Diello, Barbier, Dezetter,
+  Dieulin, Karambiri, Yacouba, and Maiga]{Paturel}
+Paturel, J.E.; Mahé, G.; Diello, P.; Barbier, B.; Dezetter, A.; Dieulin, C.;
+  Karambiri, H.; Yacouba, H.; Maiga, A.
+\newblock Using land cover changes and demographic data to improve hydrological
+  modeling in the Sahel.
+\newblock {\em Hydrol. Process.} {\bf 2017}, {\em 31},~811--824.
+\newblock {\url{https://doi.org/10.1002/hyp.11057}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202217}
+Lemenkova, P.
+\newblock {Mapping Climate Parameters over the Territory of Botswana Using GMT
+  and Gridded Surface Data from TerraClimate}.
+\newblock {\em ISPRS Int. J. Geo-Inf.} {\bf 2022}, {\em
+  11},~473.
+\newblock {\url{https://doi.org/10.3390/ijgi11090473}}.
+
+\bibitem[Fritz et~al.(2011)Fritz, You, Bun, See, McCallum, Schill, Perger, Liu,
+  Hansen, and Obersteiner]{Fritz}
+Fritz, S.; You, L.; Bun, A.; See, L.; McCallum, I.; Schill, C.; Perger, C.;
+  Liu, J.; Hansen, M.; Obersteiner, M.
+\newblock Cropland for sub-Saharan Africa: A synergistic approach using five
+  land cover data sets.
+\newblock {\em Geophys. Res. Lett.} {\bf 2011}, \hl{{\em 38}.} %MDPI: Please provide pagination if available.
+\newblock {\url{https://doi.org/10.1029/2010GL046213}}.
+
+\bibitem[Lemenkova(2023)]{Lemenkova202313}
+Lemenkova, P.
+\newblock {A GRASS GIS Scripting Framework for Monitoring Changes in the
+  Ephemeral Salt Lakes of Chotts Melrhir and Merouane, Algeria}.
+\newblock {\em Appl. Syst. Innov.} {\bf 2023}, {\em 6},~61.
+\newblock {\url{https://doi.org/10.3390/asi6040061}}.
+
+\bibitem[Mbow et~al.(2008)Mbow, Mertz, Diouf, Rasmussen, and
+  Reenberg]{MBOW2008210}
+Mbow, C.; Mertz, O.; Diouf, A.; Rasmussen, K.; Reenberg, A.
+\newblock The history of environmental change and adaptation in eastern
+  Saloum–Senegal—Driving forces and perceptions.
+\newblock {\em Glob. Planet. Chang.} {\bf 2008}, {\em 64},~\hl{210--221.}
+  {\url{https://doi.org/10.1016/j.gloplacha.2008.09.008}}.
+
+\bibitem[Ndour et~al.(2018)Ndour, Laïbi, Sadio, Degbe, Diaw, Oyédé, Anthony,
+  Dussouillez, Sambou, and hadji Balla~Dièye]{NDOUR201892}
+Ndour, A.; Laïbi, R.A.; Sadio, M.; Degbe, C.G.; Diaw, A.T.; Oyédé, L.M.;
+  Anthony, E.J.; Dussouillez, P.; Sambou, H.; Hadji Balla~Dièye, E.
+\newblock Management strategies for coastal erosion problems in west Africa:
+  Analysis, issues, and constraints drawn from the examples of Senegal and
+  Benin.
+\newblock {\em Ocean Coast. Manag.} {\bf 2018}, {\em 156},~\hl{92--106.}
+  {\url{https://doi.org/10.1016/j.ocecoaman.2017.09.001}}.
+
+\bibitem[Ngom et~al.(2016)Ngom, Tweed, Bader, Saos, Malou, Leduc, and
+  Leblanc]{NGOM201634}
+Ngom, F.; Tweed, S.; Bader, J.C.; Saos, J.L.; Malou, R.; Leduc, C.; Leblanc, M.
+\newblock Rapid evolution of water resources in the Senegal delta.
+\newblock {\em Glob. Planet. Chang.} {\bf 2016}, {\em 144},~34--47.
+\newblock {\url{https://doi.org/10.1016/j.gloplacha.2016.07.002}}.
+
+\bibitem[Lombard et~al.(2023)Lombard, Soumaré, Andrieu, and
+  Josselin]{LOMBARD2023102027}
+Lombard, F.; Soumaré, S.; Andrieu, J.; Josselin, D.
+\newblock Mangrove zonation mapping in West Africa, at 10-m resolution,
+  optimized for inter-annual monitoring.
+\newblock {\em Ecol. Informatics} {\bf 2023}, {\em 75},~102027.
+\newblock {\url{https://doi.org/10.1016/j.ecoinf.2023.102027}}.
+
+\bibitem[Carney et~al.(2014)Carney, Gillespie, and Rosomoff]{CARNEY2014126}
+Carney, J.; Gillespie, T.W.; Rosomoff, R.
+\newblock Assessing forest change in a priority West African mangrove
+  ecosystem: 1986–2010.
+\newblock {\em Geoforum} {\bf 2014}, {\em 53},~126--135.
+\newblock {\url{https://doi.org/10.1016/j.geoforum.2014.02.013}}.
+
+\bibitem[Andrieu et~al.(2020)Andrieu, Lombard, Fall, Thior, Ba, and
+  Dieme]{ANDRIEU2020117963}
+Andrieu, J.; Lombard, F.; Fall, A.; Thior, M.; Ba, B.D.; Dieme, B.E.A.
+\newblock \hl{Botanical field-study and remote sensing to describe mangrove
+  resilience in the Saloum Delta (Senegal) after 30 years of degradation
+  narrative.} %MDPI: References 65 and 91 are the same. That is not allowed. Please revise so that there is no duplicated references.
+\newblock {\em For. Ecol. Manag.} {\bf 2020}, {\em 461},~117963.
+\newblock {\url{https://doi.org/10.1016/j.foreco.2020.117963}}.
+
+\bibitem[Devaney et~al.(2021)Devaney, Marone, and McElwain]{Devaney}
+Devaney, J.L.; Marone, D.; McElwain, J.C.
+\newblock Impact of soil salinity on mangrove restoration in a semiarid region:
+  a case study from the Saloum Delta, Senegal.
+\newblock {\em Restor. Ecol.} {\bf 2021}, {\em 29},~e13186.
+\newblock {\url{https://doi.org/10.1111/rec.13186}}.
+
+\bibitem[Neteler et~al.(2008)Neteler, Beaudette, Cavallini, Lami, and
+  Cepicky]{Neteleretal2008}
+Neteler, M.; Beaudette, D.E.; Cavallini, P.; Lami, L.; Cepicky, J., GRASS GIS.
+\newblock In {\em Open Source Approaches in Spatial Data Handling}; Springer
+  Berlin Heidelberg: Berlin/Heidelberg, Germany, 2008; pp. 171--199.
+\newblock {\url{https://doi.org/10.1007/978-3-540-74831-1_9}}.
+
+\bibitem[Wessel et~al.(2019)Wessel, Luis, Uieda, Scharroo, Wobbe, Smith, and
+  Tian]{Wessel}
+Wessel, P.; Luis, J.F.; Uieda, L.; Scharroo, R.; Wobbe, F.; Smith, W.H.F.;
+  Tian, D.
+\newblock The Generic Mapping Tools Version 6.
+\newblock {\em Geochem. Geophys. Geosystems} {\bf 2019}, {\em
+  20},~5556--5564.
+\newblock {\url{https://doi.org/10.1029/2019GC008515}}.
+
+\bibitem[Lemenkova and Debeir(2023)]{min13050604}
+Lemenkova, P.; Debeir, O.
+\newblock Coherence of Bangui Magnetic Anomaly with Topographic and Gravity
+  Contrasts across Central African Republic.
+\newblock {\em Minerals} {\bf 2023}, {\em 13}, 604.
+\newblock {\url{https://doi.org/10.3390/min13050604}}.
+
+\bibitem[Lemenkova(2022{\natexlab{a}})]{Lemenkova202213}
+Lemenkova, P.
+\newblock {Mapping submarine geomorphology of the Philippine and Mariana
+  trenches by an automated approach using GMT scripts}.
+\newblock {\em Proc. Latv. Acad. Sciences. Sect. B. Nat. Exact Appl. Sci.} {\bf 2022}, {\em 76},~258--266.
+  {\url{https://doi.org/10.2478/prolas-2022-0039}}.
+
+\bibitem[Lemenkova(2022{\natexlab{b}})]{Lemenkova202206}
+Lemenkova, P.
+\newblock {Tanzania Craton, Serengeti Plain and Eastern Rift Valley: Mapping of
+  geospatial data by scripting techniques}.
+\newblock {\em Est. J. Earth Sci.} {\bf 2022}, {\em
+  71},~61--79.
+\newblock {\url{https://doi.org/10.3176/earth.2022.05}}.
+
+\bibitem[Lemenkova(2022{\natexlab{c}})]{Lemenkova202215}
+Lemenkova, P.
+\newblock {Cartographic scripts for seismic and geophysical mapping of
+  Ecuador}.
+\newblock {\em Geografie} {\bf 2022}, {\em 127},~195--218.
+\newblock {\url{https://doi.org/10.37040/geografie.2022.006}}.
+
+\bibitem[Neteler et~al.(2012)Neteler, Bowman, Landa, and Metz]{NETELER2012124}
+Neteler, M.; Bowman, M.H.; Landa, M.; Metz, M.
+\newblock GRASS GIS: A multi-purpose open source GIS.
+\newblock {\em Environ. Model. Softw.} {\bf 2012}, {\em
+  31},~124--130.
+\newblock {\url{https://doi.org/10.1016/j.envsoft.2011.11.014}}.
+
+\bibitem[Neteler and Mitasova(2008)]{NetelerMitasova2008}
+Neteler, M.; Mitasova, H.
+\newblock {\em Open Source GIS---A GRASS GIS Approach}, 3 ed.; Springer: New
+  York, NY, USA,  2008.
+
+\bibitem[Woomer et~al.(2004)Woomer, Tieszen, Tappan, Touré, and
+  Sall]{WOOMER2004625}
+Woomer, P.; Tieszen, L.; Tappan, G.; Touré, A.; Sall, M.
+\newblock Land use change and terrestrial carbon stocks in Senegal.
+\newblock {\em J. Arid Environ.} {\bf 2004}, {\em 59},~\hl{625--642.}
+  {\url{https://doi.org/10.1016/j.jaridenv.2004.03.025}}.
+
+\bibitem[Carney(2017)]{Carney}
+Carney, J.
+\newblock “The mangrove preserves life”: Habitat of African survival in the
+  Atlantic world.
+\newblock {\em Geogr. Rev.} {\bf 2017}, {\em 107},~433--451.
+\newblock {\url{https://doi.org/10.1111/j.1931-0846.2016.12205.x}}.
+
+\bibitem[Galat-Luong and Galat(1976)]{Galat}
+Galat-Luong, A.; Galat, G.
+\newblock La colonisation de la mangrove par Cercopithecus aethiops sabaeus au
+  Sénégal.
+\newblock {\em Rev. Écol.} {\bf 1976}, {\em
+  30},~3--30.
+\newblock {\url{https://doi.org/10.3406/revec.1976.4910}}.
+
+\bibitem[Faye and Du(2021)]{land10100996}
+Faye, B.; Du, G.
+\newblock Agricultural Land Transition in the “Groundnut Basin” of Senegal:
+  2009 to 2018.
+\newblock {\em Land} {\bf 2021}, {\em 10}, 996.
+\newblock {\url{https://doi.org/10.3390/land10100996}}.
+
+\bibitem[Branoff(2017)]{Branoff}
+Branoff, B.L.
+\newblock Quantifying the influence of urban land use on mangrove biology and
+  ecology: A meta-analysis.
+\newblock {\em Glob. Ecol. Biogeogr.} {\bf 2017}, {\em
+  26},~1339--1356.
+\newblock {\url{https://doi.org/10.1111/geb.12638}}.
+
+\bibitem[Robequain(1942)]{Robequain}
+Robequain, C.
+\newblock La végétation du Sénégal.
+\newblock {\em Ann. Géogr.} {\bf 1942}, {\em 51},~293--297.
+\newblock {\url{https://doi.org/10.3406/geo.1942.12096}}.
+
+\bibitem[Manlay et~al.(2000)Manlay, Cadet, Thioulouse, and
+  Chotte]{MANLAY200089}
+Manlay, R.J.; Cadet, P.; Thioulouse, J.; Chotte, J.L.
+\newblock Relationships between abiotic and biotic soil properties during
+  fallow periods in the sudanian zone of Senegal.
+\newblock {\em Appl. Soil Ecol.} {\bf 2000}, {\em 14},~89--101.
+\newblock {\url{https://doi.org/10.1016/S0929-1393(00)00052-4}}.
+
+\bibitem[Bennour et~al.(2023)Bennour, Jia, Menenti, Zheng, Zeng, Barnieh, and
+  Jiang]{BENNOUR2023101370}
+Bennour, A.; Jia, L.; Menenti, M.; Zheng, C.; Zeng, Y.; Barnieh, B.A.; Jiang,
+  M.
+\newblock Assessing impacts of climate variability and land use/land cover
+  change on the water balance components in the Sahel using Earth observations
+  and hydrological modelling.
+\newblock {\em J. Hydrol. Reg. Stud.} {\bf 2023}, {\em
+  47},~101370.
+\newblock {\url{https://doi.org/10.1016/j.ejrh.2023.101370}}.
+
+\bibitem[Brandt et~al.(2014)Brandt, Grau, Mbow, and Samimi]{land3030770}
+Brandt, M.; Grau, T.; Mbow, C.; Samimi, C.
+\newblock Modeling Soil and Woody Vegetation in the Senegalese Sahel in the
+  Context of Environmental Change.
+\newblock {\em Land} {\bf 2014}, {\em 3},~770--792.
+\newblock {\url{https://doi.org/10.3390/land3030770}}.
+
+\bibitem[Mazzero et~al.(2021)Mazzero, Perrotton, Ka, and Goffner]{land10070755}
+Mazzero, H.; Perrotton, A.; Ka, A.; Goffner, D.
+\newblock Unpacking Decades of Multi-Scale Events and Environment-Based
+  Development in the Senegalese Sahel: Lessons and Perspectives for the Future.
+\newblock {\em Land} {\bf 2021}, {\em 10}, 755.
+\newblock {\url{https://doi.org/10.3390/land10070755}}.
+
+\bibitem[Furian et~al.(2011)Furian, Mohamedou, Hammecker, Maeght, and
+  Barbiero]{Furian}
+Furian, S.; Mohamedou, A.O.; Hammecker, C.; Maeght, J.L.; Barbiero, L.
+\newblock Soil cover and landscape evolution in the Senegal floodplain: A
+  review and synthesis of processes and interactions during the late Holocene.
+\newblock {\em Eur. J. Soil Sci.} {\bf 2011}, {\em
+  62},~902--912.
+\newblock {\url{https://doi.org/10.1111/j.1365-2389.2011.01398.x}}.
+
+\bibitem[Lézine(1997)]{033139ar}
+Lézine, A.M.
+\newblock Evolution of the West African Mangrove During the Late Quaternary: A
+  Review.
+\newblock {\em Géogr. Phys. Quat.} {\bf 1997}, {\em
+  51},~405--414.
+\newblock {\url{https://doi.org/10.7202/033139ar}}.
+
+\bibitem[Loum et~al.(2014)Loum, Viaud, Fouad, Nicolas, and Walter]{LOUM2014100}
+Loum, M.; Viaud, V.; Fouad, Y.; Nicolas, H.; Walter, C.
+\newblock Retrospective and prospective dynamics of soil carbon sequestration
+  in Sahelian agrosystems in Senegal.
+\newblock {\em J. Arid. Environ.} {\bf 2014}, {\em
+  100--101},~100--105.
+\newblock {\url{https://doi.org/10.1016/j.jaridenv.2013.10.007}}.
+
+\bibitem[Brink and Eva(2009)]{BRINK2009501}
+Brink, A.B.; Eva, H.D.
+\newblock Monitoring 25 years of land cover change dynamics in Africa: A sample
+  based remote sensing approach.
+\newblock {\em Appl. Geogr.} {\bf 2009}, {\em 29},~501--512.
+\newblock {\url{https://doi.org/10.1016/j.apgeog.2008.10.004}}.
+
+\bibitem[Di{\`e}ye et~al.(2013)Di{\`e}ye, Diaw, San{\'e}, and
+  Ndour]{dieye2013dynamique}
+Di{\`e}ye, E.; Diaw, A.; San{\'e}, T.; Ndour, N.
+\newblock Dynamique de la mangrove de l’estuaire du Saloum (S{\'e}n{\'e}gal)
+  entre 1972 et 2010. Dynamics of the Saloum estuary mangrove (Senegal) from
+  1972 to 2010.
+\newblock {\em Cybergeo Eur. J. Geogr. Environ. Nat. Paysage} \hl{{\bf 2013}.} %MDPI: Please provide volume and pagination if available.
+
+
+\bibitem[Lebigre(1998)]{Lebigre}
+Lebigre, J.M.
+\newblock La dynamique des mangroves à travers leurs lisières: Éléments de
+  diagnostic.
+\newblock {\em Trav. Lab. Géogr. Phys. Appl.} {\bf
+  1998}, {\em 17},~65--76.
+\newblock {\url{https://doi.org/10.3406/tlgpa.1998.957}}.
+
+\bibitem[Andrieu et~al.(2020)Andrieu, Lombard, Fall, Thior, Ba, and
+  Dieme]{andrieu2020botanical}
+Andrieu, J.; Lombard, F.; Fall, A.; Thior, M.; Ba, B.D.; Dieme, B.E.A.
+\newblock \hl{Botanical field-study and remote sensing to describe mangrove
+  resilience in the Saloum Delta (Senegal) after 30 years of degradation
+  narrative.}
+\newblock {\em For. Ecol. Manag.} {\bf 2020}, {\em 461},~117963.
+
+\bibitem[Diaw et~al.(1982)Diaw, Loubersac, and Belbeoch]{Diaw}
+Diaw, T.; Loubersac, L.; Belbeoch, G.
+\newblock L'analyse des données Spot simulées sur les marais tropicaux.
+  L'exemple des îles du Saloum (Sénégal).
+\newblock {\em Bull. Assoc. Géogr. Français} {\bf 1982},
+  {\em 59},~293--295.
+\newblock {\url{https://doi.org/10.3406/bagf.1982.5370}}.
+
+\bibitem[Lombard and Andrieu(2021)]{rs13101961}
+Lombard, F.; Andrieu, J.
+\newblock Mapping Mangrove Zonation Changes in Senegal with Landsat Imagery
+  Using an OBIA Approach Combined with Linear Spectral Unmixing.
+\newblock {\em Remote Sens.} {\bf 2021}, {\em 13}, 1961.
+\newblock {\url{https://doi.org/10.3390/rs13101961}}.
+
+\bibitem[Fent et~al.(2019)Fent, Bardou, Carney, and Cavanaugh]{FENT2019214}
+Fent, A.; Bardou, R.; Carney, J.; Cavanaugh, K.
+\newblock Transborder political ecology of mangroves in Senegal and The Gambia.
+\newblock {\em Glob. Environ. Change} {\bf 2019}, {\em 54},~214--226.
+\newblock {\url{https://doi.org/10.1016/j.gloenvcha.2019.01.003}}.
+
+\bibitem[Bourgoin et~al.(2019)Bourgoin, Valette, Guillouet, Diop, and
+  Dia]{land8030042}
+Bourgoin, J.; Valette, E.; Guillouet, S.; Diop, D.; Dia, D.
+\newblock Improving Transparency and Reliability of Tenure Information for
+  Improved Land Governance in Senegal.
+\newblock {\em Land} {\bf 2019}, {\em 8}, 42.
+\newblock {\url{https://doi.org/10.3390/land8030042}}.
+
+\bibitem[Kalema et~al.(2015)Kalema, Witkowski, Erasmus, and Mwavu]{Kalema}
+Kalema, V.N.; Witkowski, E.T.F.; Erasmus, B.F.N.; Mwavu, E.N.
+\newblock The Impacts of Changes in Land Use on Woodlands in an Equatorial
+  African Savanna.
+\newblock {\em Land Degrad. Dev.} {\bf 2015}, {\em 26},~632--641.
+\newblock {\url{https://doi.org/10.1002/ldr.2279}}.
+
+\end{thebibliography}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PublishersNote{}
+\end{adjustwidth}
+\end{document}
