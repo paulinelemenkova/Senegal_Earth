@@ -82,17 +82,17 @@
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{{\highlighting{Support} %MDPI: Title is different from the one in our system. Please check and confirm which version is correct.
- Vector Machine Algorithm }for {Mapping }Land Cover {Dynamics} in Senegal, West Africa, Using Earth Observation Data}
+\Title{Support %MDPI: Title is different from the one in our system. Please check and confirm which version is correct. % Author: yes, correct: "Support Vector Machine Algorithm for Mapping Land Cover Dynamics in Senegal, West Africa, Using Earth Observation Data
+ Vector Machine Algorithm for Mapping Land Cover Dynamics in Senegal, West Africa, Using Earth Observation Data}
 
 % MDPI internal command: Title for citation in the left column
-\TitleCitation{{Support Vector Machine Algorithm }for {Mapping }Land Cover {Dynamics} in Senegal, West Africa, Using Earth Observation Data}
+\TitleCitation{Support Vector Machine Algorithm for Mapping Land Cover Dynamics in Senegal, West Africa, Using Earth Observation Data}
 
 % Author Orchid ID: enter ID or remove command
 \newcommand{\orcidauthorA}{0000-0002-5759-1089} % Polina Add \orcidA{} behind the author's name
 
 % Authors, for the paper (add full first names)
-\Author{\hl{Polina} %MDPI: \hl{} %MDPI: Please carefully check the accuracy of names and affiliations.
+\Author{Polina %MDPI: \hl{} %MDPI: Please carefully check the accuracy of names and affiliations. % Author: yes, correct.
  Lemenkova \textsuperscript{1,2} \orcidA{}}
 
 %\longauthorlist{yes}
@@ -101,16 +101,16 @@
 \AuthorNames{Polina Lemenkova}
 
 % MDPI internal command: Authors, for citation in the left column
-\AuthorCitation{\hl{Lemenkova,} %MDPI: \hl{} %MDPI: Please carefully check the accuracy of names.
+\AuthorCitation{Lemenkova, %MDPI: \hl{} %MDPI: Please carefully check the accuracy of names. % Author: yes, correct.
  P.}
 % If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
 
 % Affiliations/Addresses (Add [1] after \address if there is only one affiliation.)
 \address{%
-$^{1}$ \quad Department of Geoinformatics, Faculty of Digital and Analytical Sciences, Paris Lodron Universität Salzburg, Schillerstraße 30, A-5020 Salzburg, Austria; polina.lemenkova@plus.ac.at or \highlighting{polina.lemenkova2@unibo.it;} %MDPI: Please check if both e mails should be retained.
+$^{1}$ \quad Department of Geoinformatics, Faculty of Digital and Analytical Sciences, Paris Lodron Universität Salzburg, Schillerstraße 30, A-5020 Salzburg, Austria; polina.lemenkova@plus.ac.at or polina.lemenkova2@unibo.it; %MDPI: Please check if both e mails should be retained. % Author: yes, both emails should be retained.
 \linebreak Tel.: (+43)-677-6173-2772 or (+39)-344-69-28-732
 
-$^{2}$ \quad Department of Biological, Geological and Environmental Sciences, Alma Mater Studiorum---Università di Bologna, Via Irnerio 42, IT-40126 Bologna, \hl{EM,} %MDPI: Italian region abbreviated. Please check. Also, please check if it can be removed.
+$^{2}$ \quad Department of Biological, Geological and Environmental Sciences, Alma Mater Studiorum---Università di Bologna, Via Irnerio 42, IT-40126 Bologna, %MDPI: Italian region abbreviated. Please check. Also, please check if it can be removed. % Author: yes, the region can be removed (I removed it). 
  Italy
 }
 
@@ -121,15 +121,15 @@ $^{2}$ \quad Department of Biological, Geological and Environmental Sciences, Al
 %\firstnote{Current address: Affiliation 3.} 
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{This paper addresses the problem of mapping land cover types in Senegal and recognition of vegetation systems in the Saloum River Delta on the satellite images. Multi-seasonal landscape dynamics {were} analyzed {using} Landsat 8-9 OLI/TIRS {images} from 2015 to 2023{. Two image classification methods were compared, and their performance was evaluated in the\highlighting{ GRASS GIS software} %MDPI: Please state the software version number, creator, and the location (city, country) from where the software was sourced.
- by means of unsupervised classification using the k-means  clustering algorithm and supervised classification using the Support Vector Machine (SVM) algorithm}. The land cover types were identified using {machine learning (ML)-based} analysis of {the} spectral reflectance of the multispectral images. The results based on the {processed multispectral} images indicated a decrease in savannas, an increase in croplands and agricultural lands, a decline in forests, and changes to coastal wetlands, including mangroves with high biodiversity. {The practical aim is to describe a novel method of creating land cover maps using RS data for each class and to improve accuracy. We accomplish this by calculating the areas occupied by 10 land cover classes within the target area for six consecutive years. Our results indicate that, in comparing the performance of the algorithms, the SVM classification approach increased the accuracy, \highlighting{with 98\% of pixels being stable}, which shows qualitative improvements in image classification. This} paper contributes to the natural resource management and environmental monitoring of Senegal, West Africa, through  advanced cartographic methods \highlighting{applied to remote sensing of Earth observation data}. %MDPI English: Check meaning is retained.
+\abstract{This paper addresses the problem of mapping land cover types in Senegal and recognition of vegetation systems in the Saloum River Delta on the satellite images. Multi-seasonal landscape dynamics {were} analyzed {using} Landsat 8-9 OLI/TIRS {images} from 2015 to 2023{. Two image classification methods were compared, and their performance was evaluated in the GRASS GIS software (version 8.4.0, creator: GRASS Development Team, original location: Champaign, Illinois, USA, currently multinational project) %MDPI: Please state the software version number, creator, and the location (city, country) from where the software was sourced. % Author: information added.
+ by means of unsupervised classification using the k-means  clustering algorithm and supervised classification using the Support Vector Machine (SVM) algorithm}. The land cover types were identified using {machine learning (ML)-based} analysis of {the} spectral reflectance of the multispectral images. The results based on the {processed multispectral} images indicated a decrease in savannas, an increase in croplands and agricultural lands, a decline in forests, and changes to coastal wetlands, including mangroves with high biodiversity. {The practical aim is to describe a novel method of creating land cover maps using RS data for each class and to improve accuracy. We accomplish this by calculating the areas occupied by 10 land cover classes within the target area for six consecutive years. Our results indicate that, in comparing the performance of the algorithms, the SVM classification approach increased the accuracy, with 98\% of pixels being stable, which shows qualitative improvements in image classification. This} paper contributes to the natural resource management and environmental monitoring of Senegal, West Africa, through  advanced cartographic methods applied to remote sensing of Earth observation data. %MDPI English: Check meaning is retained. % Author: yes, the meaning is retained.
 }
 
 % Keywords
 \keyword{remote sensing; cartography; vegetation; West Africa; satellite image; Landsat; Sahel; climate change; landscape; land cover types} 
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
-\PACS{\hl{91.10.Da;} %MDPI: Please confirm if PACS, MSC and JEL should be retained.
+\PACS{91.10.Da; %MDPI: Please confirm if PACS, MSC and JEL should be retained. % Author: yes, PACS, MSC and JEL should be retained.
  91.10.Jf; 91.10.Sp; 91.10.Xa; 96.25.Vt; 91.10.Fc; 95.40.+s; 95.75.Qr; 95.75.Rs; 42.68.Wt}
 \MSC{86A30; 86-08; 86A99; 86A04}
 \JEL{Y91; Q20; Q24; Q23; Q3; Q01; R11; O44; O13; Q5; Q51; Q55; N57; C6; C61}
@@ -204,7 +204,7 @@ Importantly, the~study presented here is not intended to suggest that scripting 
 %----------- section ----------->
 \section{Materials and~Methods}
 
-To increase the speed and accuracy of image processing, the{ }GRASS GIS software was applied {for} advanced image processing {due to its extended} functionalities~\cite{Neteleretal2008}. Generic Mapping Tools (GMT) Version 6~\cite{Wessel} {was} used as a cartographic tool for \hl{topography, and} %MDPI English: Check meaning is retained.
+To increase the speed and accuracy of image processing, the{ }GRASS GIS software was applied {for} advanced image processing {due to its extended} functionalities~\cite{Neteleretal2008}. Generic Mapping Tools (GMT) Version 6~\cite{Wessel} {was} used as a cartographic tool for topography, and %MDPI English: Check meaning is retained. % Author: yes, the meaning is retained.
  {RS} {tasks }are based on{ }scripting techniques{. The~}main advantages {of scripts}{ }include{ }their high speed of data processing and repeatability{ }\cite{min13050604,Lemenkova202213,Lemenkova202206}.
 
 %----------- subsection ----------->
@@ -214,7 +214,7 @@ We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in w
 
 \vspace{-4pt}{}
 \begin{table}[H]
-\caption{\hl{Identifiers (IDs)} %MDPI: Vertical line removed from the table as it is not allowed. Please check and confirm.
+\caption{Identifiers (IDs) %MDPI: Vertical line removed from the table as it is not allowed. Please check and confirm. % Author: yes, I confirm.
  of the six {multispectral }Landsat 8-9 OLI/TIRS {images}.}.
 \label{tab01}
 \tablesize{\footnotesize}
@@ -227,7 +227,7 @@ We use six Landsat 8-9 OLI/TIRS images for evaluation of land cover changes in w
 \toprule
 			\textbf{Date} & \textbf{Landsat Product Identifier L1} & \textbf{Landsat Product Identifier L2} & \textbf{Scene ID} \\
 			\midrule
-			\hl{25 February 2015} %MDPI: We revised date format in this column according to our rules. Please check and confirm.
+			25 February 2015 %MDPI: We revised date format in this column according to our rules. Please check and confirm. % Author: yes, I confirm.
  & LC08\_L1TP\_205050\_20150225\_20200909\_02\_T1 & LC08\_L2SP\_205050\_20150225\_20200909\_02\_T1 & LC82050502015056LGN01 \\	
 			17 February 2018 & LC08\_L1TP\_205050\_20180217\_20200902\_02\_T1 & LC08\_L2SP\_205050\_20180217\_20200902\_02\_T1 & LC82050502018048LGN00 \\	
 			7 February 2020 & LC08\_L1TP\_205050\_20200207\_20200823\_02\_T1 & LC08\_L2SP\_205050\_20200207\_20200823\_02\_T1 & LC82050502020038LGN00 \\
@@ -248,7 +248,7 @@ The images were downloaded from the United States Geological Survey (USGS) Earth
 \centering %% If there is a figure in wide page, please release command \centering
 \includegraphics[width=16.0 cm]{Fig_02.jpg}
 \end{adjustwidth}
-\caption{\hl{Data capture} %MDPI: Please make sure that cut off content does not affect scientific reading.
+\caption{Data capture %MDPI: Please make sure that cut off content does not affect scientific reading. % Author: yes, I confirm. This is an illustration of the process of data capture from the USGS repository.
  of  Landsat images from the USGS EarthExplorer~repository.}\label{fig02}
 \end{figure}
 
@@ -312,7 +312,7 @@ The images were downloaded from the United States Geological Survey (USGS) Earth
 \end{adjustwidth}
 	\end{subfigure}%
 }
-\caption{Landsat images in RGB colors covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal, in February:\hl{ (\textbf{a}) 2015;} %MDPI: Years removed from labels in the picture since they were also provided in the caption. Please check and confirm. Same below.
+\caption{Landsat images in RGB colors covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal, in February: (\textbf{a}) 2015; %MDPI: Years removed from labels in the picture since they were also provided in the caption. Please check and confirm. Same below. % Author: yes, I confirm.
  (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022; (\textbf{f}) 2023.}\label{fig03}
 \end{figure} 
 
@@ -344,7 +344,7 @@ The workflow of the data processing and major methodological steps is shown in F
 
 The matching performance of landscape patches over this period is evaluated using GRASS GIS functionality as a sequence of modules utilized for processing each scene separately using a script. The~images were read into the GRASS GIS environment using the 'r.import' module; the list of the available bands was checked using the 'g.list rast' command. The~extent {of the ROI }(UTM Zone 28) and {the }resolution were set to the region of the current image, which was detected automatically along with geospatial data {such as }coordinates, location{, and} projection. The~{false} color composites were plotted to{ }distinguish the area of{ vegetation} in the delta of the  Saloum River (colored in red shadows), land (colored by beige and light brownish shadows), and water areas (colored black for  seawater and navy blue for the  Saloum River); see Figure~\ref{fig05}. 
 
-{The {ML} method of satellite image processing involves using {the SVM} algorithm for data partition and classification. To~perform these steps with fixed ML parameters, we utilize the GRASS GIS modules 'r.random' for generating a training dataset from pixels obtained from the land cover classification, the 'r.learn.train' module for training a Support Vector Classification (SVC) model, and the 'r.learn.predict' module, which {predicts} the pixel's assignment to the target classes. We represent the image dataset as a time series of scenes from 2015 to 2023 represented as color composites from the multispectral bands of Landsat. We denote the number of estimators as 500 in the model and~the number of seed points as 100 pixels, with a total of 1000 evaluated pixels ('npoints' in the model's syntax). The~training model name is explicitly defined as 'SVC', i.e.,~Support Vector Classification, as \hl{it is} the algorithm embedded in the GRASS GIS software.} %MDPI English: Check meaning is retained.
+{The {ML} method of satellite image processing involves using {the SVM} algorithm for data partition and classification. To~perform these steps with fixed ML parameters, we utilize the GRASS GIS modules 'r.random' for generating a training dataset from pixels obtained from the land cover classification, the 'r.learn.train' module for training a Support Vector Classification (SVC) model, and the 'r.learn.predict' module, which {predicts} the pixel's assignment to the target classes. We represent the image dataset as a time series of scenes from 2015 to 2023 represented as color composites from the multispectral bands of Landsat. We denote the number of estimators as 500 in the model and~the number of seed points as 100 pixels, with a total of 1000 evaluated pixels ('npoints' in the model's syntax). The~training model name is explicitly defined as 'SVC', i.e.,~Support Vector Classification, as it is the algorithm embedded in the GRASS GIS software.} %MDPI English: Check meaning is retained. % Author: yes, the meaning is retained.
 
 \begin{figure}[H]
 \hspace{80pt}\makebox[0.90\linewidth][r]{%
@@ -409,8 +409,8 @@ The matching performance of landscape patches over this period is evaluated usin
 \end{adjustwidth}
 	\end{subfigure}%
 }
-\caption{False color composites of the Landsat 8-9 OLI/TIRS images with vegetation colored red, using a combination of spectral bands 5 (Near Infrared (NIR)), 4 (Red), and 3 (Green) of the Landsat OLI sensor covering the study area in the Cape Verde Peninsula region and Saloum River Delta, West Senegal, using February scenes: \hl{(\textbf{a}) 2015;} (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022; (\textbf{f}) 2023.}\label{fig05}
-\end{figure} 
+\caption{False color composites of the Landsat 8-9 OLI/TIRS images with vegetation colored red, using a combination of spectral bands 5 (Near Infrared (NIR)), 4 (Red), and 3 (Green) of the Landsat OLI sensor covering the study area in the Cape Verde Peninsula region and Saloum River Delta, West Senegal, using February scenes: (\textbf{a}) 2015; (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022; (\textbf{f}) 2023.}\label{fig05}
+\end{figure} % Author: yes, I confirm changes.
 
 {The standard requirements for a training dataset in {the} ML {approach that includes the SVM algorithm} include a supervised classifier to derive an accurate and precise description of the spectral properties of each land cover type. Therefore,{ }the training data were derived from the previous raster dataset in TIFF format {as samples that support vectors through data partition.} {The} target pixels were selected as representative cells located on the edge of the class distribution in feature space. Using GRASS GIS syntax, generating the training pixels from the land cover classification was performed using the following code{:} 'r.random input=L\_2015\_clusters seed=100 npoints=1000 raster=training\_pixels'. Here, the~number of pixels was selected as 1000 for a larger and more representative dataset, and~the seed for training the data was set to~100. 
 
@@ -3279,7 +3279,7 @@ Di{\`e}ye, E.; Diaw, A.; San{\'e}, T.; Ndour, N.
 \newblock Dynamique de la mangrove de l’estuaire du Saloum (S{\'e}n{\'e}gal)
   entre 1972 et 2010. Dynamics of the Saloum estuary mangrove (Senegal) from
   1972 to 2010.
-\newblock {\em Cybergeo Eur. J. Geogr. Environ. Nat. Paysage} \hl{{\bf 2013}, {\em 629},~1--26.} %MDPI: Please provide volume and pagination if available.
+\newblock {\em Cybergeo Eur. J. Geogr. Environ. Nat. Paysage} {\bf 2013}, {\em 629},~1--26. %MDPI: Please provide volume and pagination if available. % Author: information added.
 
 \bibitem[Lebigre(1998)]{Lebigre}
 Lebigre, J.M.
