@@ -433,7 +433,7 @@ The matching performance of landscape patches over this period is evaluated usin
 		\includegraphics[width=16.0 cm]{Fig_06.jpg}
 }
 \end{adjustwidth}
-\caption{\hl{Land} cover types in Senegal according to the FAO classification scheme. Software: QGIS v.~3.22. Map source: Author.} %MDPI English: Please carefully check text in all images for errors; here, for example, "brakish" should read "brackish."
+\caption{Land cover types in Senegal according to the FAO classification scheme. Software: QGIS v.~3.22. Map source: Author.} %MDPI English: Please carefully check text in all images for errors; here, for example, "brakish" should read "brackish." % Author: Figure 6 is corrected, replotted and replaced in the text. The text in legend is corrected: "waterlogged soil - fresh, brackish or saline water" and "regularly flooded" and "herbaceous vegetation" and "brackish water".
 \label{fig06}
 \end{figure}
 
@@ -458,7 +458,7 @@ A special focus of {coastal Senegalese landscapes is} mangrove swampland, a cruc
 
 \subsection{{Clustering-Based~Classification}}
 
-{The overview of Figure} \ref{fig07}, {on which are overlaid the \hl{2013}--2023 Landsat OLI/TIRS time series and the land cover %MDPI English: Check if this number should be 2015 instead.
+{The overview of Figure} \ref{fig07}, {on which are overlaid the 2015--2023 Landsat OLI/TIRS time series and the land cover %MDPI English: Check if this number should be 2015 instead. % Author: yes, correct is 2015.
 types for each{ }case, shows the diversity of habitats and {the }intensity of changes {detected} in the images classified by the k-means algorithm.} The analysis of the classified images {based on clustering}{ }shows a trend in land cover dynamics of the coastal region of Senegal over Dakar and {its surroundings}. 
 
 \begin{figure}[H]
@@ -521,8 +521,8 @@ types for each{ }case, shows the diversity of habitats and {the }intensity of ch
 \end{adjustwidth}
 	\end{subfigure}%
 }
-\caption{Classification of the Landsat images from 2020 covering the Cape Verde Peninsula region and the Saloum River Delta, West Senegal:\hl{ (\textbf{a}) 2015;} (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022; (\textbf{f}) 2023.}\label{fig07}
-\end{figure}  
+\caption{Classification of the Landsat images from 2020 covering the Cape Verde Peninsula region and the Saloum River Delta, West Senegal: (\textbf{a}) 2015; (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022; (\textbf{f}) 2023.}\label{fig07}
+\end{figure}  % Author: yes, I confirm changes.
 
 The results demonstrate that the dominating land cover type of Senegal {remains} savanna (73\%), although the areas covered by savanna showed a slight decrease since 2015. {In contrast, }the landscapes covered by  croplands and agricultural areas{ }expanded to 22\%. Furthermore, the~decline in the area covered by forests and mangroves {is} notable. Nevertheless, in~general, {the dominating land cover types in Senegal remain }savannas, woodlands, and~forests{, }covering over 75\% of the country, a result aligned with similar studies~\cite{TAPPAN2004427}. 
 
@@ -532,7 +532,7 @@ The results demonstrate that the dominating land cover type of Senegal {remains}
 
 \subsection{{Support Vector Machine (SVM)-Based Classification}}
 
-{The {SVM-based} classification of the dynamics of land cover types in Senegal based on the Landsat OLI/TIRS scenes (2015--2023) resulted in the generation of the thematic maps of land cover types  shown in Figure} \ref{fig08}, {in which the most important classes are identified as follows: the {rainfed} cropland class is depicted in aquamarine; water areas are shown in blue; mosaic vegetation is colored bright red; and grassland, forest, and shrubland areas are shown in orange. The~numerical results obtained for the different images using classification models of GRASS GIS are summarized in \hl{Appendix.} %MDPI: Please add citation for specific appendix (A,B or C).
+{The {SVM-based} classification of the dynamics of land cover types in Senegal based on the Landsat OLI/TIRS scenes (2015--2023) resulted in the generation of the thematic maps of land cover types  shown in Figure} \ref{fig08}, {in which the most important classes are identified as follows: the {rainfed} cropland class is depicted in aquamarine; water areas are shown in blue; mosaic vegetation is colored bright red; and grassland, forest, and shrubland areas are shown in orange. The~numerical results obtained for the different images using classification models of GRASS GIS are summarized in Appendix \ref{App03}. %MDPI: Please add citation for specific appendix (A,B or C). % Author: information added (Appendix C).
  Generally, the~classification of the Landsat {scenes} using{ }the SVM algorithm {applied to} the reflective multispectral bands of the image (channels 1 to 7) provided excellent results for each kernel of the 10 categorized classes.} 
 
 {The aim of the SVM application{ }is to improve the accuracy of recognition of land cover types and {to }increase the quality of{ }mapping. The~feasibility of land cover change analysis depends on the quality of {cartographic techniques} when processing {RS} data. Erroneously recognizing trends may arise from the use of land cover regions derived from unadjusted classifiers that exhibit imbalanced misclassification between distinct groups. Therefore, in~our work, we used the {effective} approach of the {SVM} algorithm proposed by  GRASS GIS, which presents a {ML} approach for image classification. {The} scripts used for SVM-based image processing are presented in Appendix} \ref{App2}.
@@ -549,7 +549,7 @@ The results demonstrate that the dominating land cover type of Senegal {remains}
 %\centering %% If there is a figure in wide page, please release command \centering
 	\centering
 			\includegraphics[width=0.99\textwidth]{Fig_08a.jpg}
-		\caption{{SVM: 2015}}
+		\caption{}
 \end{adjustwidth}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.42\textwidth}
@@ -558,7 +558,7 @@ The results demonstrate that the dominating land cover type of Senegal {remains}
 %\centering %% If there is a figure in wide page, please release command \centering
 	\centering
 		\includegraphics[width=0.99\textwidth]{Fig_08b.jpg}
-		\caption{{SVM: 2018}}
+		\caption{}
 \end{adjustwidth}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.42\textwidth}
@@ -567,7 +567,7 @@ The results demonstrate that the dominating land cover type of Senegal {remains}
 %\centering %% If there is a figure in wide page, please release command \centering
 \centering
 		\includegraphics[width=0.99\textwidth]{Fig_08c.jpg}
-		\caption{{SVM: 2020}}
+		\caption{}
 \end{adjustwidth}
 	\end{subfigure}%
 }\\
@@ -579,7 +579,7 @@ The results demonstrate that the dominating land cover type of Senegal {remains}
 %\centering %% If there is a figure in wide page, please release command \centering
 \centering
 			\includegraphics[width=0.99\textwidth]{Fig_08d.jpg}
-		\caption{{SVM: 2021}}
+		\caption{}
 \end{adjustwidth}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.42\textwidth}
@@ -588,7 +588,7 @@ The results demonstrate that the dominating land cover type of Senegal {remains}
 %\centering %% If there is a figure in wide page, please release command \centering
 \centering
 		\includegraphics[width=0.99\textwidth]{Fig_08e.jpg}
-		\caption{{SVM: 2022}}
+		\caption{}
 \end{adjustwidth}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.42\textwidth}
@@ -597,11 +597,11 @@ The results demonstrate that the dominating land cover type of Senegal {remains}
 %\centering %% If there is a figure in wide page, please release command \centering
 \centering
 		\includegraphics[width=0.99\textwidth]{Fig_08f.jpg}
-		\caption{{SVM: 2023}}
+		\caption{}
 \end{adjustwidth}
 	\end{subfigure}%
 }
-\caption{{\hl{Results} %MDPI: Please check if SVM:Year is necessary since years are already presented in the caption for each label of the subfigures.
+\caption{{Results %MDPI: Please check if SVM:Year is necessary since years are already presented in the caption for each label of the subfigures. % Author: "SVM:Year" is not necessary (I deleted it).
  of the Support Vector Machine (SVM)-based classification of the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: (\textbf{a}) February 2015; (\textbf{b}) February 2018; (\textbf{c}) February 2020; (\textbf{d}) February 2021; (\textbf{e}) February 2022; (\textbf{f}) February 2023.}}\label{fig08}
 \end{figure} 
 
@@ -671,7 +671,7 @@ Figure~\ref{fig09} shows the {results of the }accuracy {assessment}. {The correc
 \end{adjustwidth}
 	\end{subfigure}%
 }
-\caption{Accuracy evaluated based on the pixel confidence levels with rejection probability values for the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: \hl{(\textbf{a}) 2015;} (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022;(\textbf{f}) 2023.}\label{fig09}
+\caption{Accuracy evaluated based on the pixel confidence levels with rejection probability values for the Landsat images covering the Cape Verde Peninsula region and Saloum River Delta, West Senegal: (\textbf{a}) 2015; (\textbf{b}) 2018; (\textbf{c}) 2020; (\textbf{d}) 2021; (\textbf{e}) 2022;(\textbf{f}) 2023.}\label{fig09} % Author: yes, I confirm changes.
 \end{figure}
 \unskip 
 
@@ -691,16 +691,15 @@ To summarize, this paper reports the results obtained from experimental investig
 {To }evaluate the performance of GRASS GIS{ }in image processing, {the }{multispectral bands of six} images were analyzed for matching{ }landscape comparisons for different years{, }and the classification accuracy is reported as rejection probability for pixels in each Landsat scene. Hence, the~advantage of the use of the {RS} data for environmental monitoring is that they provide an efficient way to map and visualize the remotely located regions that are otherwise difficult to reach, such as{ }West Africa. The~analysis of the extent and distribution of the selected landscapes in a series of satellite images and the decrease in minor patches enabled us to detect  environmental landscape dynamics in a selected {ROI}. We also provided{ }remarks on the {factors affecting changes in} land cover types{ }based on the analysis of the processed images compared to  previous {case }studies {in} the published literature. {The} major driving factors {include the} related environmental climate processes {and human activities} that resulted in land cover changes in Senegal. Such notes can be used in{ }similar works {with a }focus on  environmental changes, and  land cover type changes in Senegal can continue to be investigated{.}
 
 \vspace{6pt}{}
-\authorcontributions{\hl{ } %MDPI: Please fill in this part accordingly. Same below.
-%For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported.
+\authorcontributions{Conceptualization, P.L.; methodology, P.L.; software, P.L.; validation, P.L.; formal analysis, P.L.; investigation, P.L.; resources, P.L.; data curation, P.L.; writing---original draft preparation, P.L.; writing---review and editing, P.L.; visualization, P.L.; supervision, P.L.; project administration, P.L.; funding acquisition, P.L. The author has read and agreed to the published version of the manuscript. 
+%MDPI: Please fill in this part accordingly. Same below. 
+%For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported. % Author: information added.
 }
 
-\funding{\hl{ } %MDPI: Funding is necessary for the back part. Please add information considering funding.
-%The publication was funded by the Editorial Office of Earth, Multidisciplinary Digital Publishing Institute (MDPI), by providing 100\% discount for the APC of this manuscript.
+\funding{The publication was funded by the Editorial Office of Earth, Multidisciplinary Digital Publishing Institute (MDPI), by providing a discount for the APC of this manuscript and Institutional Open Access Program (IOAP) participating institution University of Salzburg %MDPI: Funding is necessary for the back part. Please add information considering funding. % Author: information added.
 }
 
-
-\dataavailability{{\hl{The author's} %MDPI: ICS and IRBS removed as they are not necessary for this manuscript.
+\dataavailability{{The author's %MDPI: ICS and IRBS removed as they are not necessary for this manuscript. % Author: yes, I agree.
  GitHub repository, with scripts used for image classification and the results of the Support Vector Machine (SVM) ML-based processing of the satellite images, is available online at:} \href{https://github.com/paulinelemenkova/Senegal_Scripts}{https://github.com/paulinelemenkova/Senegal\_Scripts} {(accessed on 14 August 2024)}.} 
 
 \acknowledgments{The author thanks the reviewers for reading and reviewing this~manuscript.}
